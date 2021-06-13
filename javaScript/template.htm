@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            template
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Templates in C++</h1><hr>
+        <div id="content">
+            <p>Templates are used to prevent us from writing the same function or class separately for different data types. We normally use templates in large programs where we have to define the same function or class for different data types.</p>
+            <p>To understand its need, let's first look at the following program.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">float</span> <span class="nf">sum</span><span class="p">(</span> <span class="kt">float</span> <span class="n">x</span><span class="p">,</span> <span class="kt">float</span> <span class="n">y</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">double</span> <span class="nf">sum</span><span class="p">(</span> <span class="kt">double</span> <span class="n">x</span><span class="p">,</span> <span class="kt">double</span> <span class="n">y</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="mf">3.24234</span><span class="p">,</span> <span class="mf">5.24144</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Sum : 8<br>
+            Sum : 8.2<br>
+            Sum : 8.48378
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we defined a separate function to calculate the sum of three sets of numbers, each with a different data type. Isn't it hectic to define the same function again and again for different data types ?</p>
+            <p>This is where we need templates. There are two types of templates in C++.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="3223" __idm_id__="1005996033"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <ul style="color:brown;">
+            <li>Function Templates</li>
+            <li>Class Templates</li>
+            </ul>
+            <p>Let's start with function templates.</p>
+            <h2>Function Templates</h2>
+            <hr>
+            <p><strong>Function Templates</strong> prevent us from defining separate functions performing the same task for different data types. Let's look at the syntax of a function template for the sum function in the above example.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <!--template <typename T>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp// declaring template parameter<br/>-->
+            T sum( T x, T y)<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return x + y;<br>
+            }
+            </p>
+            </div>
+            <p>Compare this function template with the function in the previous example. You will notice that this function template is the same as the function in the example, except for the difference that here we have declared the parameter of type <strong>T</strong> instead of int, float or double.</p>
+            <p>We need to tell the compiler that this is a function template because it will not identify T ( since T is not a keyword ). For this, we need to include the following code before including T as shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            template &lt;typename T&gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declaring function template with template parameter<br>
+            </p>
+            </div>
+            <p>This will tell the compiler that T is a type of template parameter.</p>
+            <p>Let's see the above example of printing the sum of different data types using function template.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">template</span> <span class="o">&lt;</span><span class="kr">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+            <span class="n">T</span> <span class="n">sum</span><span class="p">(</span> <span class="n">T</span> <span class="n">x</span><span class="p">,</span> <span class="n">T</span> <span class="n">y</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="mf">3.0</span><span class="p">,</span> <span class="mf">5.2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span><span class="mf">3.24234</span><span class="p">,</span> <span class="mf">5.24144</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Sum : 8<br>
+            Sum : 8.2<br>
+            Sum : 8.48378
+                        </div>
+            </div>
+            </div>
+            <p>Here we declared a function template instead of writing three different functions for each data type.<br>
+            <strong>T sum( T x, T y) - </strong>This is the definition of the function template which is the same as that of function. This tells us that both the parameters are of type T and the return value is also of type T.<br>
+            <strong style="color:brown;">sum(3, 5) - </strong>Since both the arguments (3 and 5) are of type int, hence T will be of type int. Thus, in this case, the function template becomes the function in the first example.<br>
+            Similarly, in the case of <strong style="color:brown;">sum(3.0, 5.2)</strong>, T becomes of type float and the template becomes same as the second function in the first example. Same is in the third case.</p>
+            <p>So, now we know how a function template works.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            We can also write class keyword in place of typename keyword while declaring the template parameter.
+                        </div>
+            </div>
+            </div>
+            <p>We can also write the following code by replacing the <strong>typename</strong> keyword by <strong>class</strong> keyword.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            template &lt; class T &gt;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declaring template parameter<br>
+            </p>
+            </div>
+            <p>In the above example, both the parameters of the function template were of the same type. Hence we declared T for both. But what if the first parameter is of a different type from the second?</p>
+            <p>Suppose we are multiplying an integer with a floating number and we have to define a function for that. Then its one parameter will be of type int and another of type float. In that case, we will define the function template with a different type for each parameter as shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            template <typename t1,="" t2="" typename="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// declaring template parameters<br>
+            T2 product( T1 x, T2 y)<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return x * y;<br>
+            }
+            </typename></p>
+            </div>
+            <p>Here we declared the function template with two types of template parameters <strong>T1</strong> and <strong>T2</strong>, where T1 is the datatype of its first parameter which is an integer value and T2 is of the second parameter which is a floating value. Since the product of an int and a float is a float, hence its return type is also T2.</p>
+            <p>The following example illustrates the same.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">template</span> <span class="o">&lt;</span> <span class="kr">typename</span> <span class="n">T1</span><span class="p">,</span> <span class="kr">typename</span> <span class="n">T2</span> <span class="o">&gt;</span>
+            <span class="n">T2</span> <span class="n">product</span><span class="p">(</span> <span class="n">T1</span> <span class="n">x</span><span class="p">,</span> <span class="n">T2</span> <span class="n">y</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">T2</span><span class="p">)(</span><span class="n">x</span> <span class="o">*</span> <span class="n">y</span><span class="p">);</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">product</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">product</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">5.6</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            14.1<br>
+            22.4
+                        </div>
+            </div>
+            </div>
+            <h2>Class Templates</h2>
+            <hr>
+            <p>We can create class templates just like function templates. To understand it, let's take an example.</p>
+            <p>Consider two students in a class and we want to calculate the total marks of each of them in two subjects. Suppose the marks of the first student in both the subjects are integer values and that of the second student floating values.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">template</span> <span class="o">&lt;</span><span class="n">class</span> <span class="n">T</span><span class="o">&gt;</span>
+            <span class="n">class</span> <span class="n">Student</span>
+            <span class="p">{</span>
+                <span class="n">T</span> <span class="n">marks1</span><span class="p">;</span>
+                <span class="n">T</span> <span class="n">marks2</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Student</span><span class="p">(</span> <span class="n">T</span> <span class="n">m1</span><span class="p">,</span> <span class="n">T</span> <span class="n">m2</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">marks1</span> <span class="o">=</span> <span class="n">m1</span><span class="p">;</span>
+                        <span class="n">marks2</span> <span class="o">=</span> <span class="n">m2</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">T</span> <span class="n">totalMarks</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">marks1</span> <span class="o">+</span> <span class="n">marks2</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Student</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s1</span> <span class="p">(</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">50</span> <span class="p">);</span>
+                <span class="n">Student</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span> <span class="n">s2</span> <span class="p">(</span> <span class="mf">47.5</span><span class="p">,</span> <span class="mf">56.4</span> <span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Total marks of student1 : "</span> <span class="o">&lt;&lt;</span> <span class="n">s1</span><span class="p">.</span><span class="n">totalMarks</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Total marks of student2 : "</span> <span class="o">&lt;&lt;</span> <span class="n">s2</span><span class="p">.</span><span class="n">totalMarks</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Total marks of student1 : 95<br>
+            Total marks of student2 : 103.9
+                        </div>
+            </div>
+            </div>
+            <p>Here, s1 and s2 are the two objects of class Student and marks1 and marks2 are the marks of the students in first and second subject respectively.<br>
+            <strong>Student<int> s1 ( 45, 50 ); - </int></strong>This statement created an object s1 of class Student and assigned 45 and 50 as marks1 and marks2 respectively. Since both are integer values, therefore T is of type int. Also, the return value of the member function totalMarks() is also of type int because the sum of two integers is an integer.<br>
+            <strong>Student<float> s2 ( 47.5, 56.4 ); - </float></strong>This created the second object s2 having the values of both marks1 and marks2 float. Hence, T is a float in this case.</p>
+            <div>
+            <a href="file.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="constKeyword.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></span></a>
+            </div>
+            </div>
+    </body></html>

@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Classes and Objects
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Classes and objects in C++</h1><hr>
+        <div id="content">
+            <p>In this section, you will learn to make our own class. Before going further, let's look at an example:</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>         <span class="c1">//length of rectangle</span>
+                    <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>        <span class="c1">//breadth of rectangle</span>
+                    <span class="cm">/* declaring member functions */</span>
+                    <span class="kt">void</span> <span class="nf">setLength</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span> <span class="p">);</span>
+                    <span class="kt">void</span> <span class="nf">setBreadth</span><span class="p">(</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">);</span>
+                    <span class="kt">int</span> <span class="nf">getArea</span><span class="p">();</span>
+            <span class="p">};</span>
+            
+            <span class="cm">/* defining member functions */</span>
+            <span class="kt">void</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">setLength</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">void</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">setBreadth</span><span class="p">(</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">getArea</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Area : 28
+                        </div>
+            </div>
+            </div>
+            <p>Let's go through this code to understand how to make our own class.</p>
+            <p>Remember that the execution of any program begins with the main function. So while executing, the first statement of the main function will get executed first.</p>
+            <p><strong>Rectangle rt; - </strong>This statement declares <strong>rt as an object of class Rectangle</strong>. It is the same as saying that 'rt' is a 'Rectangle'. For this, 'Rectangle' must be defined.</p><div id="pixfuture160" style="height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="2092"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p><strong>class Rectangle - </strong>We have defined our own class named 'Rectangle'. <strong>'class'</strong> is a keyword which means that 'Rectangle' is a class.</p>
+            <p>Inside the Rectangle class, we declared two variables and three functions. These variables and functions belong to the class Rectangle since these are declared inside the class and thus are called <strong>members</strong> of the class. There are two types of members of a class:</p>
+            <ul>
+            <li><strong style="color:brown;">data members - </strong>In the class Rectangle, <strong>length</strong> and <strong>breadth</strong> are the data members since these store the information ( length and breadth ) of the objects of the class.</li>
+            <li><strong style="color:brown;">member functions - </strong><strong>setLength()</strong>, <strong>setBreadth</strong> and <strong>getArea()</strong> are the member functions of the Rectangle class.</li>
+            </ul>
+            <p>Note that while defining the member functions, we have written <strong>Rectangle::</strong> before the function name. This is to tell the compiler that the function belongs to the class Rectangle.</p>
+            <p><strong>rt.setLength(7); - </strong>This statement will call the function <strong>setLength</strong> with the parameter value 7. To call any function, we use (.) DOT after the object and then call that function.<br>
+            Since 'rt' is an object of the 'Rectangle' class, so 'rt.setLength' will call the function 'setLength' of 'Rectangle' class for 'rt'. This will set the value of <strong>length</strong> as <strong>7</strong> for '<b>rt</b>'</p>
+            <p>Similarly, <strong>rt.setBreadth(4)</strong> will call the function <strong>setBreadth</strong> and will set the value of <strong>breadth</strong> as <strong>4</strong>.</p>
+            <p><strong>int area = rt.getArea(); - </strong> 'rt' will call the function <strong>getArea()</strong> which will return <strong>length * breadth</strong> which is 28 (since the value of length is 7 and that of braedth is 4). This value will get assigned to the variable <strong>area</strong>.</p>
+            <p><strong>public: - </strong>We declared all the members of the class as <strong>public</strong>. public is a <strong>modifier</strong> which allows the members of a class to be accessed directly from outside the class.</p>
+            <p>Like public, there are other modifiers also like <strong>private</strong> and <strong>protected</strong>. We will study more about modifier later.</p>
+            <p>We can also define our member methods at the time it is declared in the function as in the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>         <span class="c1">//length of rectangle</span>
+                    <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>        <span class="c1">//breadth of rectangle</span>
+                    <span class="cm">/* declaring member functions */</span>
+                    <span class="kt">void</span> <span class="nf">setLength</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="nf">setBreadth</span><span class="p">(</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="nf">getArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">setBreadth</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Area : 28
+                        </div>
+            </div>
+            </div>
+            <p>This was the same as the previous example but this time we defined the function at the time we declared it in the Rectangle class.</p>
+            <h2>Access Modifiers</h2>
+            <hr>
+            <p>The <strong>access modifiers</strong> decide how the members of a class can be accessed. There are three types of access modifiers in C++.</p>
+            <ul>
+            <li style="color:brown;">public</li>
+            <li style="color:brown;">private</li>
+            <li style="color:brown;">protected</li>
+            </ul>
+            <h3>Public</h3><hr>
+            <p>When we declare any class member as public, that variable becomes available everywhere in the program, even outside the function in which it was declared. Let's see an example to understand this.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>         <span class="c1">//length of rectangle</span>
+                    <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>        <span class="c1">//breadth of rectangle</span>
+                    <span class="kt">int</span> <span class="nf">getArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">length</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">breadth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Area : 28
+                        </div>
+            </div>
+            </div>
+            <p>Since we declared the variables <strong>length</strong> and <strong>breadth</strong> as <strong>public</strong>, we directly accessed these and assigned them values.</p>
+            <p><strong>rt.length = 7; - </strong>We directly accessed the data member 'length' by the object of the Rectangle class. Similarly, we assigned breadth to the Rectangle object by directly accessing it.<br><strong>rt.getArea(); - </strong>We also accessed getArea() directly since it is also declared as public.</p>
+            <p>Thus we can access the members declared as public from anywhere.</p>
+            <h3>Private</h3><hr>
+            <p>The member declared as <strong>private</strong> can only be accessed inside the class in which it is declared. Thus, the object of the class cannot directly access its members as we did in the case of public.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            By default, all the members of a class are private.
+                        </div>
+            </div>
+            </div>
+            <p>If we try to access a private member of any class from outside that class, we will get a compile time error. Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="kt">void</span> <span class="nf">setLength</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span> <span class="p">);</span>
+                    <span class="kt">int</span> <span class="nf">getArea</span><span class="p">();</span>
+            <span class="p">};</span>
+            
+            <span class="kt">void</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">setLength</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">int</span> <span class="n">Rectangle</span><span class="o">::</span><span class="n">getArea</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">setLength</span><span class="p">(</span><span class="mi">7</span><span class="p">);</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">breadth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">area</span> <span class="o">=</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Area : 28
+                        </div>
+            </div>
+            </div>
+            <p>In this example, <strong>breadth</strong> and the functions <strong>setLength</strong> and <strong>getArea</strong> are declared <strong>public</strong>. The data member <strong>length</strong> is <strong>private</strong> since all the members are private by default.</p>
+            <p>Since we cannot directly access any private member, therefore cannot access length directly. So, we declared another member function 'setLength' as public which assigned a value 7 to the length.</p>
+            <p>The rest of the members were directly accessed from the main function.</p>
+            <p>Though the data member 'length' is by default private, we can declare it private as well as shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class Rectangle<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;private:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int length;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:         <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int breadth;       <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;void setLength( int l );<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;int getArea();<br>
+            };
+                </p>
+            </div>
+            <h3>Protected</h3><hr>
+            <p>Protected is similar to private. Any member declared as protected cannot be accessed outside the class but can be accessed by any subclass of that class.</p>
+            <p>We will learn more about subclass in a later chapter.</p>
+            <h2>Constructor</h2>
+            <hr>
+            <p>A <strong>constructor</strong> is a special member function of a class which is called automatically when an object of that class is called. It has the <strong>same name as that of the class</strong> and has <strong>no return type</strong>.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Constructor is a special type of function which is used to initialize an object. It is invoked at the time of object creation.
+                        </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                    <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="n">Rectangle</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"length = "</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">length</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"breadth = "</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">breadth</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            length = 10<br>
+            breadth = 10
+                        </div>
+            </div>
+            </div>
+            <p>In this example when we created the object <strong>rt</strong> of class Rectangle, the constructor <strong>Rectangle()</strong> automatically got called and initialized the data members for the object 'rt'. It initialized the length and breadth of rt to 10 each.</p>
+            <p>When the constructor was called, length and breadth were created and then in the body of the constructor, these member variables were assigned values.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            We can also make a constructor with nothing in its body.<br>
+            Rectangle(){ };
+                        </div>
+            </div>
+            </div>
+            <h3>Constructor having Parameters</h3><hr>
+            <p>We can also have constructors with parameters.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                    <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="nl">public</span><span class="p">:</span>
+                        <span class="n">Rectangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+                        <span class="p">{</span>
+                            <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+                            <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                        <span class="p">}</span>
+                        <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+                        <span class="p">{</span>
+                            <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                        <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">(</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Area : 28
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we have parameters in our constructor. As told earlier, a constructor is also a function which is executed at the time of creating an object and has the same name as that of its parent class. So, it will work like a function and assign values passed from <strong>Rectangle rt( 7, 4 );</strong> to length and breadth.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    Rectangle rt( 7, 4 );
+                </p>
+            </div>
+            <p>It will create an object 'rt' of class 'Rectangle' and pass 7 to 'l' and 4 to 'b' ( 'l' and 'b' are used in the constructor of the class 'Rectangle' ).</p>
+            <img alt="object and class in C++" src="/staticroot/images/fig5.png" style="max-width:60%;height:auto;">
+            <h2>Use of static</h2>
+            <hr>
+            <p><strong>'static'</strong> is used to make access to any data variable or function without making an object of that class. It means that 'static' is used so that we can access any data variable or function without making an object of that class.</p>
+            <p>Let's see this:</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="k">static</span> <span class="kt">void</span> <span class="n">printArea</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">l</span><span class="o">*</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span><span class="o">::</span><span class="n">printArea</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            28
+                        </div>
+            </div>
+            </div>
+            <p>Our function 'printArea' is static. So, we directly used it on 'Rectangle' class, without making any object of it.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Note that for calling a member function by the class itself, we have to use <strong>::</strong> in place of the <strong>Dot (.)</strong>.
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we made a member function static. Now let's see another example in which a data member is made static.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="k">static</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">A</span><span class="o">::</span><span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            8
+                        </div>
+            </div>
+            </div>
+            <p>Here, the variable <strong>a</strong> is made static and thus we directly accessed it in the main function.</p>
+            <h2>Returning and passing object in a function</h2>
+            <hr>
+            <p>Yes, we can return or pass object(s) to a function. Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="n">class</span> <span class="n">Account</span><span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span> <span class="kt">int</span> <span class="n">balance</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span> <span class="n">Account</span><span class="p">(){</span>
+                    <span class="n">balance</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="nl">public</span><span class="p">:</span> <span class="k">static</span> <span class="n">Account</span> <span class="n">getAcc</span><span class="p">(</span><span class="n">Account</span> <span class="n">a</span><span class="p">,</span> <span class="n">Account</span> <span class="n">b</span><span class="p">){</span>
+                    <span class="n">Account</span> <span class="n">ac</span><span class="p">;</span>
+                    <span class="n">ac</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">balance</span><span class="o">+</span><span class="n">b</span><span class="p">.</span><span class="n">balance</span><span class="p">;</span>
+                    <span class="k">return</span> <span class="n">ac</span><span class="p">;</span>
+              <span class="p">}</span>
+            <span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="n">Account</span> <span class="n">a1</span><span class="p">;</span>
+                <span class="n">a1</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+                <span class="n">Account</span> <span class="n">a2</span><span class="p">;</span>
+                <span class="n">a2</span><span class="p">.</span><span class="n">balance</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+                <span class="n">Account</span> <span class="n">b</span> <span class="o">=</span> <span class="n">Account</span><span class="o">::</span><span class="n">getAcc</span><span class="p">(</span><span class="n">a1</span><span class="p">,</span><span class="n">a2</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">b</span><span class="p">.</span><span class="n">balance</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            110
+                        </div>
+            </div>
+            </div>
+            <p>As you have seen, our method 'getAcc' is creating an 'Account' object by taking two 'Account' objects and returning it also.</p>
+            <p><strong>b = Account.getAcc(); -</strong> 'getAcc' will create and return a new 'Account' object and 'b' will become equal to that object.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Here, we have directly used 'getAcc' method on class 'Account' ( Account.getAcc() ) because 'getAcc' is a static method ( <strong>static</strong> Account getAcc(Account a, Account b){ ).
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If there is no constructor in a class, compiler automatically creates a default public constructor.
+                        </div>
+            </div>
+            </div>
+            <p>Even if we don't declare any constructor for a class, the compiler automatically declares a constructor which gets called when any object of that class is created and initializes its data members.</p>
+            <p>Suppose we made a class Vehicle without any constructor, then automatically its constructor will be created with nothing in its body as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class Vehicle{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vehicle(){ }<br>
+            }
+                </p>
+            </div>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Talent is good, Practice is better, and Passion is Best<br><span style="float:right;">-Frank Lloyd Wright</span></p>
+            </div>
+            <div>
+            <a href="oop.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="destructors.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

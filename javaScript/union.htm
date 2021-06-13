@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Union
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Union in C++</h1><hr>
+        <div id="content">
+            <p>Unions are declared and used in the same way as structures. Like structures, it is also used to store different types of data.</p>
+            <p>Before going into the differences between structure and union, let's first see how to define a union.</p>
+            <h2>Defining a Union</h2>
+            <p>Let's look at the syntax of a union.</p>
+            <p style="font-weight:700;">
+            <span style="color:brown;">union</span> union_name<br>
+            <span style="color:blue;">{</span><br>
+            <span style="color:brown;">data-type</span> member-1;<br>
+            <span style="color:brown;">data-type</span> member-2;<br>
+            <span style="color:brown;">data-type</span> member-3;<br>
+            <span style="color:brown;">data-type</span> member-4;<br>
+            <span style="color:blue;">}</span><span style="color:brown;">;<span>
+            </span></span></p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="4150" __idm_id__="839222274"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Isn't this the same as the syntax of structure, except for the difference that in place of the keyword <strong>struct</strong>, we wrote the keyword <strong>union</strong>?</p>
+            <p>Let's take the same example we took in structure. Here we will take the name of union as <strong>student</strong> and name, roll_no and phone_number as its members as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            union student<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int roll_no;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;std::string name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int phone_number;<br>
+            };
+            </p>
+            </div>
+            <h2>Declaration of Union Variable</h2>
+            <hr>
+            <p>We declare the variables of a union in the same way as we declare those of a structure.</p>
+            <p>Again, let's take the same example in which we stored the roll no, name and phone number of three students. To do this, we will define a union named <strong>student</strong> as we have defined above and then we will declare its three variables <strong>p1</strong>, <strong>p2</strong> and <strong>p3</strong> (which will represent the three students respectively) in the main function.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            union student<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int roll_no;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;std::string name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int phone_number;<br>
+            };<br>
+            int main()<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;struct student p1, p2, p3;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+            }
+            </p>
+            </div>
+            <p>There is another method of declaring union variables where we declare these at the time of defining the union as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            union student<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int roll_no;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;std::string name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int phone_number;<br>
+            }p1, p2, p3;
+            </p>
+            </div>
+            <p>Like structure, we assign the name, roll no and phone number of the first student (suppose p1) by accessing its name, roll_no and phone number as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            p1.roll_no = 1;
+            </p>
+            <p>
+            p1.name = "Brown"
+            </p>
+            </div>
+            <p>Till now, you must have found union similar to structure. Now let's look at the differences between the two.</p>
+            <h2>Difference between union and structure</h2>
+            <hr>
+            <p>Before going into the differences, let's first look at an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">struct</span> <span class="n">student1</span> <span class="p">{</span>         <span class="c1">// defining a struct</span>
+                  <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                  <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+                  <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="k">union</span> <span class="n">student2</span> <span class="p">{</span>          <span class="c1">// defining a union</span>
+                <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                  <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">40</span><span class="p">];</span>
+                  <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">struct</span> <span class="n">student1</span> <span class="n">s1</span><span class="p">;</span>
+                <span class="k">union</span> <span class="n">student2</span> <span class="n">u1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size of structure : "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size of union : "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">u1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            size of structure : 48<br>
+            size of union : 40
+                        </div>
+            </div>
+            </div>
+            <p>Talking about the above example, <strong>the amount of memory required to store a structure is the sum of the memory sizes of all its members</strong>. In the above example, the memory sizes of the variables roll_no and phone_number will be 4 bytes each (since both are of type integer) and the memory size of the character array name[40] will be 40 bytes (since the array occupies the memory of 40 characters and the size of char is 1). Thus the memory occupied by the structure will be <strong>4+40+4 = 48 bytes</strong>.</p>
+            <p>Now coming to the union, <strong>the memory size of a union is equal to the size of its member occupying the maximum space in the memory</strong>. The size of roll_no and phone_number is 4 bytes each and that of name[40] is 40 bytes. So, the union will occupy a memory space of <strong>40 bytes</strong>.</p>
+            <img alt="union in c" src="/staticroot/images/union.jpg" style="max-width:70%;height:auto;">
+            <p>We can access only one member of union at a time because we have only one location in memory for it, so only one of the member can be used at a time. All the other members will contain the garbage value (i.e. will get corrupted). This is not the case with structures where we can access all the member's variables at the same time because each occupies a different memory space.</p>
+            <p>Now let's see an example of union.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">union</span> <span class="n">student</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">30</span><span class="p">];</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">union</span> <span class="n">student</span> <span class="n">p1</span><span class="p">;</span>
+                <span class="n">p1</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">p1</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">1234567822</span><span class="p">;</span>
+                <span class="n">strcpy</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="s">"Brown"</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll_no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone_number : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            roll_no : 2003792450<br>
+            phone_number : 2003792450<br>
+            name : Brown
+                        </div>
+            </div>
+            </div>
+            <p>As you can see, the name got printed as it is and garbage value got printed as roll number and phone number. Let's see why this happened.</p>
+            <p>We know that we can access only one member of union at a time and the other members get corrupted. So, when we wrote <strong>p1.roll_no = 1</strong>, member 'roll_no' got accessed and got assigned a value '1'. After that, by writing <strong>p1.phone_number = 1234567822</strong>, we assigned a value to the member 'phone_number'. Finally, we assigned a string value "Brown" to the member 'name' as <strong>strcpy(p1.name,"Brown")</strong> and now, the other two members 'roll_no' and 'phone_number' contains a garbage value. Thus, the value of name got printed as it is and the values of the other two variables in the output are the garbage values of those two.</p>
+            <p>Let's see one more example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">union</span> <span class="n">student</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">30</span><span class="p">];</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">union</span> <span class="n">student</span> <span class="n">p1</span><span class="p">;</span>
+                <span class="n">p1</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll_no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">strcpy</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="s">"Brown"</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">p1</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">1234567822</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone_number : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            roll_no : 1<br>
+            name : Brown<br>
+            phone_number : 1234567822
+                        </div>
+            </div>
+            </div>
+            <p class="quote">Here, first, we assigned the value of roll_no as 1 and printed it. So currently, the value of the other members is some garbage value and that of roll_no is 1, so it got printed as it is. After that, we assigned a string value "Brown" to name, so now roll_no and phone_number contained garbage values and name got printed. Similarly, we printed phone_number.</p>
+            <div>
+            <a href="enumClass.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="typedef.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

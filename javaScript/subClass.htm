@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Subclass
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Subclass in C++</h1><hr>
+        <div id="content">
+            <p>Until now, you have learned about class and objects. In this chapter, you will expand your knowledge to an advanced level.</p>
+            <p>You are already introduced with inheritance in OOP chapter. So, let's make a subclass of a superclass.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Student</span>	<span class="c1">//base class</span>
+            <span class="p">{</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">string</span> <span class="n">getName</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">name</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="n">setName</span><span class="p">(</span> <span class="n">string</span> <span class="n">n</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="n">printAbout</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I am a student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Undergraduate</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Student</span>	<span class="c1">//derived class</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">printAbout</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I am an Undergraduate"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>	<span class="n">Student</span> <span class="n">s</span><span class="p">;</span>
+                <span class="n">Undergraduate</span> <span class="n">u</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">printAbout</span><span class="p">();</span>
+                <span class="n">u</span><span class="p">.</span><span class="n">printAbout</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            I am a student<br>
+            I am an Undergraduate
+                        </div>
+            </div>
+            </div>
+            <p>There is no need to explain anything in the 'Student' class.</p>
+            <p><strong>class Undergraduate : public Student - </strong>'Undergraduate' is the name of a class which is a subclass or derived class of the 'Student' class.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="2220" __idm_id__="337455105"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Both classes are having functions with the same name - <strong>'printAbout'</strong>. But the definitions (or statements) of the functions are different. These type of functions are called <strong>polymorphic functions</strong>.<br>Execution of 'printAbout' from 's' ( object of 'Student' class ) will print "I am a Student." while from 'u' ( object of 'Undergraduate' class ) will print "I am an Undergraduate."<br>
+            Thus, the objects of each of these classes are calling their respective printAbout function.</p>
+            <p>So, here <strong>Student</strong> is a <strong>base class</strong> or <strong>parent class</strong> and <strong>Undergraduate</strong> is a <strong>derived class</strong> or <strong>child class</strong>.</p>
+            <p>Before going further, let's learn more about the <b>protected</b> modifier.</p>
+            <h3>Protected</h3><hr>
+            <p>Any protected member of a class ( variable or function ) can be accessed within that class or its subclass. It cannot be accessed outside that.</p>
+            <p>Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Student</span>		<span class="c1">//base class</span>
+            <span class="p">{</span>
+                <span class="nl">protected</span><span class="p">:</span>
+                    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">setName</span><span class="p">(</span> <span class="n">string</span> <span class="n">n</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Undergraduate</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Student</span>	<span class="c1">//derived class</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">printName</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>	<span class="n">Undergraduate</span> <span class="n">u</span><span class="p">;</span>
+                <span class="n">u</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">"xyz"</span><span class="p">);</span>
+                <span class="n">u</span><span class="p">.</span><span class="n">printName</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            xyz
+                        </div>
+            </div>
+            </div>
+            <p>In this example, 'Student' is the parent class and 'Undergraduate' is its child class.<br>
+            In the 'Student' class, we made <strong>name</strong> protected. So, it can be accessed directly within its subclass 'Undergraduate'. And we did the same. We accessed the name variable directly in the function <strong>printName</strong> of its subclass.<br>
+            Now, let's see what is happening in this example.<br>
+            We first created an object <strong>u</strong> of the subclass <strong>Undergraduate</strong>. Since an object of a subclass can access any of the members of its parent class, so <strong>u</strong> called the function <strong>setName</strong> of its parent class with a string parameter "xyz". This string got assigned to the variable 'name' thus making the value of 'name' as "xyz" for the object 'u'.<br>
+            'u' then called the function 'printName' which printed the value of 'name' i.e., xyz.</p>
+            <p>Now, let's see what would happen if we try to call a member function of a subclass by the object of the parent class.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Student</span>		<span class="c1">//base class</span>
+            <span class="p">{</span>
+                <span class="nl">protected</span><span class="p">:</span>
+                    <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">setName</span><span class="p">(</span> <span class="n">string</span> <span class="n">n</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Undergraduate</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Student</span>	<span class="c1">//derived class</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">printName</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Student</span> <span class="n">s</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">setName</span><span class="p">(</span><span class="s">"xyz"</span><span class="p">);</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">printName</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            prog.cpp:29:4: error: no member named 'printName' in 'Student'<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;s.printName();<br>
+            1 error generated.
+                        </div>
+            </div>
+            </div>
+            <p>The above code is giving us error. This is because 's' is an object of the 'Student' class and we are trying to call the function 'printName' of the class 'Undergraduate' by the object of its parent class 'Student' which is invalid.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            An object of a subclass can access the members of its superclass ( if not private ) but an object of a superclass can't access the members of its subclasses.
+                        </div>
+            </div>
+            </div>
+            <p>Here is an example showing the same.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">C1</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">C1</span><span class="p">(){}</span>
+                <span class="nl">protected</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">m1</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is protected function of superclass"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">C2</span> <span class="p">:</span> <span class="n">public</span> <span class="n">C1</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">C2</span><span class="p">(){}</span>
+                    <span class="kt">void</span> <span class="n">m2</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">m1</span><span class="p">();</span><span class="c1">// Since m1 is a protected function of C1, therefore it can be called in its subclass (C2)</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">C1</span> <span class="n">s</span><span class="p">;</span>
+                <span class="n">C2</span> <span class="n">a</span><span class="p">;</span>
+                <span class="n">a</span><span class="p">.</span><span class="n">m2</span><span class="p">();</span><span class="cm">/* 'a' an object of C2 can access m2( public function of C2)*/</span>
+                <span class="c1">// s.m2()  Remove this from comment and you will get an error because 's' is an object of superclass can't access function 'm2' of subclass</span>
+                <span class="c1">// a.m1()  This will also generate an error because m1 is a protected function of C1 and so cannot be called outside C1 or its subclass(C2)</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            This is protected function of superclass
+                        </div>
+            </div>
+            </div>
+            <h2>Subclass with constructor</h2><hr>
+            <p>We can normally have constructors for both base and derived class to initialize their respective members. The constructor of the derived class can call the constructor of the base class, but the inverse is not true. Let's see how.</p>
+            <h3>Calling base class constructor having no parameter</h3><hr>
+            <p>If the base class constructor has no parameter, then it will be automatically called by the compiler whenever the derived class constructor will be called, even if we do not explicitly call it.</p>
+            <p>Look at the following to understand it.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of A"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">public</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">B</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of B"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Constructor of A<br>
+            Constructor of B
+                        </div>
+            </div>
+            </div>
+            <p>While calling the constructor of any class, the compiler first automatically calls the constructor of its parent class. This is the reason that while calling the constructor of class <strong>B</strong>, the compiler first called the constructor of its parent class <strong>A</strong> and then the constructor of <strong>B</strong>. Thus when the constructor of 'B' was called, the compiler first called the constructor of 'A' thus printing "Constructor of A" and after that "Constructor of B".</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            While calling the constructor of any class, the compiler first automatically calls the constructor of its parent class.
+                        </div>
+            </div>
+            </div>
+            <p>Let's see another example where the constructor of the parent class gets automatically called first.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of A"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">public</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">B</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of B"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">C</span> <span class="p">:</span> <span class="n">public</span> <span class="n">B</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">C</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of C"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Creating object of A :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Creating object of B :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Creating object of C :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">C</span> <span class="n">c</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Creating object of A :<br>
+            Constructor of A<br>
+            Creating object of B :<br>
+            Constructor of A<br>
+            Constructor of B<br>
+            Creating object of C :<br>
+            Constructor of A<br>
+            Constructor of B<br>
+            Constructor of C
+                        </div>
+            </div>
+            </div>
+            <p>Here, when the object of <strong>A</strong> was created, its constructor was called, printing "Constructor of A".<br>
+            When the object of <strong>B</strong> was created, the compiler first called the constructor of its parent class 'A', printing "Constructor of A" and after that printing "Constructor of B".<br>
+            Similarly, when the constructor of <strong>C</strong> was called on creating its object, first the constructor of its parent class 'B' was called. On calling the constructor of 'B', the constructor of 'A' got called printing "Constructor of A" followed by "Constructor of B". At last, "Constructor of C" got printed.</p>
+            <h3>Calling parameterized base class constructor</h3><hr>
+            <p>Unlike parent class constructors having no parameter, parameterized parent class constructors are not called automatically while calling its child class constructor.</p>
+            <p>To call a parent class constructor having some parameter form the constructor of its subclass, we have to use the <strong>initialization list of its subclass</strong>. Let's see how.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Length : "</span> <span class="o">&lt;&lt;</span> <span class="n">l</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">public</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">B</span><span class="p">()</span> <span class="o">:</span> <span class="n">A</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is constructor of B"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            Length : 20<br>
+            This is constructor of B
+                        </div>
+            </div>
+            </div>
+            <p>As in the above example, a parameterized constructor of a class is called from its subclass by writing it in the initialization list with its argument written within brackets.</p>
+            <p>In this example, when we created an object <strong>b</strong> of the class <strong>B</strong>, the constructor 'B' got called. Since the constructor of 'A' is written in its initialization list, the constructor of 'A' got called first with a value <strong>10</strong> passed as its argument.<br>
+            Thus, its parameter <strong>l</strong> became equal to <strong>10</strong> and the body of the constructor of 'A' got executed. After that the body of the constructor of 'B' got executed.</p>
+            <p>Let's see one more example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">l1</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+            
+                    <span class="n">A</span><span class="p">(</span> <span class="kt">int</span> <span class="n">z</span> <span class="p">)</span> <span class="o">:</span> <span class="n">l1</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"l1 : "</span> <span class="o">&lt;&lt;</span> <span class="n">l1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">B</span> <span class="p">:</span> <span class="n">public</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">l2</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">B</span><span class="p">(</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span> <span class="p">)</span> <span class="o">:</span> <span class="n">A</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">l2</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"l2 : "</span> <span class="o">&lt;&lt;</span> <span class="n">l2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">B</span> <span class="n">b</span><span class="p">(</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span> <span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            l1 : 5<br>
+            l2 : 10
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we passed the values 5 and 10 to the constructor of class <strong>B</strong> while creating its object. So the values <strong>5</strong> and <strong>10</strong> got assigned to <strong>x</strong> and <strong>y</strong> respectively.<br>
+            In the initializer list of the constructor of 'B', the value of 'x' i.e. 5 got passed as the argument of the constructor of 'A' and the value of 'l2' became 10.<br>
+            Again, the constructor of 'A' first got called making the value of 'l1' as 5. After the body of 'A' got executed, the compiler went back to the body of the constructor of 'B' and executed it.</p>
+            <p>Let's see one more example of printing the area and perimeter of a rectangle.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Rectangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getPerimeter</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span> <span class="n">length</span> <span class="o">+</span> <span class="n">breadth</span> <span class="p">);</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Square</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Square</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span> <span class="p">)</span> <span class="o">:</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">a</span> <span class="p">)</span>
+                    <span class="p">{</span> <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Square</span> <span class="n">s</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">area</span><span class="p">,</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">area</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">getArea</span><span class="p">();</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">getPerimeter</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Perimeter : "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            Area : 4<br>
+            Perimeter : 8
+                        </div>
+            </div>
+            </div>
+            <p>We know that square is also a rectangle with the same length and breath. This is what we did in the constructor of 'Square'.<br>
+            We created an object 's' of class 'Square' and passed 2 at the time of creating it. So, this 2 will be passed to the constructor of class Square. Hence, the value of 'a' will be 2.<br>
+            In the initialization list of the constructor of 'Square', constructor of its superclass 'Rectangle' is being called with the value of 'a' as 2, thus making the value of both its length and breadth equal to 'a' i.e. 2.<br>
+            Finally, in the main function, we used the object 's' of the class Square to call two functions of its parent class Rectangle <strong>getArea</strong> and <strong>getPerimeter</strong></p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Practice everytime you get a chance.<br><span style="float:right;">-Bill Monroe</span></p>
+            </div>
+            <div>
+            <a href="intializationList.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="constructorOverloading.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

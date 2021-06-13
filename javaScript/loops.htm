@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Variables and Literals
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Loops in C++</h1><hr>
+        <div id="content">
+            <p>Playing with loops makes programming fun. Before we try to understand loop, you should be thorough with all the previous topics of C++. If not, practice a considerable amount of problems of all the previous topics.</p>
+            <p>Suppose, we have to print the first 10 natural numbers.</p>
+            <p>One way to do this is to print the first 10 natural numbers individually using cout. But what if you are asked to print the first 100 natural numbers! You can easily do this with the help of loops.</p>
+            <p>Broadly classifying, there are three types of loops in C++ which are:</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="561" __idm_id__="292771841"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <ol style="color:brown;" type="1">
+            <li>while loop</li>
+            <li>for loop</li>
+            <li>do...while loop</li>
+            </ol>
+            <hr>
+            <h2>while loop</h2>
+            <p>Let's first look at the <strong>syntax</strong> of <strong>while</strong> loop.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <span style="color:brown;">while(</span>condition<span style="color:brown;"><span style="color:brown;">)</span><br>
+              {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">statement(s)</span><br>
+              }
+                </span></p>
+            </div>
+            <p><b>while</b> loop checks whether the <b>condition</b> written in ( ) is true or not. If the condition is true, the statements written in the body of the while loop i.e., inside the braces { } are executed. Then again the condition is checked, and if found true, again the statements in the body of the while loop are executed. This process continues until the condition becomes false.</p>
+            <p>An example will make this clear.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="k">while</span><span class="p">(</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">){</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">n</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            9<br>
+            10
+                        </div>
+            </div>
+            </div>
+            <p>In our example, firstly, we assigned a value <strong>1</strong> to a variable <strong>'n'</strong>.</p>
+            <p><strong style="color:brown">while(n &lt;= 10)</strong> - checks the condition <strong>'n &lt;= 10'</strong>. Since the value of n is 1 which is less than 10, the statements within the braces { } are executed.</p>
+            <p>The value of 'n' i.e. <strong>1</strong> is printed and <strong>n++</strong> increases the value of <strong>'n'</strong> by <strong>1</strong>. So, now the value of <strong>'n'</strong> becomes <strong>2</strong>.</p>
+            <p>Now, again the condition is checked. This time also 'n &lt;= 10' is true because the value of 'n' is 2. So, again the value of 'n' i.e., 2 gets printed and the value of 'n' will be increased to 3.</p>
+            <p>When the value of <strong>'n'</strong> becomes <strong>10</strong>, again the condition <strong>'n &lt;= 10'</strong> is true and 10 gets printed for the tenth time. Now, <strong>n++</strong> increases the value to <strong>'n'</strong> to <strong>11</strong>.</p>
+            <p>This time, the condition '<b>n &lt;= 10</b>' becomes <b>false</b> and the program terminates.</p>
+            <p>Quite interesting. Isn't it !</p>
+            <img alt="loops in C++" src="/staticroot/images/a.png" style="max-width:80%;height:auto;">
+            <p>
+            The following animation will also help you to understand the while loop.
+            </p>
+            <img alt="gif of while loop in C++" src="/staticroot/images/gifs/CPP_LOOP.gif" style="max-width:50%;height:auto;">
+            <p>Let's see one more example of while loop</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">choice</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="k">while</span><span class="p">(</span> <span class="n">choice</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">){</span>
+            
+                    <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+            
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a number to check even or odd"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">a</span><span class="p">;</span>		<span class="c1">//input number</span>
+            
+                    <span class="c1">//check whether number is even or odd</span>
+            
+                    <span class="k">if</span><span class="p">(</span> <span class="n">a</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">){</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Your number is even"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="k">else</span><span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Your number is odd"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Want to check more : 1 for yes and 0 for no"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">choice</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"I hope you checked all your numbers"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            9<br>
+            10
+                        </div>
+            </div>
+            </div>
+            <p>The loop will run until the value of 'choice' becomes other than '1'. So, for the first time, it will run since the value of 'choice' is '1'. Then it will perform the codes inside the loop. At last, it will ask the user whether he wants to check more or not. This can change the value of variable 'choice' and may terminate the loop.</p>
+            <p>Initially, the value of 'choice' was 1, so, the condition of while got satisfied and codes inside it got executed. We were asked to give the value of choice and we gave 1 again. Things repeated and after that, we gave choice a value of 0. Now, the condition of while was not satisfied and the loop terminated.</p>
+            <h2>for loop</h2><hr>
+            <p>Another type of loop is <strong>for</strong> loop.</p>
+            <p>Let's go to our first example in which we printed first 10 natural numbers using while loop. We can also do this with for loop.</p>
+            <p>Let's look at the <strong>syntax</strong> of <strong>for</strong> loop.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <span style="color:brown;">for(</span>initialization<span style="color:brown;">;</span> condition<span style="color:brown;">;</span> propagation<span style="color:brown;">)</span><br>
+              {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">statement(s)</span><br>
+              }
+                </p>
+            </div>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span> <span class="p">){</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            9<br>
+            10
+                        </div>
+            </div>
+            </div>
+            <p>Now let's see how for loop works.</p>
+            <p><strong><span style="color:brown;">for(</span>n=1<span style="color:brown;">;</span> n&lt;=10<span style="color:brown;">;</span> n++<span style="color:brown;">)</span></strong></p>
+            <p><strong>n=1 -</strong> This step is used to <strong>initialize</strong> a <strong>variable</strong> and is executed <b>first and only once</b>. Here, <strong>'n'</strong> is assigned a value <strong>1</strong>.</p>
+            <p><strong>n&lt;=10 -</strong> This is a <strong>condition</strong> which is evaluated. If the condition is true, the statements written in the body of the loop are executed. If it is false, the statement just after the for loop is executed. This is similar to the condition we used in 'while' loop which was being checked again and again.</p>
+            <p><strong>n++ -</strong> This is executed after the code in the body of the for loop has been executed. In this example, the value of 'n' increases by 1 every time the code in the body of for loop executes. There can be any expression here which you want to run after every loop.</p>
+            <br>
+            <p>In the above example, firstly, <strong>'n=1'</strong> assigns a value <strong>1</strong> to <strong>'n'</strong>.</p>
+            <p>Then the condition <strong>'n&lt;=10'</strong> is checked. Since the value of 'n' is 1, therefore the code in the body of for loop is executed and thus the current value of 'n' i.e., 1 gets printed.</p>
+            <p>Once the codes in the body of for loop are executed, step <strong>n++</strong> is executed which increases the value of 'n' by 1. So now the value of <strong>'n'</strong> is <strong>2</strong>.</p>
+            <p>Again the condition 'n&lt;=10' is checked which is true because the value of 'n' is 2. Again codes in the body of for loop are executed and 2 gets printed and then the value of 'n' is again incremented.</p>
+            <p>When the value of 'n' becomes 10, the condition 'n &lt;= 10' is true and 10 gets printed. Now, when n++ increases the value to 'n' to 11, the condition 'n&lt;=10' becomes false and the loop terminates.</p>
+            <p>Don’t you think it’s just a different form of while loop? Yes, it is actually.</p>
+            <img alt="for and while same in C++" src="/staticroot/images/b.png" style="max-width:40%;height:auto;">
+            <p>Let's see the example of adding 10 numbers.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">n</span><span class="p">;</span>
+            
+                <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>
+            
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+            
+                    <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">n</span><span class="p">;</span>
+            
+                <span class="p">}</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum is "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Enter number <br>
+            <span style="color:#ce9d9d">4</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">3</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">10</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">3</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">5</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">5</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">1</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">8</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">9</span> <br>
+            Enter number <br>
+            <span style="color:#ce9d9d">2</span> <br>
+            Sum is 50
+                        </div>
+            </div>
+            </div>
+            <p>Initially, the value of the variable <strong>sum</strong> is <strong>0</strong>.<br>
+            In the first iteration, the value of <strong>n</strong> is entered <strong>4</strong> and thus the value of <strong>sum</strong> becomes <strong>4</strong> since <strong>sum = sum + n</strong> (i.e. sum = 0 + n).<br>
+            In the second iteration, the value of <strong>sum</strong> is 4 and we entered the value of <strong>n</strong> as 3. Therefore, the expression <strong>sum = sum + n</strong> gets evaluated as <strong>sum = 4 + 3</strong>, thus making the value of <strong>sum</strong> as 7.<br>
+            In this way, this loop will add all the 10 numbers entered by the user.</p>
+            <p>There are other ways also to write program of for loop.</p>
+            <p>The first example of for loop in which we printed the first 10 natural numbers can also be written in other ways which are :</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int n = 1;<br>
+            for( ; n &lt;= 10; n++)<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; n &lt;&lt; endl;<br>
+            }
+                </p>
+            </div>
+            <p>Another way is shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int n;<br>
+            for( n = 1; n &lt;= 10; )<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;cout &lt;&lt; n &lt;&lt; endl;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;n++;<br>
+            }
+                </p>
+            </div>
+            <p>
+            It means that we can also write the for loop by skipping one or more of its three statements (initialization, condition, propagation) as done above.
+            </p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            There is also an another form of for loop which is discussed in the chapter 'array'.
+                        </div>
+            </div>
+            </div>
+            <h2>do...while loop</h2><hr>
+            <p>This is another kind of loop. This is just like while and for loop but the only difference is that the code in its body is executed once before checking the conditions.</p>
+            <p><strong>Syntax</strong> of <strong>do...while</strong> loop is:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <span style="color:brown;">do</span>{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">statement(s)</span><br>
+            }<br>
+            <span style="color:brown;">while(</span> condition <span style="color:brown;">)</span>;
+                </p>
+            </div>
+            <p>Consider the same example of printing the first 10 natural numbers for which we wrote programs using while and for loop. Now, let's write its program using do...while loop.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="k">do</span><span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                      <span class="n">n</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span><span class="k">while</span><span class="p">(</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">10</span> <span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            9<br>
+            10
+                        </div>
+            </div>
+            </div>
+            <p>Let's try to understand this.</p>
+            <p>At first, the statements inside the body of loop (i.e., within the braces { } following do ) are executed. This will print the value of 'n' i.e., 1 and <strong>n++</strong> increments the value of <strong>'n'</strong> by 1. So now, the value of <strong>'n'</strong> becomes <strong>2</strong>.</p>
+            <p>Once the code inside the braces { } is executed, condition <strong>'n &lt;= 10'</strong> is checked. Since the value of 'n' is 2, so the condition is satisfied.</p>
+            <p>Again the code inside the body of loop is executed and the value of <strong>'n'</strong> becomes <strong>2</strong>. When the value of <strong>'n'</strong> is <strong>10</strong> and 10 is printed, <strong>n++</strong> increases the value of 'n' to 11. After this, the condition becomes false and the loop terminates.</p>
+            <p>As you have seen, in do while loop, codes inside the loop got executed for the first time without checking any condition and then it started checking the condition from the second time.</p>
+            <hr>
+            <h2>Nesting of loops</h2>
+            <p>Like 'if/else' we can also use one loop inside another. This is called nesting of loop. See this example to make it clear.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+            
+                  <span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">14</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>            <span class="cm">/*outer loop*/</span>
+            
+                      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Table of "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                        <span class="k">for</span><span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">){</span>         <span class="cm">/*inner loop*/</span>
+            
+                              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"*"</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"="</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span><span class="o">*</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                        <span class="p">}</span>
+                  <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Table of 12 <br>
+            12*1 = 12 <br>
+            12*2 = 24 <br>
+            12*3 = 36 <br>
+            12*4 = 48 <br>
+            12*5 = 60 <br>
+            12*6 = 72 <br>
+            12*7 = 84 <br>
+            12*8 = 96 <br>
+            12*9 = 108 <br>
+            12*10 = 120 <br>
+            Table of 13 <br>
+            13*1 = 13 <br>
+            13*2 = 26 <br>
+            13*3 = 39 <br>
+            13*4 = 52 <br>
+            13*5 = 65 <br>
+            13*6 = 78 <br>
+            13*7 = 91 <br>
+            13*8 = 104 <br>
+            13*9 = 117 <br>
+            13*10 = 130 <br>
+            Table of 14 <br>
+            14*1 = 14 <br>
+            14*2 = 28 <br>
+            14*3 = 42 <br>
+            14*4 = 56 <br>
+            14*5 = 70 <br>
+            14*6 = 84 <br>
+            14*7 = 98 <br>
+            14*8 = 112 <br>
+            14*9 = 126 <br>
+            14*10 = 140
+                        </div>
+            </div>
+            </div>
+            <p>When the first for loop is executed, the value of <strong>i</strong> is <strong>12</strong> and <strong>"Table of 12"</strong> gets printed.<br>
+            Now coming to the second loop, the value of <strong>j</strong> is <strong>1</strong> and thus <strong>12*1 = 12</strong> gets printed.<br>
+            In the second iteration of the inner for loop, while the value of <strong>i</strong> is still <strong>12</strong>, the value of <strong>j</strong> becomes <strong>2</strong> and thus <strong>12 * 2 = 24</strong> gets printed.<br>
+            In the last iteration of the inner for loop, the value of <strong>i</strong> is still <strong>12</strong> and the value of <strong>j</strong> becomes <strong>10</strong>, thus printing <strong>12 * 10 = 120</strong>.<br>
+            Now after all the iterations of the inner for loop are complete, there will be the second iteration of the outer for loop increasing the value of <strong>i</strong> to <strong>13</strong> and printing <strong>Table of 13</strong>. Again the inner for loop will be iterated with i equals 13.</p>
+            <p>We can use any loop inside any other loop according to the requirement. In the above example, we used one for loop inside another.</p>
+            <h2>Infinite Loop</h2><hr>
+            <p>There may exist some loops which can iterate or occur infinitely. These are called Infinite Loop. These loops occur infinitely because their condition is always true. We can make an infinite loop by leaving its conditional expression empty (this is one of the many possible ways). When the conditional expression is empty, it is assumed to be true. Let's see an example on how to make a for loop infinite.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span> <span class="p">;</span> <span class="p">;</span> <span class="p">){</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This loop will never end"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            This loop will never end<br>
+            ...
+                        </div>
+            </div>
+            </div>
+            <p>
+            I told you, it's fun!
+            </p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            To terminate an infinite loop, press Ctrl + C.
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Don't spend so much time trying to choose the perfect opportunity that you miss the right opportunity.<br><span style="float:right;">-Michael Dell</span></p>
+            </div>
+            <div>
+            <a href="decideIfElse.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="ControllingLoop.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

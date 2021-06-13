@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            string
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Strings in C++</h1><hr>
+        <div id="content">
+            <p>We know that <strong>string</strong> is a collection of characters. Let's again have a look at string and learn more about it.</p>
+            <p>There are two different types of strings in C++.</p>
+            <ul>
+            <li>C-style string</li>
+            <li>std::string (part of the standard library)</li>
+            </ul>
+            <p>In this chapter, we will focus on C-style string.</p>
+            <h2>C-style String</h2><hr>
+            <p>We can think of string as an array of characters, like "Sam" is a string and it is an array of characters 'S', 'a', 'm' and '\0'.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="1671" __idm_id__="837470209"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <table class="table-no-header">
+            <tbody><tr>
+            <td style="font-weight:700;">element</td>
+            <td>'S'</td>
+            <td>'a'</td>
+            <td>'m'</td>
+            <td>'\0'</td>
+            </tr>
+            <tr>
+            <td style="font-weight:700;">index</td>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            </tr>
+            </tbody></table>
+            <p>Look at the character at the 3rd index. It represents <strong>null character</strong>. <strong>ASCII value</strong> of <strong>'\0'</strong> is <strong>0</strong> and that of <strong>normal 0</strong> is <strong>48</strong>. It represents the termination of a string. So, if we declare :-</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    char name[ ]= "Sam";
+                </p>
+            </div>
+            <p>It is :-<br>
+            ['S','a','m','\0']</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            We always put string in " ".
+                        </div>
+            </div>
+            </div>
+            <p>We can also declare a string variable using characters as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    char name[ ]= { 'S', 'a', 'm', '\0'};
+                </p>
+            </div>
+            <p>Let's see two examples to print a string, one without and the other with for loop.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">str</span><span class="p">[</span> <span class="p">]</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Hello
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, we printed the whole string at once. Now, let's see the same example of printing individual characters of the string using for loop.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">str</span><span class="p">[</span> <span class="p">]</span> <span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                  <span class="k">for</span><span class="p">(</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">6</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                  <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Hello
+                        </div>
+            </div>
+            </div>
+            <p>In the first example, we printed the whole string at once. Whereas in the second example, we printed a character each time.</p>
+            <h2>Taking string input</h2><hr>
+            <p>Now let's see how to input string from the user with an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+                <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>       <span class="c1">//declaring string 'name'</span>
+            
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span> <span class="c1">//taking string input</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//printing string</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            <span style="color:#ce9d9d">Peter</span><br>
+            Peter
+                        </div>
+            </div>
+            </div>
+            <p>
+            <strong>char name[20]; - </strong>By writing this statement, we declared an array of characters named 'name' and gave it an array size of 20 because we don't know the exact length of the string. Thus, it occupied a space in the memory having a size that is required by 20 characters. So, our array 'name' cannot store more than 20 characters.<br>
+            <strong>cin &gt;&gt; name; - </strong>This is used to simply input a string from the user as we do for other datatypes and there is nothing new in this.
+            </p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            The above code takes only one word from user to a string variable. It terminates with any white space. Try to write something after space and it will take only the first word.
+                        </div>
+            </div>
+            </div>
+            <p>
+            For example, if in the above example, we input <b>Sam Brad</b> as the name, then the output will only be <b>Sam</b> because the code considers only one word and terminates after the first word (after a whitespace).
+            </p>
+            <h3>Taking multi-word string input</h3><hr>
+            <p>
+            We can take input of a string that consists of more than one word by using <b>cin.getline</b>. Let's see an example:
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+                <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>       <span class="c1">//declaring string 'name'</span>
+            
+                <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">name</span><span class="p">));</span> <span class="c1">//taking string input</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">//printing string</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            <span style="color:#ce9d9d">Sam Bard</span><br>
+            Sam Bard
+                        </div>
+            </div>
+            </div>
+            <p>
+            <b style="color:#brown">cin.getline(name, sizeof(name));</b> - <b>cin.getline</b> takes two arguments, the string variable and the size of that variable. We have used <b>sizeof</b> operator to get the size of string variable 'name'.
+            </p>
+            <h2>Pointers and String</h2>
+            <hr>
+            <p>Strings can also be declared using pointers. Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">name</span><span class="p">[</span> <span class="p">]</span><span class="o">=</span> <span class="s">"Sam"</span><span class="p">;</span>
+                  <span class="kt">char</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+                  <span class="n">p</span> <span class="o">=</span> <span class="n">name</span><span class="p">;</span>     <span class="cm">/* for string, only this declaration will store its base address */</span>
+                  <span class="k">while</span><span class="p">(</span> <span class="o">*</span><span class="n">p</span> <span class="o">!=</span> <span class="sc">'\0'</span><span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+                    <span class="n">p</span><span class="o">++</span><span class="p">;</span>
+                  <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Sam
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, since <strong>p</strong> stores the address of name[0], therefore the value of <strong>*p</strong> equals the value of name[0] i.e., 'S'. So in while loop, the first character gets printed and <strong>p++</strong> increases the value of <strong>p</strong> by 1 so that now p+1 points to name[1]. This continues until the pointer reaches the end of the string i.e., before *p becomes equal to '\0'.</p>
+            <h2>Passing Strings to Functions</h2>
+            <hr>
+            <p>This is the same as we do with other arrays. The only difference is that this is an array of characters. That's it !</p>
+            <p>Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span> <span class="kt">char</span> <span class="n">ch</span><span class="p">[]</span> <span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ch</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">arr</span><span class="p">[</span><span class="mi">30</span><span class="p">];</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter a word"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">arr</span><span class="p">;</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">arr</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Enter a word<br>
+            <span style="color:#ce9d9d">cpp</span><br>
+            cpp
+                        </div>
+            </div>
+            </div>
+            <h2>Predefined string functions</h2>
+            <hr>
+            <p>We can perform different kinds of string functions like joining of 2 strings, comparing one string with another or finding the length of the string. Let's have a look at the list of such functions.</p>
+            <table class="table-default" style="margin-bottom:8px;">
+            <tbody><tr>
+            <th>Function</th>
+            <th>Use</th>
+            </tr>
+            <tr>
+            <td>strlen</td>
+            <td>calculates the length of string</td>
+            </tr>
+            <tr>
+            <td>strcat</td>
+            <td>Appends one string at the end of another</td>
+            </tr>
+            <tr>
+            <td>strncat</td>
+            <td>Appends first n characters of a string at the end of another</td>
+            </tr>
+            <tr>
+            <td>strcpy</td>
+            <td>Copies a string into another</td>
+            </tr>
+            <tr>
+            <td>strncpy</td>
+            <td>Copies first n characters of one string into another</td>
+            </tr>
+            <tr>
+            <td>strcmp</td>
+            <td>Compares two strings</td>
+            </tr>
+            <tr>
+            <td>strncmp</td>
+            <td>Compares first n characters of two strings</td>
+            </tr>
+            <tr>
+            <td>strchr</td>
+            <td>Finds first occurrence of a given character in a string</td>
+            </tr>
+            <tr>
+            <td>strrchr</td>
+            <td>Finds last occurrence of a given character in a string</td>
+            </tr>
+            <tr>
+            <td>strstr</td>
+            <td>Finds first occurrence of a given string in another string</td>
+            </tr>
+            </tbody></table>
+            <p>These predefined functions are part of the <strong>cstring</strong> library. Therefore, we need to include this library in our code by writing</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    #include &lt;cstring&gt;
+                </p>
+            </div>
+            <p>We will see some examples of <strong>strlen</strong>, <strong>strcpy</strong>, <strong>strcat</strong> and <strong>strcmp</strong> as these are the most commonly used.</p>
+            <p><strong>strlen(s1)</strong> calculates the length of string s1.</p>
+            <p>White space is also calculated in the length of the string.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">name</span><span class="p">[</span> <span class="p">]</span><span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="n">len1</span><span class="p">,</span> <span class="n">len2</span><span class="p">;</span>
+                  <span class="n">len1</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="n">name</span><span class="p">);</span>
+                  <span class="n">len2</span> <span class="o">=</span> <span class="n">strlen</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">);</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Length of "</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="s">" = "</span> <span class="o">&lt;&lt;</span> <span class="n">len1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Length of "</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World"</span> <span class="o">&lt;&lt;</span> <span class="s">" = "</span> <span class="o">&lt;&lt;</span> <span class="n">len2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            Length of Hello = 5<br>
+            Length of Hello World = 11
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            strlen doesn't count '\0' while calculating length of string.
+                        </div>
+            </div>
+            </div>
+            <p><strong>strcpy(s1, s2)</strong> copies the second string s2 to the first string s1.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">s2</span><span class="p">[</span> <span class="p">]</span><span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+                  <span class="kt">char</span> <span class="n">s1</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+                  <span class="n">strcpy</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Source string "</span> <span class="o">&lt;&lt;</span> <span class="n">s2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Target string "</span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            Source string Hello<br>
+            Target string Hello
+                        </div>
+            </div>
+            </div>
+            <p><strong>strcat(s1, s2)</strong> concatenates(joins) the second string s2 to the first string s1.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">s2</span><span class="p">[</span> <span class="p">]</span><span class="o">=</span> <span class="s">"World"</span><span class="p">;</span>
+                  <span class="kt">char</span> <span class="n">s1</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+                  <span class="n">strcat</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Source string "</span> <span class="o">&lt;&lt;</span> <span class="n">s2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Target string "</span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            Source string World<br>
+            Target string HelloWorld
+                        </div>
+            </div>
+            </div>
+            <p>Note that in the above example, we gave array size to s1 because we are adding the characters of another string to it. The array size given should be such that it is greater than or equal to the size of the string array after concatenation.</p>
+            <p><strong>strcmp(s1, s2)</strong> compares two strings and finds out whether they are same or different. It compares the two strings character by character till there is a mismatch. If the two strings are <strong>identical</strong>, it returns a <strong>0</strong>. If not, then it returns the difference between the ASCII values of the first non-matching pairs of characters.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">char</span> <span class="n">s1</span><span class="p">[</span> <span class="p">]</span><span class="o">=</span> <span class="s">"Hello"</span><span class="p">;</span>
+                  <span class="kt">char</span> <span class="n">s2</span><span class="p">[</span> <span class="p">]</span><span class="o">=</span> <span class="s">"World"</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">;</span>
+                  <span class="n">i</span> <span class="o">=</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="s">"Hello"</span><span class="p">);</span>
+                  <span class="n">j</span> <span class="o">=</span> <span class="n">strcmp</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">);</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ten" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ten">
+            <div class="code_out code_outone well">
+            0<br>
+            -15
+                        </div>
+            </div>
+            </div>
+            <h2>2 D Array of Characters</h2>
+            <hr>
+            <p>Same as 2 D array of integers and other data types, we have 2 D array of characters also.</p>
+            <p>For example, we can write</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            char names[4][10] = { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Andrew",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Kary",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Brown",<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Lawren" <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};
+                </p>
+            </div>
+            <p>
+            Since string is used extensively, C++ provides a built-in string data type which you will learn in the next chapter.
+            </p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Without practice, your knowledge is poison.<br><span style="float:right;">-Chanakya</span></p>
+            </div>
+            <div>
+            <a href="stdArray.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="stdString.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

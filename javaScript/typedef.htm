@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            typedef
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">typedef in C++</h1><hr>
+        <div id="content">
+            <p><strong>typedef</strong> keyword is used to assign a new name to any existing data-type.</p>
+            <p>For example, if we want to declare some variables of type <strong>unsigned int</strong>, we have to write <i>unsigned int</i> in a program and it can be quite hectic for some of us. So, we can assign a new name of our choice for <i>unsigned int</i> using <b>typedef</b> which can be used anytime we want to use unsigned int in a program.</p>
+            <p>Following is the syntax of typedef</p>
+            <p><strong><span style="color:blue;">typedef</span> current_name new_name<span style="color:brown;">;</span></strong></p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="4344"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Now, suppose we want to declare two variables of type <strong>unsigned int</strong>. Instead of writing unsigned int again and again, let's use a new name <strong>uint</strong> in its place using typedef as follows:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            typedef unsigned int uint;<br>
+            uint i, j;
+                </p>
+            </div>
+            <p>Now, we can write <b>uint</b> in the whole program instead of <b>unsigned int</b>. The above code is the same as writing:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            unsigned int i, j;
+                </p>
+            </div>
+            <p>Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+             <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="k">typedef</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">ui</span><span class="p">;</span>
+                <span class="n">ui</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"i = "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"j = "</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            i = 5<br>
+            j = 8
+                        </div>
+            </div>
+            </div>
+            <p>Thus, we can assign a new name to any data type.</p>
+            <p>Similarly ,we can also use typedef to assign a new name to structure which is a user-defined datatype as follows:</p>
+            <p><strong>
+            <span style="color:blue;">typedef</span> <span style="color:brown;">struct</span> structure_name<br>
+            <span style="color:blue;">{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-1;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-2;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-3;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-4;<br>
+            <span style="color:blue;">}</span>type_name;
+            </strong></p>
+            <p>Now, while declaring variables of this structure type, we can write <strong>type_name</strong> in place of <strong>struct structure_name</strong> in the whole program.</p>
+            <p>Let's take the example of the structure named student which we saw in the Structure topic.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">typedef</span> <span class="k">struct</span> <span class="n">student</span>
+            <span class="p">{</span>
+                  <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                  <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">30</span><span class="p">];</span>
+                  <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+            <span class="p">}</span><span class="n">st</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">st</span> <span class="n">p1</span><span class="p">,</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">;</span>
+                <span class="n">p1</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="n">strcpy</span><span class="p">(</span><span class="n">p1</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="s">"Brown"</span><span class="p">);</span>
+                  <span class="n">p1</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">123443</span><span class="p">;</span>
+                  <span class="n">p2</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+                  <span class="n">strcpy</span><span class="p">(</span><span class="n">p2</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="s">"Sam"</span><span class="p">);</span>
+                  <span class="n">p2</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">1234567822</span><span class="p">;</span>
+                  <span class="n">p3</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+                  <span class="n">strcpy</span><span class="p">(</span><span class="n">p3</span><span class="p">.</span><span class="n">name</span><span class="p">,</span><span class="s">"Addy"</span><span class="p">);</span>
+                  <span class="n">p3</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">1234567844</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"First Student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Second Student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Third Student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p3</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p3</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p3</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            First Student<br>
+            roll no : 1<br>
+            name : Brown<br>
+            phone no : 123443<br>
+            Second Student<br>
+            roll no : 2<br>
+            name : Sam<br>
+            phone no : 1234567822<br>
+            Third Student<br>
+            roll no : 3<br>
+            name : Addy<br>
+            phone no : 1234567844
+                        </div>
+            </div>
+            </div>
+            <p>Here, the whole example is the same as we did in Structure, the only difference is that we wrote <strong>st</strong> in place of <strong>struct student i.e. we used the new type (named st) to declare the variables of this structure type (named student)</strong>.</p>
+            <p>We can also use typedef with unions. For this, everything will be same as that of the structure with the keyword <strong>union</strong> in the place of <strong>struct</strong>.</p>
+            <div>
+            <a href="union.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="storageClass.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+
+    </body></html>

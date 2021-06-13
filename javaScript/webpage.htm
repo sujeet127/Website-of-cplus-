@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+    <head>
+        <title>c++ introduction</title>
+        <link rel="icon" href="images\c++1.png">
+        <style>
+            img{ float: right;
+                height: 30px;
+                width: 30px;
+            }
+            .tablink{ background:rgb(92, 238, 92);
+                        border-bottom: 3px solid rgb(235, 39, 39);
+                        
+                        border-radius: 5px;
+                        transition: width 2s, height 4s;
+                        text-align: center;
+                        color: black;
+                        font-size: 16px;
+                           float:left;                     
+                        animation-name: example;
+                        animation-duration: 4s;
+ }
+            .tablink {
+  -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.4));
+}
+          
+            .tablink:hover{width: 100px;}
+            @keyframes example{
+                from{background-color:red;}
+                to{background-color:rgb(250, 23, 220);}
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            
+            <button onclick="about()" class='tablink' >About</button>
+        
+            <button onclick="discussion()" class='tablink'>Discussion</button>
+            
+            
+
+        </div>
+        <div>
+            
+
+            
+<a href="https://www.facebook.com/" target="center" ><img src="images/facebook.png" alt="facebook"></a>
+<a href="https://www.instagram.com/"  target="center"><img src="images/instagram.jfif" alt="instagram"></a>
+<a href="https://twitter.com/login?lang=en-gb" target="center" ><img src="images/twitter.png" alt="twitter"></a>
+<a href="https://in.pinterest.com/login/" target="center"><img src="images/pinterest.png" alt="pinterest"></a>
+
+        </div>
+        <script>
+           function about() {
+            window.open("about.htm");
+
+           }
+           function discussion()
+           {
+               window.open("discussion.htm ");
+           }
+           
+           
+
+        </script>
+    </body>
+</html>

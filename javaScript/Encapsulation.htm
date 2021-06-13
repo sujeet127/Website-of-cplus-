@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Encapsulation
+            
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Encapsulation in C++</h1><hr>
+        <div id="content">
+            <p><strong>Encapsulation</strong> is nothing new to what we have read. It is the method of combining the data and functions inside a class. Thus the data gets hidden from being accessed directly from outside the class. This is similar to a capsule where several medicines are kept inside the capsule thus hiding them from being directly consumed from outside. All the members of a class are <strong>private</strong> by default, thus preventing them from being accessed from outside the class.</p>
+            <h2>Why Encapsulation</h2>
+            <hr>
+            <p>Encapsulation is necessary to keep the details about an object hidden from the users of that object. Details of an object are stored in its data members (member bables). This is the reason we make all the member variables of a class private and most of the member functions public. Member variables are made private so that these cannot be directly accessed from outside the class (to hide the details of any object of that class like how the data about the object is implemented) and so most member functions are made public to allow the users to access the data members through those functions.</p>
+            <p>For example, we operate a washing machine through its power button. We switch on the power button, the machine starts and when we switch it off, the machine stops. We don't know what mechanism is going on inside it. That is encapsulation.</p>
+            <h2>Benefits of Encapsulation</h2>
+            <hr>
+            <p>There are various benefits of <strong>encapsulated classes</strong>.</p>
+            <ul>
+            <li><strong>Encapsulated classes reduce complexity.</strong></li>
+            <li><strong>Help protect our data.</strong> A client cannot change an Account's balance if we encapsulate it.</li>
+            <li><strong>Encapsulated classes are easier to change.</strong> We can change the privacy of the data according to the requirement without changing the whole program by using access modifiers (public, private, protected). For example, if a data member is declared private and we wish to make it directly accessible from anywhere outside the class, we just need to replace the specifier private by public.</li>
+            </ul>
+            <p>Let's see an example of Encapsulation.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">setDimension</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">setDimension</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            28
+                        </div>
+            </div>
+            </div>
+            <p>The member variables length and breadth are encapsulated inside the class Rectangle. Since we declared these private, so these variables cannot be accessed directly from outside the class. Therefore , we used the functions 'setDimension' and 'getArea' to access them.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">You know what you are but you don't know what you may be.</p>
+            </div>
+            <div>
+            <a href="virtualAndAbstract.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="friendClassAndFunctiion.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

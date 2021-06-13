@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+           Dyanamic Memory
+           
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Dynamic Memory in C++</h1><hr>
+        <div id="content">
+            <p>Suppose you want to put a toy in a box, but you only have an approximate idea of its size. For that, you would require a box whose size is equal to the approximate size of the toy.</p>
+            <p>We face a similar situation in C++ also when we want to input a sentence as an array of characters but are not sure about the number of characters in the array.</p>
+            <p>Now, while declaring the character array, if we specify its size smaller than the size of the input string, then we will get an error because the space in the memory allocated to the array is lesser than the size of the input string. This is the same case as trying to fit a big toy in a smaller box. If we specify its size much larger than the size of the input string, then the array will be allocated a space in the memory which is much larger than the size of the input string, thus unnecessarily consuming more memory even when it is not required. This is like putting a small toy in a large box.</p>
+            <p>In the above case, we don't have the idea about the size of the array until the compile time (when computer compiles the code and the string is input by the user). In such cases, we use the <strong>new</strong>  operator.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="3495" __idm_id__="89786369"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>But before going to the new operator, let's have a look at the two parts in which our memory is divided. These parts are as follows:</p>
+            <ul>
+            <li><strong style="color:brown;">stack - </strong>Memory from the stack is used by all the members which are declared inside functions. Note that main is also a function.</li>
+            <li><strong style="color:brown;">heap - </strong>This memory is unused and can be used to dynamically allocate the memory at runtime.</li>
+            </ul>
+            <h2>new</h2>
+            <hr>
+            <p>The <strong>new</strong> operator is used to <strong>allocate memory at runtime</strong>. The memory is allocated in bytes.</p>
+            <p>Let's first see how to allocate a variable dynamically.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    int *ptr = new int;
+                </p>
+            </div>
+            <p>By writing <strong>new int</strong>, we allocated the space in memory required by an integer. Then we assigned the address of that memory to an integer pointer <strong>ptr</strong>.</p>
+            <p>We assign value to that memory as follows:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    *ptr = 4;
+                </p>
+            </div>
+            <p>Thus, we allocated that much space in memory that would be required by an int and then assigned the address of that memory to a pointer <strong>ptr</strong> and assigned the memory a value <strong>4</strong>.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            When we dynamically allocate some memory to a variable, we actually use the heap memory.
+                        </div>
+            </div>
+            </div>
+            <p>We can initialize a variable while dynamical allocation in the following two ways.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    int *ptr = new int (4);
+                </p>
+            </div>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    int *ptr = new int {4};
+                </p>
+            </div>
+            <p>Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">;</span>
+                <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            4
+                        </div>
+            </div>
+            </div>
+            <p>We just combined all the above steps in this example.</p>
+            <p>So, we have just seen how to dynamically allocate a variable. Now let's allocate arrays dynamically.</p>
+            <h3>Dynamically Allocating Arrays</h3><hr>
+            <p>The main use of the concept of dynamic memory allocation is for allocating arrays when we have to declare an array by specifying its size but are not sure about the size.</p>
+            <p>Consider a situation when we want the user to enter the name but are not sure about the number of characters in the name that the user will enter. In that case, we will declare an array of characters for the name with some array size such that the array size should be sufficient enough to hold any name entered. Suppose we declared the array with the array size 30 as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    char name[30];
+                </p>
+            </div>
+            <p>And if the user enters the name having only 12 characters, then the rest of the memory space which was allocated to the array at the time of its declaration would become waste, thus unnecessary consuming the memory.</p>
+            <p>In this case, we will be using the <strong>new</strong> operator to dynamically allocate the memory at runtime. We use the new operator as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    char *arr = new char[length];
+                </p>
+            </div>
+            <p>Let's see an example to understand its use.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the number of students in the group"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="o">*</span><span class="n">marks</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">length</span><span class="p">];</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the marks of the students"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>            <span class="c1">// entering marks of students</span>
+                <span class="p">{</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="o">*</span><span class="p">(</span><span class="n">marks</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>            <span class="c1">// calculating sum</span>
+                <span class="p">{</span>
+                    <span class="n">sum</span> <span class="o">+=</span> <span class="o">*</span><span class="p">(</span><span class="n">marks</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sum is "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Enter the number of students in the group<br>
+            <span style="color:#ce9d9d">4</span><br>
+            Enter the marks of the students<br>
+            <span style="color:#ce9d9d">65</span><br>
+            <span style="color:#ce9d9d">47</span><br>
+            <span style="color:#ce9d9d">74</span><br>
+            <span style="color:#ce9d9d">45</span><br>
+            sum is 231
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we are calculating the sum of the marks of all the students of a group. Since different groups have a different number of students, therefore we are asking the number of students ( i.e.the size of the array ) every time we are running the program. In this example, the user entered the size as 4.<br>
+            <strong>int *marks = new int[length]; - </strong>We declared an array of integer and allocated it some space in memory dynamically equal to the size which would be occupied by <strong>length</strong> number of <strong>integers</strong>. Thus it is allocated a space equal to <strong>'length * (size of 1 integer)'</strong> and assigned the address of the assigned memory to the pointer <strong>marks</strong>. The rest of the steps must be clear to you.</p>
+            <p>We call this array <strong>dynamic</strong> because it is being assigned memory when the program runs. We made this possible by using the new operator. This dynamic array is being allocated memory from heap unlike other fixed arrays which are provided memory from stack. We can give any size to these dynamic arrays and there is no limitation to it.</p>
+            <p>Now what if the variable to which we dynamically allocated some memory is not required anymore?</p>
+            <p>In that case, we use the <strong>delete</strong> operator.</p>
+            <h2>delete</h2>
+            <hr>
+            <p>Suppose we allocated some memory to a variable dynamically and then we realize that the variable is not needed anymore in the program. In that case, we need to free the memory which we had assigned to that variable. For that, we use the <strong>delete</strong> operator.</p>
+            <p>It is advised to free the dynamically allocated memory after the program finishes so that it becomes available for future use.</p>
+            <p>To delete the memory assigned to a variable, we simply need to write the following code.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    delete ptr;
+                </p>
+            </div>
+            <strong>Here ptr is the pointer to the dynamically allocated variable.</strong>
+            <p>There is nothing much to understand in this. The delete operator simply returns the memory allocated back to the operating system so that it can be used again. Let's look at an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">;</span>
+                <span class="o">*</span><span class="n">ptr</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">ptr</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">delete</span> <span class="n">ptr</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            4
+                        </div>
+            </div>
+            </div>
+            <p>After printing the value 4, we deleted the pointer i.e. deleted the address of the allocated memory thus freeing it.</p>
+            <p>Once deleted, a pointer will point to deallocated memory and will be called a <strong>dangling pointer</strong>. If we further try to delete a dangling pointer, we will get some undefined behavior.</p>
+            <h3>Deleting Array</h3><hr>
+            <p>To delete an array which has been allocated in this way, we write the following code.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    delete[] ptr;
+                </p>
+            </div>
+            <p>Here ptr is a pointer to an array which has been dynamically allocated.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">,</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the number of students in the group"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="o">*</span><span class="n">marks</span> <span class="o">=</span> <span class="n">new</span> <span class="kt">int</span><span class="p">[</span><span class="n">length</span><span class="p">];</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the marks of the students"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>            <span class="c1">// entering marks of students</span>
+                <span class="p">{</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="o">*</span><span class="p">(</span><span class="n">marks</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>            <span class="c1">// calculating sum</span>
+                <span class="p">{</span>
+                    <span class="n">sum</span> <span class="o">+=</span> <span class="o">*</span><span class="p">(</span><span class="n">marks</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sum is "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">delete</span><span class="p">[]</span> <span class="n">marks</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Enter the number of students in the group<br>
+            4<br>
+            Enter the marks of the students<br>
+            65<br>
+            47<br>
+            74<br>
+            45<br>
+            sum is 231
+                        </div>
+            </div>
+            </div>
+            <p>We just wrote <strong>delete[ ] marks;</strong> at the end of the program to release the memory which was dynamically allocated using new.</p>
+            <h2>Dynamic Memory Allocation for Objects</h2>
+            <hr>
+            <p>We can also dynamically allocate objects.</p>
+            <p>As we know that <strong>Constructor</strong> is a member function of a class which is called whenever a new object is created of that class. It is used to initialize that object. <strong>Destructor</strong> is also a class member function which is called whenever the object goes out of scope.</p>
+            <p>Destructor is used to release the memory assigned to the object. It is called in these conditions.</p>
+            <ul>
+            <li>When a local object goes out of scope</li>
+            <li>For a global object, operator is applied to a pointer to the object of the class</li>
+            </ul>
+            <p>We again use pointers while dynamically allocating memory to objects.</p>
+            <p>Let's see an example of array of objects.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                 <span class="nl">public</span><span class="p">:</span>
+                       <span class="n">A</span><span class="p">()</span> <span class="p">{</span>
+                      <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                      <span class="p">}</span>
+                       <span class="o">~</span><span class="n">A</span><span class="p">()</span> <span class="p">{</span>
+                       <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Destructor"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">A</span><span class="o">*</span> <span class="n">a</span> <span class="o">=</span> <span class="n">new</span> <span class="n">A</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
+                <span class="n">delete</span> <span class="p">[]</span> <span class="n">a</span><span class="p">;</span> <span class="c1">// Delete array</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Constructor<br>
+            Constructor<br>
+            Constructor<br>
+            Constructor<br>
+            Destructor<br>
+            Destructor<br>
+            Destructor<br>
+            Destructor
+            
+                        </div>
+            </div>
+            </div>
+            <p class="quote">The Constructor will be called four times since we are allocating memory to four objects of the class 'A'. The Destructor will also be called four times during each of these objects.</p>
+            <div>
+            <a href="constKeyword.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="enum.htm"><span style="float:right;font-size:20px;color:black;">Next</span></a>
+            </div>
+            </div>
+    </body></html>

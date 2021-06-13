@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            file i/o
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">File i/o in C++</h1><hr>
+        <div id="content">
+            <p>When a program runs, the data is in the memory but when it ends or the computer shuts down, it gets lost. To keep data permanently, we need to write it in a file.</p>
+            <p>File is used to store data. In this topic, you will learn about reading data from a file and writing data to the file.</p>
+            <p><b>fstream</b> is another C++ standard library like iostream and is used to read and write on files.</p>
+            <p>These are the data types used for file handling from the <b>fstream</b> library:</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="3086" __idm_id__="101155841"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <table class="table-default" style="margin-bottom:20px;">
+            <tbody><tr>
+            <th>Data type</th>
+            <th>Description</th>
+            </tr>
+            <tr>
+            <td>ofstream</td>
+            <td>It is used to create files and write on files.</td>
+            </tr>
+            <tr>
+            <td>ifstream</td>
+            <td>It is used to read from files.</td>
+            </tr>
+            <tr>
+            <td>fstream</td>
+            <td>It can perform the function of both ofstream and ifstream which means it can create files, write on files, and read from files.</td>
+            </tr>
+            </tbody></table>
+            <h3>Opening a file</h3><hr>
+            <p>We need to tell the computer the purpose of opening our file. For e.g.- to write on the file, to read from the file, etc. These are the different modes in which we can open a file.</p>
+            <table class="table-default" style="margin-bottom:20px;">
+            <tbody><tr>
+            <th>Mode</th>
+            <th>Description</th>
+            </tr>
+            <tr>
+            <td>ios::app</td>
+            <td>opens a text file for appending. (appending means to add text at the end).</td>
+            </tr>
+            <tr>
+            <td>ios::ate</td>
+            <td>opens a file for output and move the read/write control to the end of the file.</td>
+            </tr>
+            <tr>
+            <td>ios::in</td>
+            <td>opens a text file for reading.</td>
+            </tr><tr>
+            <td>ios::out</td>
+            <td>opens a text file for writing.</td>
+            </tr><tr>
+            <td>ios::trunc</td>
+            <td>truncates the content before opening a file, if file exists.</td>
+            </tr>
+            </tbody></table>
+            <p>
+            Let's look at the syntax of opening a file.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+              <span class="n">ofstream</span> <span class="n">file</span><span class="p">;</span>
+              <span class="n">file</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="s">"example.txt"</span><span class="p">);</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <p>
+            We have opened the file 'example.txt' to write on it. 'example.txt' file must be created in your working directory. We can also open the file for both reading and writing purposes. Let's see how to do this:
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+              <span class="n">fstream</span> <span class="n">file</span><span class="p">;</span>
+              <span class="n">file</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="s">"example.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="p">);</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <h3>Closing a file</h3><hr>
+            <p>
+            C++ automatically close and release all the allocated memory. But a programmer should always close all the opened files. Let's see how to close it.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+              <span class="n">ofstream</span> <span class="n">file</span><span class="p">;</span>
+              <span class="n">file</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="s">"example.txt"</span><span class="p">);</span>
+              <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <h3>Reading and writing on a file</h3><hr>
+            <p>
+            We use <b>&lt;&lt;</b> and <b>&gt;&gt;</b> to write and read from a file respectively. Let's see an example.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+              <span class="kt">char</span> <span class="n">text</span><span class="p">[</span><span class="mi">200</span><span class="p">];</span>
+            
+              <span class="n">fstream</span> <span class="n">file</span><span class="p">;</span>
+              <span class="n">file</span><span class="p">.</span><span class="n">open</span> <span class="p">(</span><span class="s">"example.txt"</span><span class="p">,</span> <span class="n">ios</span><span class="o">::</span><span class="n">out</span> <span class="o">|</span> <span class="n">ios</span><span class="o">::</span><span class="n">in</span> <span class="p">);</span>
+            
+              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Write text to be written on file."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+              <span class="n">cin</span><span class="p">.</span><span class="n">getline</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">text</span><span class="p">));</span>
+            
+              <span class="c1">// Writing on file</span>
+              <span class="n">file</span> <span class="o">&lt;&lt;</span> <span class="n">text</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+              <span class="c1">// Reding from file</span>
+              <span class="n">file</span> <span class="o">&gt;&gt;</span> <span class="n">text</span><span class="p">;</span>
+              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">text</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+              <span class="c1">//closing the file</span>
+              <span class="n">file</span><span class="p">.</span><span class="n">close</span><span class="p">();</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <div>
+            <a href="friendClassAndFunctiion.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="template.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

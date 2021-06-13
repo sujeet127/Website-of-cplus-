@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Storage Classes
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Storage Classes in C++</h1><hr>
+        <div id="content">
+            <p>Each variable has a storage class which defines the features of that variable. It tells the compiler about where to store the variable, its initial value, scope ( visibility level ) and lifetime ( global or local ).</p>
+            <p>There are four storage classes in C++.</p>
+            <ul style="color:brown;">
+            <li>auto</li>
+            <li>extern</li>
+            <li>static</li>
+            <li>register</li>
+            <li>mutable</li>
+            </ul>
+            <p>Let's understand each of these one by one.</p>
+            <h2>auto</h2>
+            <hr>
+            <p>Variables which are defined within a function or a block ( block is a section of code which is grouped together. eg. statements written within curly braces constitute a block of code ) by default belong to the auto storage class. These variables are also called <strong>local variables</strong> because these are local to the function in which these are defined. Since these variables are declared inside a function, therefore these can only be accessed inside that function. There is no need to put 'auto' while declaring these variables because these are by default auto.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="4414" __idm_id__="1000806401"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Though you have been using these auto(local) variables in your entire C++ tutorial, let's see one example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span><span class="kt">int</span> <span class="n">n1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">n2</span><span class="p">){</span>
+                 <span class="k">auto</span> <span class="kt">int</span> <span class="n">s</span><span class="p">;</span>        <span class="c1">//declaration of auto(local) variable</span>
+                 <span class="n">s</span> <span class="o">=</span> <span class="n">n1</span><span class="o">+</span><span class="n">n2</span><span class="p">;</span>
+                 <span class="k">return</span> <span class="n">s</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+                  <span class="n">k</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">);</span>
+                  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sum is "</span> <span class="o">&lt;&lt;</span> <span class="n">k</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            sum is 5
+                        </div>
+            </div>
+            </div>
+            <p>Here, the variable 's' is declared inside the function 'sum' and thus can be used only inside the function. There was no need to put 'auto' while declaring it.</p>
+            <h2>extern</h2>
+            <hr>
+            <p>We write <strong>extern</strong> keyword before a variable to tell the compiler that this variable is declared somewhere else. Basically, by writing extern keyword before any variable tells us that this variable is a global variable declared in some other program file.</p>
+            <p>Now let's see what actually happens.</p>
+            <p>You must be knowing what a global variable is. A global variable is a variable which is declared outside of all the functions. It can be accessed throughout the program and we can change its value anytime within any function as follows.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            <span class="kt">int</span> <span class="n">g</span><span class="p">;</span>
+            <span class="kt">void</span> <span class="nf">print</span><span class="p">(){</span>
+                 <span class="n">g</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+                 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"g is "</span> <span class="o">&lt;&lt;</span> <span class="n">g</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">g</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"g is "</span> <span class="o">&lt;&lt;</span> <span class="n">g</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">print</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            g is 7<br>
+            g is 10
+                        </div>
+            </div>
+            </div>
+            <p>Here, <strong>g</strong> is the global variable defined outside of all the functions. In the main function, its value was assigned as 7 and in the print function as 10.</p>
+            <p>While declaring a global variable, some space in memory gets allocated to it like all other variables. We can assign a value to it in the same program file in which it is declared as we did in the above example. But what if we want to use it or assign it a value in any other program file.</p>
+            <p>We can do so by using the <strong>extern</strong> keyword as shown below.</p>
+            <p><strong>firstfile.cpp</strong></p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    int g = 0;
+                </p>
+            </div>
+            <p>In the first program file <strong>firstfile.cpp</strong>, we declared a global variable <strong>g</strong>.</p>
+            <p>Now, we will declare this variable 'g' as extern in a header file <strong>firstfile.h</strong> and then include it in a second file in which we want to use this variable.</p>
+            <p><strong>firstfile.h</strong></p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    extern int g;
+                </p>
+            </div>
+            <p>Now in the second program file <strong>secondfile.cpp</strong>, in order to use the global variable 'g', we need to include the header file in it by writing <strong>#include "firstfile.h"</strong>. Here we assigned a value 4 to the variable 'g' and thus the value of 'g' in this program becomes 4.</p>
+            <p><strong>secondfile.cpp</strong></p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            #include &lt;iostream&gt;<br>
+            #include "firstfile.h"<br>
+            int main(){<br>
+              g = 4;<br>
+              std::cout &lt;&lt; g &lt;&lt; std::endl;<br>
+              return 0;<br>
+            }
+                </p>
+            </div>
+            <h2>static</h2>
+            <p>A variable declared as static once initialized, exists until the end of the program. If a static variable is declared inside a function, it remains into existence until the end of the program and not get destroyed as the function exists (as in auto). If a static variable is declared outside all the functions in a program, it can be used only in the program in which it is declared and is not visible to other program files(as in extern).</p>
+            <p>Let's see an example of a static variable.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            <span class="k">static</span> <span class="kt">int</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+            <span class="kt">void</span> <span class="nf">fn</span><span class="p">(){</span>
+                 <span class="k">static</span> <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"g = </span><span class="se">\t</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">g</span><span class="o">--</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                 <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"i = </span><span class="se">\t</span><span class="s">"</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="o">++</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="k">while</span><span class="p">(</span><span class="n">g</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">fn</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            g = 	5<br>
+            i = 	0<br>
+            g = 	4<br>
+            i = 	1<br>
+            g = 	3<br>
+            i = 	2<br>
+            g = 	2<br>
+            i = 	3
+                        </div>
+            </div>
+            </div>
+            <p>Here, <strong>g</strong> and <strong>i</strong> are the static variables in which 'g' is a global variable and 'i' is a local variable. If we had not written <strong>static</strong> before the declaration of 'i', then every time the function 'fn()' would have been called, 'i' would have been declared every time with an initial value of 0 and as the function 'fn()' would exit, it would also have got destroyed.</p>
+            <h2>register</h2>
+            <hr>
+            <p>It tells the compiler that the <strong>variable will get stored in a register instead of memory (RAM)</strong>. We can access a register variable faster than a normal variable. Not all the registers defined as <strong>register</strong> will get stored in a register since it depends on various restrictions of implementation and hardware.</p>
+            <p>It is declared as follows where n is the name of an int variable:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    register int roll;
+                </p>
+            </div>
+            <h2>mutable</h2>
+            <hr>
+            <p>We can make a class object in C++ constant using keyword <strong>const</strong>. By making the object constant, the data members of the class object cannot be modified during program execution. But sometimes we need to change some data members of a constant object. In that case, we can make the data member of a constant class object <strong>mutual</strong> so that we can change it.</p>
+            <p>Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">square</span>
+            <span class="p">{</span>
+                <span class="n">mutable</span> <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">b</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">square</span><span class="p">(</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">a</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
+                        <span class="n">b</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="n">val</span><span class="p">()</span> <span class="k">const</span>
+                    <span class="p">{</span>
+                        <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="n">a</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="n">display</span><span class="p">()</span> <span class="k">const</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a : "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"b : "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">const</span> <span class="n">square</span> <span class="n">s</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span> <span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Values of a and b"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">val</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"New values of a and b"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">display</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Values of a and b<br>
+            a : 4<br>
+            b : 7<br>
+            New values of a and b<br>
+            a : 16<br>
+            b : 7
+            
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, we made the data member <strong>a</strong> of the class test <strong>mutable</strong>. A constant object <strong>s</strong> was created of the class test and the data members 'a' and 'b' were initialized to 4 and 7 respectively. The value of 'a' can be changed since we declared it mutable but the value of 'b' will remain 7 throughout the program.<br>
+            We first displayed the initial values of 'a' and 'b' which are 4 and 7 respectively by calling the function <strong>display()</strong>.<br>
+            Then we called the function <strong>val()</strong> which squared the value of 'a' and assigned the result to 'a', thus making the value of 'a' 16.<br>
+            Finally, we printed the final values of 'a' and 'b' which are 16 and 7 respectively by calling the function display().</p>
+            <p>Thus, data members declared as mutable can be modified even though they are the part of the object declared as const.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            You cannot use the mutable specifier with names declared as static or const, or reference members.
+                        </div>
+            </div>
+            </div>
+            <div>
+            <a href="typedef.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            </div>
+            </div>
+    </body></html>

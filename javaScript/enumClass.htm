@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Enum Class
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Enum Class in C++</h1><hr>
+        <div id="content">
+            <p>Sometimes, we get some result with enum which is not desirable. For example, look at the following case.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">Season</span>
+            <span class="p">{</span>
+                <span class="n">Summer</span><span class="p">,</span>
+                <span class="n">Spring</span><span class="p">,</span>
+                <span class="n">Winter</span><span class="p">,</span>
+                <span class="n">Autumn</span>
+            <span class="p">};</span>
+            <span class="k">enum</span> <span class="n">Color</span><span class="p">{</span>
+                <span class="n">Blue</span><span class="p">,</span>
+                <span class="n">Pink</span><span class="p">,</span>
+                <span class="n">Green</span>
+            <span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Season</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Summer</span><span class="p">;</span>
+                <span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Blue</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span> <span class="n">s</span> <span class="o">==</span> <span class="n">c</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Equal"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Not Equal"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Equal
+                        </div>
+            </div>
+            </div>
+            <p>Here, we want to check whether Summer is equal to Blue which is obviously not true since one of these is Season and the other a color. In the above example, we got the output true because Summer and Blue got converted into integers and then those integers got compared.<br>
+            The values of both Summer and Blue is 0 and thus the values of <strong>s</strong> and <strong>c</strong> became <strong>0</strong>. So, the condition <strong>( s == c )</strong>  became true and 'Equal' got printed on the screen. This is not the desired output because we cannot compare a season and a color. Since season and color belong to different enumerations, therefore these should not be compared.</p>
+            <p>Here comes in <strong>enum class</strong> which limits the scope of the enumerators within their enums. So, now any enumerator will be known by its enum thus limiting its scope within the enum to which it belongs. This is the reason enum class is also called <strong>scoped enumeration</strong>.</p>
+            <p>We will understand with the help of an example. But before that, let's first see how to make an enum class.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="3829" __idm_id__="635636737"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>To make an enum class, we simply have to add the keyword <strong>class</strong> after the keyword enum.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            enum class Season<br>
+            { <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Summer, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Spring, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Winter, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Autumn<br>
+            };
+                </p>
+            </div>
+            <p>We made our enum Season an enum class by adding the keyword class after the keyword enum. Now let's see how to access any element (enumerator) of this enum class.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            Season::Summer
+                </p>
+            </div>
+            <p>The <strong>::</strong> symbol simply means <strong>belong to</strong>. Here, Summer belongs to the enum class Season and thus cannot be directly accessed anywhere.</p>
+            <p>Look at the following example to understand this.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">class</span> <span class="n">Season</span>
+            <span class="p">{</span>
+                <span class="n">Summer</span><span class="p">,</span>
+                <span class="n">Spring</span><span class="p">,</span>
+                <span class="n">Winter</span><span class="p">,</span>
+                <span class="n">Autumn</span>
+            <span class="p">};</span>
+            <span class="k">enum</span> <span class="n">class</span> <span class="n">Color</span><span class="p">{</span>
+                <span class="n">Blue</span><span class="p">,</span>
+                <span class="n">Pink</span><span class="p">,</span>
+                <span class="n">Green</span>
+            <span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Season</span> <span class="n">s</span> <span class="o">=</span> <span class="n">Season</span><span class="o">::</span><span class="n">Summer</span><span class="p">;</span>
+                <span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="o">::</span><span class="n">Blue</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span> <span class="n">s</span> <span class="o">==</span> <span class="n">c</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Equal"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Not Equal"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            prog.cpp:2:6: warning: scoped enumerations are a C++11 extension [-Wc++11-extensions]<br>
+            enum class Season<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^<br>
+            prog.cpp:9:6: warning: scoped enumerations are a C++11 extension [-Wc++11-extensions]<br>
+            enum class Color{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^<br>
+            prog.cpp:16:16: warning: use of enumeration in a nested name specifier is a C++11 extension [-Wc++11-extensions]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Season s = Season::Summer;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^<br>
+            prog.cpp:17:15: warning: use of enumeration in a nested name specifier is a C++11 extension [-Wc++11-extensions]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Color c = Color::Blue;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;^<br>
+            prog.cpp:18:11: warning: comparison of two values with different enumeration types ('Season' and 'Color') [-Wenum-compare]<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if( s == c )<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~ ^&nbsp;&nbsp;~<br>
+            prog.cpp:18:11: error: invalid operands to binary expression ('Season' and 'Color')<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if( s == c )<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~ ^&nbsp;&nbsp;~<br>
+            5 warnings and 1 error generated.<br>
+            </div>
+            </div>
+            </div>
+            <p>In this example, we cannot directly access the enumerators ( i.e. we cannot directly access it by writing Summer or Blue as we did in the first example ). We have to write the enum class name followed by :: before the enumerator name while accessing it because now the enumerator will be known by its enum class.<br>
+            As in the above example, we accessed the Summer enumerator as <strong>Season::Summer</strong> thus telling the compiler that we are accessing Summer which is a Season. Similarly, by writing <strong>Color::Blue</strong>, we are telling the compiler that we are accessing Blue which is a Color. When we wrote the condition <strong>( s == c )</strong>, we are comparing a Season and a Color thus getting an error.</p>
+            <p>We can compare the enumerators which belong to the same enum class.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">class</span> <span class="n">Color</span><span class="p">{</span>
+                <span class="n">Blue</span><span class="p">,</span>
+                <span class="n">Pink</span><span class="p">,</span>
+                <span class="n">Green</span>
+            <span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Color</span> <span class="n">c</span> <span class="o">=</span> <span class="n">Color</span><span class="o">::</span><span class="n">Blue</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span> <span class="n">c</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">Blue</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Your color is Blue"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span> <span class="n">c</span> <span class="o">==</span> <span class="n">Color</span><span class="o">::</span><span class="n">Pink</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Your color is Pink"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Your color is Green"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Your color is Blue
+                        </div>
+            </div>
+            </div>
+            <p class="quote">In this example, we compared the enumerators within the enum class Color. Note that enumerators are not converted to integers in the case of enum class. By writing <strong>Color c = Color::Blue;</strong>, we are assigning the color Blue of enum class Color to the variable <strong>c</strong>. So the condition <strong>( c == Color::Blue )</strong> became true and "Your color is Blue" got printed. In this condition, we compared <strong>c</strong> and <strong>Color::Blue</strong>, both of which belong to the enum class Color.</p>
+            <div>
+            <a href="enum"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="union.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

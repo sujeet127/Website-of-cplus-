@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            multiple Inheritance
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Multiple Inheritance in C++</h1><hr>
+        <div id="content">
+            <p>Inheritance can be done in a number of ways. Till now, we have come across different types of inheritances in different examples.</p>
+            <p>The different types of inheritances which we have come across are:</p>
+            <p style="font-size:20px;color:brown;">Single Inheritance</p>
+            <img alt="single inheritance in C++" src="/staticroot/images/in4.png" style="max-width:30%;height:auto;">
+            <p>In single inheritance, a class inherits another class.</p><div id="pixfuture160" style="height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="2428"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p style="font-size:20px;color:brown;">Multilevel Inheritance</p>
+            <img alt="multiple inheritance in C++" src="/staticroot/images/in2.png" style="max-width:15%;height:auto;">
+            <p>In this type of inheritance, one class inherits from another class. This base class inherits from some other class.</p>
+            <p style="font-size:20px;color:brown;">Hierarchical Inheritance</p>
+            <img alt="hierarchial in C++" src="/staticroot/images/in1.png" style="max-width:30%;height:auto;">
+            <p>In hierarchical inheritance, more than one class inherit from a base class.</p>
+            <p style="font-size:20px;color:brown;">Multiple Inheritance</p>
+            <img alt="multiple in C++" src="/staticroot/images/in3.png" style="max-width:30%;height:auto;">
+            <p>In this chapter, we will be studying about multiple inheritance.</p>
+            <p>In multiple inheritance, a class can inherit from more than one classes. In simple words, a class can have more than one parent classes. This type of inheritance is not present in Java.</p>
+            <p>Suppose we have to make two classes <strong>A</strong> and <strong>B</strong> as the parent classes of class <strong>C</strong>, then we have to define class C as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    class C: public A, public B<br>
+                    {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// code<br>
+                    };
+                </p>
+            </div>
+            <p>Let's see an example of multiple inheritance</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Area</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">getArea</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">l</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">Perimeter</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">getPerimeter</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="n">b</span><span class="p">);</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Rectangle</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Area</span><span class="p">,</span> <span class="n">public</span> <span class="n">Perimeter</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Rectangle</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">area</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">Area</span><span class="o">::</span><span class="n">getArea</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">breadth</span><span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">perimeter</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">Perimeter</span><span class="o">::</span><span class="n">getPerimeter</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">breadth</span><span class="p">);</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">area</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Perimeter : "</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">perimeter</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Area : 28<br>
+            Perimeter : 22
+                        </div>
+            </div>
+            </div>
+            <p>In this example, class <strong>Rectangle</strong> has two parent classes <strong>Area</strong> and <strong>Perimeter</strong>. Class 'Area' has a function <strong>getArea(int l, int b)</strong> which returns area. Class 'Perimeter' has a function <strong>getPerimeter(int l, int b)</strong> which returns the perimeter.<br>
+            When we created the object 'rt' of class Rectangle, its constructor got called and assigned the values 7 and 4 to its data members length and breadth respectively. Then we called the function <strong>area()</strong> of the class Rectangle which returned getArea(length, breadth) of the class Area, thus calling the function getArea(int l, int b) and assigning the values 7 and 4 to l and b respectively. This function returned the area of the rectangle of length 7 and breadth 4.<br>
+            Similarly, we returned the perimeter of the rectangle by the class Perimeter.</p>
+            <p>Let's see one more example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">P1</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">P1</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of P1"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">P2</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">P2</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of P2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">A</span> <span class="p">:</span> <span class="n">public</span> <span class="n">P2</span><span class="p">,</span> <span class="n">public</span> <span class="n">P1</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor of A"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Constructor of P2<br>
+            Constructor of P1<br>
+            Constructor of A
+                        </div>
+            </div>
+            </div>
+            <p>Here, when we created the object 'a' of class 'A', its constructor got called. As seen before, the compiler first calls the constructor of the parent class. Since class 'A' has two parent classes 'P1' and 'P2', so the constructors of both these classes will be called before executing the body of the constructor of 'A'. The order in which the constructors of the two parent classes are called depends on the following code.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    class A : public P2, public P1
+                </p>
+            </div>
+            <p>The order in which the constructors are called depends on the order in which their respective classes are inherited. Since we wrote 'public P2' before 'public P1', therefore the constructor of P2 will be called before that of P1.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Words may lie but actions will always tell the truth.</p>
+            </div>
+            <div>
+            <a href="moreAboutFunction.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="virtualAndAbstract.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

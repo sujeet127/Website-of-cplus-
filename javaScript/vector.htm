@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Vector
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">std::vector in C++</h1><hr>
+        <div id="content">
+            <p>In the last chapter, you saw std::array. In this one, you will be exploring <strong>std::vector</strong>.</p>
+            <p>Consider a case where you want to store the marks of the students of a class. But you don't know the number of students in the class and have only an approximate idea about the number. You can declare an array by specifying some array length.</p>
+            <p>Now, if the length of the array which you have specified during its declaration is smaller than the number of students, then the marks of all the students could not be stored. Also, if we declare its length much larger than the number of students, then unnecessarily extra memory will be allocated to the array which is not required.</p>
+            <p>In such cases, we don't know about the array length untill compile time (when computer compiles the code). This is where we need <strong>std::vector</strong>.</p><div id="pixfuture160" style="height: 1px; width: 640px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="1611" __idm_id__="696012801"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <h2>What is std::vector?</h2><hr>
+            <p>Unlike std::array whose length is specified at the time of declaration and remains constant till compile time, we can change the length of std::vector dynamically as the program executes according to our requirement.</p>
+            <p><strong>Vectors</strong> are sequence containers which represent arrays which can change in size. Thus, we need not specify its length at the time of declaration and can change it later in the program.</p>
+            <p>Now let's look at how to use std::vector in place of arrays.</p>
+            <h2>Declaration of std::vector</h2><hr>
+            <p>The declaration syntax of std::vector is the same as that of std::array, with the difference that we don't need to specify the array length along with the data type as shown below.</p>
+            <p><strong><span style="color:blue;">std::vector&lt;</span><span style="color:brown;">datatype</span><span style="color:blue;">&gt;</span> array_name<span style="color:brown;">;</span></strong></p>
+            <p>For using std::vector, we need to include the <strong>&lt;vector&gt;</strong> header in our program.</p>
+            <p>Let's look at the declaration of a vector named <strong>marks</strong> of type int to store the marks of students.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::vector&lt;int&gt; marks;
+                </p>
+            </div>
+            <p>Now let's see how to initialize a vector.</p>
+            <h2>Initialization of std::vector</h2><hr>
+            <p>The initialization of an std::vector is also the same as that of std::array. We initialize an std::vector by either of the following ways.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::vector&lt;int&gt; marks = {50, 45, 47, 65, 80};
+                </p>
+            </div>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::vector&lt;int&gt; marks { {50, 45, 47, 65, 80} };
+                </p>
+            </div>
+            <p>We can also assign values to the vector after declaration as shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::vector&lt;int&gt; marks;<br>
+                marks = {50, 45, 47, 65, 80};
+                </p>
+            </div>
+            <p>In the above declarations, we stored the marks of 5 students in a vector named <strong>marks</strong>. Since we did not declare the array length, so the length of 'marks' became equal to the number of values it was initialized with. Now, we may change the number of students i.e. either store the marks of more students or remove the marks of some students.</p>
+            <h3>Length of std::vector</h3><hr>
+            <p>In std::vector also, the <strong>size()</strong> function returns the length (i.e. number of elements in the vector).</p>
+            <p>Let's see an example of std::vector.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">marks</span> <span class="o">=</span> <span class="p">{</span><span class="mi">50</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">80</span><span class="p">};</span>
+                <span class="n">marks</span> <span class="o">=</span> <span class="p">{</span><span class="mi">50</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">60</span><span class="p">};</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"length of array : "</span> <span class="o">&lt;&lt;</span> <span class="n">marks</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            length of array : 3
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we first initialized the vector <strong>marks</strong> with 5 elements, thus making its length 5. In the second statement, we reassigned <strong>marks</strong> with 3 values, thus making its length 3. After reassigning, the values of marks[0], marks[1] and marks[2] are 50, 47 and 60 respectively. Resizing is not possible in case of arrays.</p>
+            <h2>Passing std::vector to function</h2><hr>
+            <p>Let's look at an example of passing a vector to a function.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">printVector</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span>
+            <span class="p">{</span>
+            
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n["</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+            
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+            
+                <span class="n">printVector</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#onee" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="onee">
+            <div class="code_out code_outone well">
+            n[0] = 1<br>
+            n[1] = 2<br>
+            n[2] = 3<br>
+            n[3] = 4<br>
+            n[4] = 5
+            
+                        </div>
+            </div>
+            </div>
+            <p>
+            void printVector(const std::vector&lt;int&gt; &amp;n) - const is used here to prevent the compiler from making a copy of the vector and this enhances the performance.
+            The passed vector will be n in this function as &amp;n is the parameter of the function 'printArray'.<br>
+            </p>
+            <h2>Member Functions</h2><hr>
+            <p>std::vector also has a number of member functions which makes adding and deleting elements from the vector easier. Let's look at some of these.</p>
+            <h3>at</h3><hr>
+            <p><strong>at</strong> function is used to access the element at specified position (index). Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">marks</span> <span class="o">=</span> <span class="p">{</span><span class="mi">50</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">80</span><span class="p">};</span>
+                <span class="n">marks</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">74</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">marks</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"marks["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="n">marks</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            marks[0] = 50<br>
+            marks[1] = 45<br>
+            marks[2] = 74<br>
+            marks[3] = 65<br>
+            marks[4] = 80
+                        </div>
+            </div>
+            </div>
+            <p>In this example, <strong>marks.at(2) = 74</strong> assigned 74 to the third element (marks[2]) of the vector.</p>
+            <h3>front</h3><hr>
+            <p>The <strong>front</strong> function returns the first element of a vector.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">marks</span> <span class="o">=</span> <span class="p">{</span><span class="mi">50</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">80</span><span class="p">};</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">marks</span><span class="p">.</span><span class="n">front</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            50
+                        </div>
+            </div>
+            </div>
+            <h3>back</h3><hr>
+            <p><strong>back()</strong> function returns the last element of a vector.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">marks</span> <span class="o">=</span> <span class="p">{</span><span class="mi">50</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">80</span><span class="p">};</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">marks</span><span class="p">.</span><span class="n">back</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            80
+                        </div>
+            </div>
+            </div>
+            <h3>empty</h3><hr>
+            <p>It checks whether a vector contains any element or not. It returns <strong>1</strong> if the length of a vector is 0 and <strong>0</strong> if it contains some element.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v2</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            0<br>
+            1
+                        </div>
+            </div>
+            </div>
+            <h3>resize</h3><hr>
+            <p>It resizes a vector so that it contains the specified number of elements. Look at the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+                <span class="n">v1</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            5<br>
+            6<br>
+            0<br>
+            0<br>
+            0
+                        </div>
+            </div>
+            </div>
+            <p>In this example, when we initialized the vector <strong>v1</strong>, it contained 2 elements. Thus its <strong>length was 2</strong> with <strong>v1[0] = 5</strong> and <strong>v1[1] = 6</strong>.<br>
+            <strong>v1.resize(5)</strong> resized the vector so that it contains 5 elements. Since we did not assign any value to the rest of the elements of the vector, they got assigned a value 0. So, <strong>v1[2] = 0</strong>, <strong>v1[3] = 0</strong> and <strong>v1[4] = 0</strong>.</p>
+            <h3>max_size</h3><hr>
+            <p>It returns the maximum number of elements that the vector can hold. This is not the amount of storage space currently allocated to the vector, but the maximum size the vector could reach due to limitations in system implementations.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">max_size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            5<br>
+            1073741823
+                        </div>
+            </div>
+            </div>
+            <h3>assign</h3><hr>
+            <p>It assigns new contents to the vector and replaces its current contents. Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span><span class="p">;</span>
+                <span class="n">v</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">40</span><span class="p">);</span>  <span class="c1">// 7 elements each of value 40</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            7
+                        </div>
+            </div>
+            </div>
+            <p>By writing <strong>v.assign(7, 40)</strong>, the vector <strong>v</strong> contains 7 elements each having a value of 40.</p>
+            <p>We can also assign some or all the elements of an array to a vector using this function. Let's see how.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">};</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span><span class="p">;</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span><span class="p">;</span>
+                <span class="n">v1</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr</span><span class="o">+</span><span class="mi">5</span><span class="p">);</span>
+                <span class="n">v2</span><span class="p">.</span><span class="n">assign</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">arr</span><span class="o">+</span><span class="mi">2</span><span class="p">);</span>
+            
+                <span class="c1">//printing values of v1</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"elements of v1"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="c1">//printing values of v2</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"elements of v2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            elements of v1<br>
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+            7<br>
+            elements of v2<br>
+            1<br>
+            2
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we created an array <strong>arr</strong> and declared two vectors <strong>v1</strong> and <strong>v2</strong>.<br>
+            <strong style="color:brown;">v1.assign(arr, arr+5) - </strong>Here, <strong>arr</strong> is pointing to <strong>arr[0]</strong> and thus <strong>arr+5</strong> is pointing to <strong>arr[5]</strong>. This statement assigned the values of the elements of the array from arr[0] till arr[5](not including arr[5]) to the vector v1. So, now v1 contains 4 elements of values 1, 2, 3 and 4 respectively.<br>
+            <strong style="color:brown;">v2.assign(arr, arr+2) - </strong>Similarly, this statement assigned the values of the elements of the array from arr[0] till arr[2](excluding it).
+            </p>
+            <h3>push_back</h3><hr>
+            <p>This function adds a new element at the end of the vector (at the end of the last element of the vector), thus increasing the size of the vector by one.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+                <span class="n">v</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">47</span><span class="p">);</span>
+            
+                <span class="c1">//printing values of v</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"elements of v"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ten" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ten">
+            <div class="code_out code_outone well">
+            elements of v<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            47
+                        </div>
+            </div>
+            </div>
+            <p><strong>v.push_back(47)</strong> added an element having value 47 at the end of the vector. Thus, the length of the vector became 6 and the value of the new element v[5] became 47.</p>
+            <h3>pop_back</h3><hr>
+            <p>This function removes the last element in the vector, thus reducing the size of the vector by one.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+                <span class="n">v</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+            
+                <span class="c1">//printing values of v</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"elements of v"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eleven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eleven">
+            <div class="code_out code_outone well">
+            elements of v<br>
+            4<br>
+            5<br>
+            6<br>
+            7
+                        </div>
+            </div>
+            </div>
+            <p>Here we removed the last element of the vector. thus making the length of the vector 4.</p>
+            <h3>capacity</h3><hr>
+            <p>This function returns the storage space allocated for the vector. In other words, it returns the number of elements which can be stored in the storage space allocated for the vector.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                        Vector capacity is always greater than or equal to the vector size.
+                    </div>
+            </div>
+            </div>
+            <p>The vector capacity is slightly greater than the vector size because the storage space allocated to a vector is always greater than that occupied by the number of elements in it so that if we add another element in the vector, the extra storage space could adjust it.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">v1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size : "</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"max_size : "</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">max_size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"capacity : "</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#twelve" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="twelve">
+            <div class="code_out code_outone well">
+            size : 50<br>
+            max_size : 1073741823<br>
+            capacity : 64
+                        </div>
+            </div>
+            </div>
+            <h3>reserve</h3><hr>
+            <p>This function increases the capacity of the vector if the desired number of elements is greater than the capacity of the vector.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">50</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">v1</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="p">}</span>
+                <span class="n">v1</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"capacity : "</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">capacity</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#thirteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="thirteen">
+            <div class="code_out code_outone well">
+            capacity : 100
+                        </div>
+            </div>
+            </div>
+            <p>Here we want to store 100 elements in the vector and thus increased the capacity of the vector using the reserve() function.</p>
+            <h3>insert</h3><hr>
+            <p>It inserts a new element in a vector before the element at the specified position. Let's see an example to understand this.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;iterator&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">printVector</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span>
+            <span class="p">{</span>
+            
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Vector is :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span><span class="p">:</span> <span class="n">n</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">i</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span><span class="p">;</span>
+            
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v</span> <span class="o">=</span> <span class="p">{</span><span class="mi">111</span><span class="p">,</span><span class="mi">222</span><span class="p">};</span>
+                <span class="n">printVector</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            
+                <span class="k">auto</span> <span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+            
+                <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="mo">000</span><span class="p">);</span>
+                <span class="n">printVector</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            
+                <span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+                <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">333</span><span class="p">);</span>
+                <span class="n">printVector</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">555</span><span class="p">,</span><span class="mi">555</span><span class="p">};</span>
+            
+                <span class="n">it</span> <span class="o">=</span> <span class="n">v</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+                <span class="n">v</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">it</span><span class="o">+</span><span class="mi">4</span><span class="p">,</span> <span class="n">v1</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">v1</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+                <span class="n">printVector</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#thirteenn" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="thirteenn">
+            <div class="code_out code_outone well">
+            Vector is :<br>
+             111 222<br>
+            Vector is :<br>
+             0 111 222<br>
+            Vector is :<br>
+             333 333 333 0 111 222<br>
+            Vector is :<br>
+             333 333 333 0 555 555 111 222
+            
+                        </div>
+            </div>
+            </div>
+            <p>
+            <b>v.insert(it,000);</b> - We inserted 0 at the beginning of the vector.
+            </p>
+            <p>
+            <b>v.insert(it,3,333);</b> - We inserted 333 thrice at the beginning of the vector.
+            </p>
+            <p>
+            <b>v.insert(it+4, v1.begin(), v1.end());</b> - We inserted the entire vector v1 (v1.begin(), v1.end()) at the 4<sup>th</sup> position of the vector v.
+            </p>
+            <h3>erase</h3><hr>
+            <p><strong>erase</strong> function removes either a single element or a range of elements from a vector.</p>
+            <p>To remove a single element, we need to pass the iterator pointing to the element in the vector which is to be removed. To remove a range of elements, we need to pass iterators specifying the range which we want to delete. Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;iterator&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">};</span>
+            
+                <span class="n">v1</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">4</span><span class="p">);</span>  <span class="c1">// removing a single element at position 4</span>
+                <span class="n">v2</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">v2</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">v2</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span>   <span class="c1">// removing range of elements from position 1 till 2</span>
+            
+                <span class="c1">//printing the values of v1</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Values of v1"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="c1">//printing the values of v2</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Values of v2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">v2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#forteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="forteen">
+            <div class="code_out code_outone well">
+            Values of v1
+            <br>4
+            <br>5
+            <br>6
+            <br>7
+            <br>Values of v2
+            <br>1
+            <br>4
+            <br>5
+                        </div>
+            </div>
+            </div>
+            <h3>clear</h3><hr>
+            <p>
+            <b>clear</b> removes all elements of a vector.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+            
+                <span class="n">v1</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+            
+                <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span><span class="p">:</span> <span class="n">v1</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#fifteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="fifteen">
+            <div class="code_out code_outone well">
+            </div>
+            </div>
+            </div>
+            <h3>swap</h3><hr>
+            <p>
+            This function swaps the contents i.e. it exchanges the value of one vector with that of another.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">};</span>
+            
+                <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">v2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">};</span>
+            
+                <span class="n">v1</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">v2</span><span class="p">);</span>
+            
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Vector v1"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span><span class="p">:</span> <span class="n">v1</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Vector v2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="nl">i</span><span class="p">:</span> <span class="n">v2</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#sixteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="sixteen">
+            <div class="code_out code_outone well">
+            Vector v1<br>
+            4<br>
+            5<br>
+            6<br>
+            Vector v2<br>
+            1<br>
+            2<br>
+            3
+                        </div>
+            </div>
+            </div>
+            <h2>Multidimensional std::vector</h2>
+            <hr>
+            <p>
+                We can also make multidimensional std::vectors. This is similar to std::array. Let's look at the syntax to make a std::vector.
+            </p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    std::vector&lt;std::vector&lt;int&gt;&gt; v { {{1,2,3}, {4,5,6}} };
+                </p>
+            </div>
+            <p>
+                This is similar to std::array. The inner vector (std::vector&lt;int&gt;) is a vector of integers and the outer vector is a vector of such inner vectors (std::vector&lt;vector array&gt;).
+            </p>
+            <p>
+                Let's look at an example to make a multidimensional vector and access all its elements.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span>  <span class="n">v</span> <span class="p">{{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}}};</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seventeen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seventeen">
+            <div class="code_out code_outone well">
+            1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+            4&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;6<br>
+            7&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;9<br>
+            </div>
+            </div>
+            </div>
+            <h3>Passing a multidimensional std::vector to a function</h3>
+            <hr>
+            <p>
+                A multidimensional std::vector is also passed to a function in a similar way a 1D vector is passed. Let's look at an example.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;vector&gt;</span><span class="cp"></span>
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span> <span class="o">&amp;</span><span class="n">v</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">v</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">vector</span><span class="o">&lt;</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;&gt;</span>  <span class="n">v</span> <span class="p">{{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}}};</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">v</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eighteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eighteen">
+            <div class="code_out code_outone well">
+            1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+            4&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;6<br>
+            7&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;9<br>
+            </div>
+            </div>
+            </div>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Never compare your beginning to someone else's middle. Comparison is poison.<br><span style="float:right;">-Jon Acuff</span></p>
+            </div>
+            <div>
+            <a href="stdArray.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="string.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

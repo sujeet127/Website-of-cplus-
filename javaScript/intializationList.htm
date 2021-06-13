@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Initailization List
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Initialization List in C++</h1><hr>
+        <div id="content">
+            <p>In the previous chapter, we learned about how classes and their objects can be created and the different ways their members can be accessed. We also saw how data members are initialized in the constructor of any class as shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class Rectangle<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int length;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int breadth;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rectangle()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;length = 7;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;breadth = 4;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };
+                </p>
+            </div>
+            <p>In the above constructor, we assigned the values 7 and 4 to the data members length and breadth respectively. Note that, here we assigned the values to these variables, not initialized.</p>
+            <p>In the case of constructors having parameters, we can directly initialize our data members using <strong>initialization lists</strong>.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="2136" __idm_id__="14116865"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Using initialization list, we can write the above code as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class Rectangle<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int length;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int breadth;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rectangle() : length(7), breadth(4) // initializing data members<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// no need to assign anything here<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };
+                </p>
+            </div>
+            <p>An initializer list starts after the constructor name and its parameters and begins with a colon <strong>( : )</strong> followed by the list of variables which are to be initialized separated by a comma with their values in curly brackets.</p>
+            <p>Let's see an example for the above code.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Rectangle</span><span class="p">()</span> <span class="o">:</span> <span class="n">length</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">breadth</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                    <span class="p">{</span>
+            
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">printArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">printArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            28
+                        </div>
+            </div>
+            </div>
+            <p>Here we initialized the variables length and breadth directly using an initializer list in which we length and breadth were initialized to 7 and 4 respectively.<br>
+            The rest of the code is the same.</p>
+            <p>Let's see another example of initialization list in case of parameterized constructor.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Rectangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span> <span class="o">:</span> <span class="n">length</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">breadth</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+                    <span class="p">{</span>
+            
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">printArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">(</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">printArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            28
+                        </div>
+            </div>
+            </div>
+            <p>In this example, the initializer list is directly initializing the variables length and breadth with the values of l and b which are 7 and 4 respectively.</p>
+            <p>This is the same as the following code with the only difference that in the above example, we are directly initializing the variables while in the following code, the variables are being assigned the parameterized values.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class Rectangle<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int length;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int breadth;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Rectangle( int l, int b )<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;length = l;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;breadth = b;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            };
+                </p>
+            </div>
+            <h2>Need for Initialization List</h2>
+            <p>Though we can use initialization list anytime as we did in the above examples, but there are certain cases where we have to use initialization list otherwise the code won't work.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If we declare any variable as <strong>const</strong>, then that variable can be initialized, but not assigned.
+                        </div>
+            </div>
+            </div>
+            <p>Any variable declared with <strong>const</strong> keyword before its data type is a const variable.</p>
+            <p>To initialize a const variable, we use initialization list. Since we are not allowed to assign any value to a const variable, so we cannot assign any value in the body of the constructor. So, this is the case where we need initialization list.</p>
+            <p>Following is an example initializing a const data member with initialization list.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="k">const</span> <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="k">const</span> <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Rectangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span> <span class="o">:</span> <span class="n">length</span><span class="p">(</span><span class="n">l</span><span class="p">),</span> <span class="n">breadth</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+                    <span class="p">{</span>
+            
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">printArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">(</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">printArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            28
+                        </div>
+            </div>
+            </div>
+            <p>In this example, the variables <strong>length</strong> and <strong>breadth</strong> are declared as constant and thus cannot be assigned any value in the body of the constructor. So, we initialized them in the initializer list.</p>
+            <p>If we try to assign values to a const variable, we will get an error. We will learn more about the <b>const</b> keyword in a later chapter.</p>
+            <p>One more case where we need initializer list is when we want to initialize base class members by creating an object of the subclass. We will see this in the next chapter.</p>
+            <p>There may be some other cases too where we would need initializer list but we can always use it as an alternative even when it's not necessary.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Practice puts brain in your muscles.<br><span style="float:right;">-Sam Snead</span></p>
+            </div>
+            <div>
+            <a href="destructors.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="subClass.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

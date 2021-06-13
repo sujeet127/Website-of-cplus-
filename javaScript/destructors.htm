@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Destructors
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Destructors in C++</h1><hr>
+        <div id="content">
+            <p><strong>Destructors</strong> are functions which are just the opposite of constructors. In this chapter, we will be talking about destructors.</p>
+            <p>We all know that constructors are functions which initialize an object. On the other hand, destructors are functions which destroy the object whenever the object goes out of scope.</p>
+            <p>It has the same name as that of the class with a <strong>tilde (~)</strong> sign before it.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class A<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~A();<br>
+            };
+                </p>
+            </div>
+            <p>Here, <strong>~A()</strong> is the <strong>destructor</strong> of class A.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Destructors don't take any argument and have no return type.
+                        </div>
+            </div>
+            </div>
+            <h3>When is a destructor called?</h3>
+            <hr>
+            <p>A destructor <strong>gets automatically called when the object goes out of scope</strong>. We know that a non-parameterized constructor gets automatically called when an object of the class is created. Exactly opposite to it, since a destructor is also always non-parameterized, it gets called when the object goes out of scope and destroys the object.</p>
+            <p>If the object was created with a <strong>new</strong> expression, then its destructor gets called when we apply the <strong>delete</strong> operator to a pointer to the object. We will learn more about new and delete in the chapter Dynamic Memory Allocation.</p>
+            <p>Destructors are used to free the memory acquired by an object during its scope (lifetime) so that the memory becomes available for further use.</p>
+            <p>Let's see an example of a destructor.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">setDimension</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">Rectangle</span><span class="p">()</span>              <span class="c1">// Constructor</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Constructor"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="o">~</span><span class="n">Rectangle</span><span class="p">()</span>             <span class="c1">// Destructor</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Destructor"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">;</span>
+                <span class="n">rt</span><span class="p">.</span><span class="n">setDimension</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Constructor<br>
+            28<br>
+            Destructor
+                        </div>
+            </div>
+            </div>
+            <p>In this example, when the object 'rt' of class Rectangle was created, its constructor was called, no matter in what order we define it in the class. After that, its object called the functions 'setDimension' and 'getArea' and printed the area. At last, when the object went out of scope, its destructor got called.</p>
+            <p>Note that the destructor will get automatically called even if we do not explicitly define it in the class.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">The difference between ordinary and extraordinary is practice.<br><span style="float:right;">-Vladimir Horowitz</span></p>
+            </div>
+            <div>
+            <a href="classesAndObjects.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="intializationList.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

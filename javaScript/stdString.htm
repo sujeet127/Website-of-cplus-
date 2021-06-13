@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Standard String
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">std::string in C++</h1><hr>
+        <div id="content">
+            <p>Since string is used extensively, C++ provides a built-in string data type. Just like int, float or other data types, we can use string data type also. It simply makes using strings easier.</p><p>
+            </p><p>Same as cin and cout, string is also defined in the <strong>std namespace</strong>. To use strings in this way, we need to include the <strong><string></string></strong> header since it is declared in the <string> header. We include it by writing</string></p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    #include &lt;string&gt;
+                </p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="1781" __idm_id__="457775105"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            </div>
+            <p>We <strong>declare</strong> variables of type <strong>std::string</strong> as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    std::string name;
+                </p>
+            </div>
+            <p>Here <strong>name</strong> is a string variable just like we have int variables, float variables or variables of other data types.</p>
+            <p>We assign value to a string variable just as we assign value to a variable of any other data type as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    name = "Hall";
+                </p>
+            </div>
+            <p>We can also assign value to a string variable at the time of declaring it.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    std::string name("Hall");
+                </p>
+            </div>
+            <p>A string variable is just like any other variable.</p>
+            <p>Now let's see an example to print a string.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">"Hall"</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Hall
+                        </div>
+            </div>
+            </div>
+            <h2>Input a string</h2><hr>
+            <p>We already know how to input a string using a character array. Now, let's input a string using string variable.</p>
+            <p>We simply use <strong>cin</strong> to input a string as we used to do using character array.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            <span style="color:#ce9d9d">Hall</span><br>
+            Hall
+                        </div>
+            </div>
+            </div>
+            <p>Now let's try giving a multi-word input.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            <span style="#ce9d9d">Hall Doe</span><br>
+            Hall
+                        </div>
+            </div>
+            </div>
+            <p>As in the above example, cin takes characters only up to the first whitespace. Thus the string variable <strong>name</strong> just stored the value <strong>Hall</strong>.</p>
+            <h3>Taking multi-word input using std::getline</h3><hr>
+            <p>To take a multi-word string input, we use <strong>std::getline</strong> function. Let's see an example taking a multi-word input.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">getline</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">cin</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            <span style="color:#ce9d9d">Hall Doe</span><br>
+            Hall Doe
+                        </div>
+            </div>
+            </div>
+            <p><strong>std::getline(std::cin, name); - </strong>This is the syntax for using the <strong>getline()</strong> function. getline() function is also defined in the <strong>std namespace</strong> and thus we write it as std::getline.<br>
+            getline() function takes two parameters. The first one is std::cin and the second one is the name of our string variable.</p>
+            <h2>Let's append two strings</h2><hr>
+            <p>We can <strong>concatenate</strong> strings ( join strings ) using <strong>+</strong> operator and <strong>append</strong> one string to another using <strong>+=</strong> operator.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">string</span> <span class="n">st1</span><span class="p">(</span><span class="s">"Hello"</span><span class="p">);</span>
+                <span class="n">string</span> <span class="n">st2</span><span class="p">(</span><span class="s">"World"</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">st1</span> <span class="o">+</span> <span class="n">st2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">st1</span> <span class="o">+=</span> <span class="s">"cpp"</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">st1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            HelloWorld<br>
+            Hellocpp
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, the string variables s1 and s2 stores the values "Hello" and "World" respectively.<br>
+            <strong>cout &lt;&lt; st1 + st2 &lt;&lt; endl; - </strong>This is the same as writing <strong>cout &lt;&lt; st1 &lt;&lt; st2 &lt;&lt; endl;</strong> which prints one string after the other.<br>
+            <strong>st1 += "cpp"; - </strong>We added the string "cpp" to the value of the string variable st1 thus making its value "Hellocpp".</p>
+            <h2>Member Functions</h2><hr>
+            <p>There are various member functions of <strong>std::string</strong> ( pre-defined functions which are defined in std::string ) like length(), size(), resize(), reserve(). Let's look at some of these.</p>
+            <h3>length()</h3><hr>
+            <p><strong>length()</strong> function is used to find the length of a string. This is a pre-defined function which belongs to std::string. Let's see an example for the same.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">"I have 4 chocolates"</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            19
+                        </div>
+            </div>
+            </div>
+            <p>Thus length() function returned the length of the string 'name' including whitespace characters.</p>
+            <h3>empty</h3><hr>
+            <p><strong>empty()</strong> function returns whether a string is empty or not. It returns <strong>1</strong> if the string length is 0 and <strong>0</strong> if not.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s1</span><span class="p">,</span> <span class="n">s2</span><span class="p">;</span>
+                <span class="n">s1</span> <span class="o">=</span> <span class="s">""</span><span class="p">;</span>
+                <span class="n">s2</span> <span class="o">=</span> <span class="s">"Brownie"</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s1</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s2</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            1<br>
+            0
+                        </div>
+            </div>
+            </div>
+            <p>Since s1 stored a null string, so <strong>s1.empty()</strong> returned <strong>1</strong> and since s2 stored the string "Brownie", <strong>s2.empty()</strong> returned <strong>0</strong></p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Writing s1 = " " will return 0 since s1 stores a whitespace character.
+                        </div>
+            </div>
+            </div>
+            <h3>size()</h3><hr>
+            <p>It is also used to return the length of the string. This returns the same value as that by length().</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">"I have 4 chocolates"</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            19
+                        </div>
+            </div>
+            </div>
+            <h3>resize()</h3><hr>
+            <p><strong>resize()</strong> function resizes our string to a specified length.<br>
+            Suppose, the specified length is 5. If the specified length (i.e. 5 ) is smaller than the current length ( suppose 7 ), then the string will contain only the first 5 characters. If the specified length ( 5 ) is greater than the current length ( suppose 3 ), then the string will contain 5 characters ( 3 of the original string and two other specified characters ). Let's see an example to understand this.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"I love C"</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">size</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>             <span class="c1">//  size of s</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span> <span class="n">size</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span> <span class="sc">'+'</span> <span class="p">);</span>         <span class="c1">//  resizing s</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            I love C++
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we first stored the size ( 8 ) of the original value of the string <strong>s</strong> in a variable <strong>size</strong>.<br>
+            <strong>s.resize( size+2, '+' ); - </strong>This statement resized the string 's' to <strong>'size + 2'</strong> i.e. 10 and assigned the character <strong>' + '</strong> to the two extra character places in the resized string.</p>
+            <h3>clear()</h3><hr>
+            <p>This function clears the content of strings.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"I love C"</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of s is :"</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ten" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ten">
+            <div class="code_out code_outone well">
+            Value of s is :
+                        </div>
+            </div>
+            </div>
+            <h3>operator[ ]</h3><hr>
+            <p>It returns the character at some specified position in a string. Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"I love C"</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Character at fifth position : "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eleven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eleven">
+            <div class="code_out code_outone well">
+            Character at fifth position : e
+                        </div>
+            </div>
+            </div>
+            <p>Here, <strong>s</strong> represents the whole string and <strong>s[i]</strong> represents a character in a string at the i<sup>th</sup> position. Note that the position of the first character in a string is 0.</p>
+            <h3>at()</h3><hr>
+            <p>It also returns the character at some specified position in a string.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">s</span> <span class="o">=</span> <span class="s">"I love C"</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Character at fifth position : "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#twelve" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="twelve">
+            <div class="code_out code_outone well">
+            Character at fifth position : e
+                        </div>
+            </div>
+            </div>
+            <h3>compare()</h3><hr>
+            <p><strong>compare()</strong> function compares the value of a string ( str1 ) with another string ( str2 ).<br>
+            It returns <strong>0</strong> if both the strings are equal.<br>
+            It returns a <strong>positive value</strong> if either <strong>str1 &gt; str2</strong> or <strong>the first unmatched letter of str1 is greater than that of str2</strong>.<br>
+            It returns a <strong>negative value</strong> if either <strong>str1 &lt; str2</strong> or <strong>the first unmatched letter of str1 is less than that of str2</strong>.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str1</span> <span class="p">(</span><span class="s">"have apple"</span><span class="p">);</span>
+                  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str2</span> <span class="p">(</span><span class="s">"have app"</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#forteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="forteen">
+            <div class="code_out code_outone well">
+            2
+                        </div>
+            </div>
+            </div>
+            <p>Here, the length of string 'str1' is 2 more than that of string 'str2'. Therefore, the output is 2. If the values of 'str1' and 'str2' are interchanged, then the output will be -2.</p>
+            <p>Let's see one more example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str1</span> <span class="p">(</span><span class="s">"have gpple"</span><span class="p">);</span>
+                  <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str2</span> <span class="p">(</span><span class="s">"have apple"</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span><span class="p">.</span><span class="n">compare</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#fifteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="fifteen">
+            <div class="code_out code_outone well">
+            1
+                        </div>
+            </div>
+            </div>
+            <p>This time, the first unmatched character in 'str1' and 'str2' are 'g' and 'a' respectively. Since the ASCII value of 'g' is greater than that of 'a', we got a positive output. On interchanging the values of the two strings, we will get a negative answer.</p>
+            <h3>find()</h3><hr>
+            <p><strong>find()</strong> function finds the position of the first occurrence of a character or string in a string.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str1</span> <span class="p">(</span><span class="s">"I love C++"</span><span class="p">);</span>
+                  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="sc">'l'</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#sixteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="sixteen">
+            <div class="code_out code_outone well">
+            2
+                        </div>
+            </div>
+            </div>
+            <p>In this example, find() returned the position of 'l' in the string str1. Now, let's see an example to find the position of a string in another string.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str1</span> <span class="p">(</span><span class="s">"I love C++"</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str2</span> <span class="p">(</span><span class="s">"C++"</span><span class="p">);</span>
+                  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">str2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seventeen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seventeen">
+            <div class="code_out code_outone well">
+            7
+                        </div>
+            </div>
+            </div>
+            <h3>substr()</h3><hr>
+            <p><strong>substr()</strong> function returns a substring from a string by specifying its position.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str1</span> <span class="p">(</span><span class="s">"I love C++"</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eighteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eighteen">
+            <div class="code_out code_outone well">
+            ove C++
+                        </div>
+            </div>
+            </div>
+            <p>The above example printed all the characters from position 3 till the end of the string str1.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">string</span> <span class="n">str1</span> <span class="p">(</span><span class="s">"I love C++"</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str1</span><span class="p">.</span><span class="n">substr</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ninteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ninteen">
+            <div class="code_out code_outone well">
+            ove C
+                        </div>
+            </div>
+            </div>
+            <p>Here, 5 characters starting from position 3 got printed.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">How difficult life may seem, there is always something you can do and succeed at.<br><span style="float:right;">-Stephen Hawking</span></p>
+            </div>
+            <div>
+            <a href="string.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="preProcessor.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            <p></p><p></p></div>
+
+    </body></html>

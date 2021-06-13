@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Gear up
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Input, Conventions, Keywords, Identifiers in C++</h1><hr>
+        <div id="content">
+            <p>From the last chapter, you know how to print anything on the screen. In this chapter, you will see the different ways in which we can write our code and the way we should write. Let's see these one by one.</p>
+            <h2>Whitespace</h2><hr>
+            <p>In C++, whitespace refers to spaces, tabs and newlines. In some places in our code, whitespace is necessary whereas, in other places, it is just given to improve readability. For example, while writing '<strong>int main()</strong>', it is necessary to give a space between int and main() (as they are two different words).</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    int main()
+                </p>
+            </div>
+            <p>On the contrary, there is no need to give any space in the following statement with the output operator.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    std::cout&lt;&lt;"Hello World";
+                </p>
+            </div>
+            <p>Although we can give as many whitespaces as we want, the compiler ignores all the unnecessary whitespaces. The following code also runs just fine.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+            <span class="n">std</span><span class="o">::</span><span class="n">cout</span>        <span class="o">&lt;&lt;</span>
+            <span class="s">"Hello World"</span>  <span class="p">;</span>
+            
+            
+            
+            <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Hello World
+                        </div>
+            </div>
+            </div>
+            <p>In this example, compiler will ignore the space between std::cout and &lt;&lt; and the newline between std::cout&lt;&lt; and "Hello World"; and will read the code as <strong>std::cout&lt;&lt;"Hello World";</strong>.</p>
+           
+            <h2>Identifiers</h2><hr>
+            <p>An identifier is the name of any user-defined element. Let's see an example first.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">num</span><span class="p">;</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">num</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            2
+                        </div>
+            </div>
+            </div>
+            <p>
+            <b style="color:brown">int num;</b> - This declares that variable <b>num</b> is an integer. And by this declaration, <b>num</b> enters into the world of our program. So, 'num' is a variable which will store some integer value.
+            </p>
+            <p>
+            <b style="color:brown">num = 2;</b> - We are assigning 2 to 'num'. So, now the value of 'num' is 2 (an integer).
+            </p>
+            <p>Here, <strong>num</strong> is the name of a variable and thus is an identifier. This example was just to give you an idea of identifiers. You will learn about variables in the coming chapter.</p>
+            <p>C++ is a <strong>case-sensitive</strong> language i.e., it distinguishes between uppercase and lowercase. For example, <strong>num</strong> and <strong>Num</strong> are <b>different identifiers</b> in C++.</p>
+            <h2>Keywords</h2><hr>
+            <p>There are some predefined reserved words in C++ which have their special meaning and thus cannot be used as identifiers. These words are called <strong>keywords</strong>.</p>
+            <p>Let's have a look at C++ keywords.</p>
+            <table class="table-no-header">
+            <tbody><tr>
+            <td>asm</td>
+            <td>auto</td>
+            <td>bool</td>
+            </tr>
+            <tr>
+            <td>break</td>
+            <td>case</td>
+            <td>catch</td>
+            </tr>
+            <tr>
+            <td>char</td>
+            <td>class</td>
+            <td>const</td>
+            </tr>
+            <tr>
+            <td>const_cast</td>
+            <td>continue</td>
+            <td>default</td>
+            </tr>
+            <tr>
+            <td>delete</td>
+            <td>do</td>
+            <td>double</td>
+            </tr>
+            <tr>
+            <td>dynamic_cast</td>
+            <td>else</td>
+            <td>enum</td>
+            </tr>
+            <tr>
+            <td>explicit</td>
+            <td>export</td>
+            <td>extern</td>
+            </tr>
+            <tr>
+            <td>false</td>
+            <td>float</td>
+            <td>for</td>
+            </tr>
+            <tr>
+            <td>friend</td>
+            <td>goto</td>
+            <td>if</td>
+            </tr>
+            <tr>
+            <td>inline</td>
+            <td>int</td>
+            <td>long</td>
+            </tr>
+            <tr>
+            <td>mutable</td>
+            <td>namespace</td>
+            <td>new</td>
+            </tr>
+            <tr>
+            <td>operator</td>
+            <td>private</td>
+            <td>protected</td>
+            </tr>
+            <tr>
+            <td>public</td>
+            <td>register</td>
+            <td>reinterpret_cast</td>
+            </tr>
+            <tr>
+            <td>return</td>
+            <td>short</td>
+            <td>signed</td>
+            </tr>
+            <tr>
+            <td>sizeof</td>
+            <td>static</td>
+            <td>static_cast</td>
+            </tr>
+            <tr>
+            <td>struct</td>
+            <td>switch</td>
+            <td>template</td>
+            </tr>
+            <tr>
+            <td>this</td>
+            <td>throw</td>
+            <td>true</td>
+            </tr>
+            <tr>
+            <td>try</td>
+            <td>typedef</td>
+            <td>typeid</td>
+            </tr>
+            <tr>
+            <td>typename</td>
+            <td>union</td>
+            <td>unsigned</td>
+            </tr>
+            <tr>
+            <td>using</td>
+            <td>virtual</td>
+            <td>void</td>
+            </tr>
+            <tr>
+            <td>volatile</td>
+            <td>wchar_t</td>
+            <td>while</td>
+            </tr>
+            </tbody></table>
+            <h2>using</h2><hr>
+            <p>We know that we write std::cout to tell the compiler that cout is defined in the std namespace. Consider a situation where we have to use cout a large number of times, then writing std:: every time before cout can be a bit annoying. To make our work easier, we use the <strong>using</strong> keyword.</p>
+            <p>We can use the <strong>using</strong> keyword in two ways.</p>
+            <p>The first one is by declaring that cout is defined in the std namespace by writing <strong>using std::cout.</strong> Look at the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is my second line"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Hello World<br>
+            This is my second line
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, by writing <strong>using std::cout;</strong>, we tell the compiler that we will be using cout from the std namespace. So now, there is no need to write std::cout in the rest of the code.<br>
+            <strong>cout &lt;&lt; "Hello World" &lt;&lt; std::endl; - </strong>In this statement, compiler will assume cout as std::cout and "Hello World" will get printed. Note that we have written <b>std::</b> before endl because we didn't declare endl defined in std namespace, unlike cout.<br>
+            The next statement <strong>cout &lt;&lt; "This is my second line";</strong> prints "This is my second line", since compiler again assumes cout as std::cout.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If we use std::cout and cout with some other use, then compiler will prefer std::cout
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, <strong>using</strong> prevented us from writing <b>std::</b> each time cout was used. Same as cout, many other objects (like endl, cin) are defined in the std namespace. So we can write the <strong>using</strong> declaration for all of these thus preventing ourselves from writing std:: before cout and endl again and again as in the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="p">;</span>
+                <span class="n">using</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is my second line"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is my third line"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Hello World<br>
+            This is my second line<br>
+            This is my third line
+                        </div>
+            </div>
+            </div>
+            <p>Suppose some of these objects defined in the std namespace are used frequently in our code, then declaring each of these separately belonging to the std namespace with <strong>using</strong> is not a good option. In that case, there is another way we can use the <strong>using</strong> keyword and that is by declaring that everything in the code to be defined in the std namespace. We can do this by writing <strong>using namespace std;</strong>. Let's see the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is my second line"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Hello World<br>
+            This is my second line
+                        </div>
+            </div>
+            </div>
+            <p>Here, <strong>using namespace std;</strong> tells the compiler that everything in the program will belong to the std namespace. Thus there is no need of writing std:: before cout and endl anymore. So whenever the compiler encounters cout or endl, it will assume these as std::cout and std::endl respectively.</p>
+           
+            <h2>Taking input</h2><hr>
+            <p>
+            We make our programs for users. So, there must be some way to involve users in our program and to take input from them. In this section, you will learn to do so.
+            </p>
+            <p>To input some value from user, we use the <strong>cin</strong> object same as we use the <strong>cout</strong> object for the output. Like cout, cin is also defined in the <strong>std namespace</strong>.</p>
+            <p>cin is also declared in <strong>iostream</strong> library (short form of input-output stream).</p>
+            <p>Look at the following example in which the user is entering some value for a variable which is then printed on the screen.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#fiveone" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="fiveone">
+            <div class="code_out code_outone well">
+            <span style="color:#ce9d9d;">10</span><br>
+            10
+                        </div>
+            </div>
+            </div>
+            <p>First, we declared an integer variable 'n' by writing <strong>int n;</strong>. So, now we have a variable 'n' which can store a value of an integer.<br>
+            <strong>std::cin &gt;&gt; n; - </strong>This statement asks user to enter some value of the variable 'n'. As mentioned above, since <b>cin</b> is also defined in the std namespace, so we wrote <strong>std::</strong> before cin. Its syntax is same as that of cout, except that we use the input operator <strong> &gt;&gt; </strong> after cin in place of the output operator ( &lt;&lt; ) which we use in cout.<br>
+            <strong>std::cout &lt;&lt; n; - </strong>In this statement, we are simply printing the value of the variable 'n'.</p>
+            <h2>Conventions</h2><hr>
+            <p>There are certain conventions which must be followed while writing a program in C++ to reduce the chances of errors and make the code more readable.</p>
+            <p>Following is a set of rules which must be followed while writing a code in C++.</p>
+            <ul>
+            <li>Identifier cannot be given the name of a keyword</li>
+            <li>Identifier can consist of only letters, digits and underscore(_)</li>
+            <li>An identifier can only start with a letter or an underscore. For example, Robin123, numVal_ and _iden are valid identifiers whereas 4num and value@ are invalid.</li>
+            <li>We can also name a function, class or a variable in either CamelCase or underscore_case. Though it is a general convention to name methods or functions with camelCase starting with lower case. For example, getMarks(), setAge().</li>
+            <li>The braces enclosing the body of a function should be aligned with the function name. Although it will not generate any error, but it makes our code more readable.</li>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    int main()<br>
+                    {<br>
+                    }
+                </p>
+            </div>
+            <li>Within the braces, each statement should start from a distance of one tab from the alignment of the braces.</li>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    int main()<br>
+                    {<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;std::cout &lt;&lt; "Hello!";<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+                    }
+                </p>
+            </div>
+            </ul>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">In theory, there is no big difference between theory and practice. But in practice, there is.<br><span style="float:right;">-Yogi Berra</span></p>
+            </div>
+            <div>
+            <a href="letstart.htm"><span style="float:left;font-size:20px;color:black;" class="back">Prev</span></a>
+            <a href="variablesAndLiterals.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+
+    </body></html>

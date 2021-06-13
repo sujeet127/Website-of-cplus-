@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Array
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Arrays in C++</h1><hr>
+        <div id="content">
+            <p>In simple English, array means collection. In C++ also, an array is a collection of similar types of data. eg.- an array of int will contain only integers, an array of double will contain only doubles, etc.</p>
+            <h2>Why Array?</h2>
+            <hr>
+            <p>Suppose we need to store the marks of 50 students in a class and calculate the average marks. Declaring 50 separate variables will do the job but no programmer would like to do so. And here comes the <strong>array</strong> in action.</p>
+            <h2>How to declare an array</h2>
+            <hr>
+            <p><strong style="color:brown;">datatype</strong> <strong>array_name</strong> <strong style="color:blue;">[</strong> <strong>array_size</strong> <strong style="color:blue;">]</strong><strong style="color:brown;">;</strong></p>
+            <p>For example, take an integer array <strong>'n'</strong>.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="1368"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p><strong>int n[6];</strong></p>
+            <p><strong>n[ ]</strong> is used to denote an <strong>array named 'n'</strong>.</p>
+            <p>So, n[6] means that 'n' is an array of 6 integers. Here, <strong>6</strong> is the <strong>size of the array</strong> i.e., there are 6 elements of array 'n'.</p>
+            <p>Giving array size i.e. 6 is necessary because the compiler needs to allocate space to that many integers. The compiler determines the size of an array by calculating the number of elements of the array.</p>
+            <p>Here 'int n[6]' will allocate space to 6 integers.</p>
+            <p>We can also declare an array by another method.</p>
+            <p><strong>int n[ ] = { 2,3,15,8,48,13 };</strong></p>
+            <p>In this case, we are declaring and assigning values to the array at the same time. Hence, no need to specify the array size because the compiler gets it from { 2,3,15,8,48,13 }.</p>
+            <p>Following is the pictorial view of the array.</p>
+            <table class="table-no-header">
+            <tbody><tr>
+            <td style="font-weight:700;">element</td>
+            <td>2</td>
+            <td>3</td>
+            <td>15</td>
+            <td>8</td>
+            <td>48</td>
+            <td>13</td>
+            </tr>
+            <tr>
+            <td style="font-weight:700;">index</td>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            </tr>
+            </tbody></table>
+            <p>0,1,2,3,4 and 5 are the indices. It is like these are the identities of 6 different elements of the array. Index starts from 0. So, the first element has index 0. We access the elements of an array by writing <b>array_name[index]</b>.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                        Index of an array starts with 0.
+                    </div>
+            </div>
+            </div>
+            <p>Here,<br>
+            n[0] is 2<br>
+            n[1] is 3<br>
+            n[2] is 15<br>
+            n[3] is 8<br>
+            n[4] is 48<br>
+            n[5] is 13</p>
+            <h2>Initializing an array</h2>
+            <hr>
+            <p>By writing <strong>int n[ ]={ 2,4,8 };</strong> , we are initializing the array.</p>
+            <p>But when we declare an array like <strong>int n[3];</strong> , we need to assign the values to it separately. Because 'int n[3];' will definitely allocate the space of 3 integers in the memory but there are no integers in that.</p>
+            <p>To assign values to the array, assign a value to each of the element of the array.</p>
+            <p><strong>n[0] = 2;<br>
+            n[1] = 4;<br>
+            n[2] = 8;</strong></p>
+            <p>It is just like we are declaring some variables and then assigning the values to them.</p>
+            <p>int x,y,z; <br>
+            x=2;<br>
+            y=4;<br>
+            z=8;</p>
+            <p>Thus, the two ways of initializing an array are:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int n[ ]={ 2,4,8 };
+                </p>
+            </div>
+            <p>and the second method is declaring the array first and then assigning the values to its elements.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int n[3];<br><br>
+            n[0] = 2;<br>
+            n[1] = 4;<br>
+            n[2] = 8;
+                </p>
+            </div>
+            <p>You can understand this by treating n[0], n[1] and n[2] as different variables you used before.</p>
+            <p>Just like a variable, an array can be of any other data type also.</p>
+            <p>float f[ ]= { 1.1, 1.4, 1.5};</p>
+            <p>Here, f is an array of floats.</p>
+            <p>First, let's see the example to calculate the average of the marks of 3 students. Here, marks[0], marks[1] and marks[2] represent the marks of the first, second and third student respectively.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+                <span class="kt">int</span> <span class="n">marks</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span>
+                <span class="kt">float</span> <span class="n">average</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter marks of first student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">marks</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter marks of second student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">marks</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter marks of third student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">marks</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+            
+                <span class="n">average</span> <span class="o">=</span> <span class="p">(</span> <span class="n">marks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">marks</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">marks</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="p">)</span><span class="o">/</span> <span class="mf">3.0</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Average marks : "</span> <span class="o">&lt;&lt;</span> <span class="n">average</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Enter marks of first student <br>
+            <span style="color:#ce9d9d">23</span> <br>
+            Enter marks of second student <br>
+            <span style="color:#ce9d9d">25</span> <br>
+            Enter marks of third student <br>
+            <span style="color:#ce9d9d">31</span> <br>
+            Average marks : 26.3333
+                        </div>
+            </div>
+            </div>
+            <p>Here, you have seen a working example of array. We treated the array in the exact similar way as we had treated normal variables.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                        In the above example, two points should be kept in mind.<br>
+                        The average value should be of type 'float' because the average of integers can be float also.<br>
+                        Secondly, while taking out the average, sum of the numbers should be divided by 3.0 and not 3, otherwise, you will get the average value as integer and not float.
+                    </div>
+            </div>
+            </div>
+            <p>We can also use for loop as in the next example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+                <span class="kt">int</span> <span class="n">n</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span> <span class="cm">/* declaring n as an array of 10 integers */</span>
+                  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+            
+                  <span class="cm">/* initializing elements of array n */</span>
+                 <span class="k">for</span> <span class="p">(</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">10</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+                 <span class="p">{</span>
+                     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter value of n["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"]"</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                            <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                  <span class="p">}</span>
+            
+                  <span class="cm">/* printing the values of elements of array */</span>
+                  <span class="k">for</span> <span class="p">(</span><span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n["</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Enter value of n[0]<br>
+            <span style="color:#ce9d9d">23</span><br>
+            Enter value of n[1]<br>
+            <span style="color:#ce9d9d">25</span><br>
+            Enter value of n[2]<br>
+            <span style="color:#ce9d9d">31</span><br>
+            Enter value of n[3]<br>
+            <span style="color:#ce9d9d">1</span><br>
+            Enter value of n[4]<br>
+            <span style="color:#ce9d9d">33</span><br>
+            Enter value of n[5]<br>
+            <span style="color:#ce9d9d">35</span><br>
+            Enter value of n[6]<br>
+            <span style="color:#ce9d9d">76</span><br>
+            Enter value of n[7]<br>
+            <span style="color:#ce9d9d">47</span><br>
+            Enter value of n[8]<br>
+            <span style="color:#ce9d9d">74</span><br>
+            Enter value of n[9]<br>
+            <span style="color:#ce9d9d">45</span><br>
+            n[0] = 23<br>
+            n[1] = 25<br>
+            n[2] = 31<br>
+            n[3] = 1<br>
+            n[4] = 33<br>
+            n[5] = 35<br>
+            n[6] = 76<br>
+            n[7] = 47<br>
+            n[8] = 74<br>
+            n[9] = 45
+            
+                        </div>
+            </div>
+            </div>
+            <p>The above code was just to make you familiar with using loops with an array because you will be doing this many times later.</p>
+            <p>The code is simple, <strong>i</strong> and <strong>j</strong> starts from 0 because index of an array starts from 0 and goes up to 9 ( for 10 elements ). So, i and j goes up to 9 and not 10 ( i&lt;10 and j&lt;10 ) . So in the above code, <strong>n[i]</strong> will be n[0], n[1], n[2], ...., n[9].</p>
+            <p>There are two for loops in the above example. In the first for loop, we are taking the values of the different elements of the array from the user one by one. In the second for loop, we are printing the values of the elements of the array.</p>
+            <p>Let's go to the first for loop. In the first iteration, the value of i is 0, so 'n[i]' is 'n[0]'.Thus by writing <strong>cin &gt;&gt; n[i];</strong>, the user will be asked to enter the value of n[0]. Similary in the second iteration, the value of 'i' will be 1 and 'n[i]' will be 'n[1]'. So 'cin &gt;&gt; n[i];' will be used to input the value from the user for n[1] and so on. 'i' will go up to 9, and so indices of the array ( 0,1,2,...,9).</p>
+            <!--
+            <div class="well imp_well">
+                    <div class="row">
+                        <div class="col-md-1 col-sm-1 well_one">
+                            <i class="fa fa-code"></i>
+                        </div>
+                        <div class="col-md-11 col-sm-11 well_two">
+                            If we have declared an array with some array size and assigned values to only some elements of that array, then the values of other elements are automatically assigned zero.
+                        </div>
+                    </div>
+                </div>
+            <p>Suppose we initialize an array as</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+                <p>
+            int n[5] = { 12, 13, 5 };
+                </p>
+            </div>
+            <p>This means that n[0]=12, n[1]=13 and n[2]=5 and rest all elements are zero i.e. n[3]=0 and n[4]=0.</p>
+            <p>Similarly,</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+                <p>
+            int n[5];<br/>
+            n[0] = 12;<br/>
+            n[1] = 13;<br/>
+            n[2] = 5;
+                </p>
+            </div>
+            <p>In the above code, n[0], n[1] and n[2] are assigned values 12, 13 and 5 respectively. Therefore, n[4] and n[5] are both 0.</p>
+            
+            -->
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Array allocates contiguous memory. Thus if the address of the first element of an array of integers is <b>X</b> then the address of the second element will be <b>X+4</b> (4 is the size of one integer) ) and third will be <b>X+4+4</b> and so on. This means that the memories of all elements of an array are allocated together and are continuous.
+                        </div>
+            </div>
+            </div>
+            <h2>Pointer to Arrays</h2>
+            <hr>
+            <p>Till now, you have seen how to declare and assign values to an array. Now, you will see how we can have pointers to arrays too. But before starting, we are assuming that you have gone through Pointers. If not, then first read the topic Pointers and practice some problems from the Practice section.</p>
+            <p>As we all know that pointer is a variable whose value is the address of some other variable i.e., if a variable <strong>y</strong> points to another variable <strong>x</strong> means that the value of the variable 'y' is the address of 'x'.</p>
+            <p>Similarly, if we say that a variable <strong>y points to an array n</strong>, then it means that the value of 'y' is the <strong>address of the first element of the array</strong> i.e., n[0]. So, y is the pointer to the array n.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Array name is a pointer to the first element of the array.
+                        </div>
+            </div>
+            </div>
+            <p>If <strong>p</strong> is a pointer to the array <strong>age</strong>, then it means that p(or age) points to age[0].</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int age[50];<br>
+            int *p;<br>
+            p = age;
+                </p>
+            </div>
+            <p>The above code assigns the address of the first element of age to p.</p>
+            <p>Now, since <strong>p</strong> points to the first element of the array <strong>age</strong>, <strong>*p</strong> is the value of the first element of the array.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Since *p refers to the first array element, *(p+1) and *(p+2) refers to the second and third elements respectively and so on.
+                        </div>
+            </div>
+            </div>
+            <p>So, *p is age[0], *(p+1) is age[1], *(p+2) is age[2].</p>
+            <p>Similarly, *age is age[0] ( value at age ), *(age+1) is age[1] ( value at age+1 ), *(age+2) is age[2] ( value at age+2 ) and so on.</p>
+            <p>That's all in pointer to arrays.</p>
+            <p>Now let's see some examples.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="kt">float</span> <span class="n">n</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">20.4</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">,</span> <span class="mf">5.8</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mf">15.2</span> <span class="p">};</span> <span class="cm">/* declaring n as an array of 5 floats */</span>
+                  <span class="kt">float</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> 		<span class="cm">/* p as a pointer to float */</span>
+                  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                  <span class="n">p</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> 		<span class="cm">/* p now points to array n */</span>
+                  <span class="cm">/* printing the values of elements of array */</span>
+                  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"*(p + "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">") = "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="cm">/* *(p+i) means value at (p+0),(p+1)...*/</span>
+                  <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            *(p + 0) = 20.4<br>
+            *(p + 1) = 30<br>
+            *(p + 2) = 5.8<br>
+            *(p + 3) = 67<br>
+            *(p + 4) = 15.2
+                    </div>
+            </div>
+            </div>
+            <p>Since <strong>p</strong> is pointing to the first element of array, so, <strong>*p</strong> or <strong>*(p+0)</strong> represents the value at <strong>p[0]</strong> or the <strong>value at the first element of p</strong>. Similarly, <strong>*(p+1)</strong> represents value at <strong>p[1]</strong>. So <strong>*(p+3)</strong> and <strong>*(p+4)</strong> represent the values at <strong>p[3]</strong> and <strong>p[4]</strong> respectively. So, accordingly, we will get the output.</p>
+            <p>The above example sums up the above concepts. Now, let's print the address of the array and also individual elements of the array.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="kt">int</span> <span class="n">n</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">67</span> <span class="p">};</span> <span class="cm">/* declaring n as an array of 4 integers */</span>
+                  <span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span> <span class="cm">/*a pointer*/</span>
+                  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                  <span class="n">p</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="cm">/*p is pointing to array n*/</span>
+                  <span class="cm">/* printing the address of array */</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Address of array n = "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span> <span class="cm">/*p points to array means store address of first element of array*/</span>
+                  <span class="cm">/* printing the addresses of elements of array */</span>
+                  <span class="k">for</span> <span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                        <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Address of n["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                  <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Address of array n = 0xfffe2c0c<br>
+            Address of n[0] = 0xfffe2c0c<br>
+            Address of n[1] = 0xfffe2c10<br>
+            Address of n[2] = 0xfffe2c14<br>
+            Address of n[3] = 0xfffe2c18
+                    </div>
+            </div>
+            </div>
+            <p>In the above example, we saw that the address of the first element of n and p is the same. We also printed the values of other elements of the array by using (p+1), (p+2) and (p+3).</p>
+            <h2>Passing the whole Array in Function</h2>
+            <hr>
+            <p>In C++, we can pass an element of an array or the full array as an argument to a function.</p>
+            <p>Let's first pass a single array element to a function.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">[</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">8</span> <span class="p">};</span>
+                  <span class="n">display</span><span class="p">(</span><span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            23
+                    </div>
+            </div>
+            </div>
+            <h3>Passing an entire Array in a Function</h3>
+            <hr>
+            <p>We can also pass a whole array to a function by passing the array name as argument. Yes, the trick is that we will pass the address of array, that is the address of the first element of the array. Thus, by having the pointer of the first element, we can get the entire array as we have done in the above examples.</p>
+            <img alt="passing array to function in C++" src="/staticroot/images/c.png" style="max-width:60%;height:auto;">
+            <p>Let's see an example to understand this.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">float</span> <span class="nf">average</span><span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">[])</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                <span class="kt">float</span> <span class="n">avg</span><span class="p">,</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">sum</span><span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span><span class="o">/</span><span class="mi">8</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">avg</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">float</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">[</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mf">20.6</span><span class="p">,</span> <span class="mf">30.8</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">,</span> <span class="mf">67.2</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span> <span class="p">};</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+                  <span class="n">std</span><span class="o">::</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Average of numbers = "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Average of numbers = 20.2
+                    </div>
+            </div>
+            </div>
+            <p><strong style="color:brown;">average(float a[])</strong> - It is the function that is taking an array of float. And rest of the body of the function is performing accordingly.</p>
+            <p><strong style="color:brown;">b = average(n)</strong> - One thing you should note here is that we passed <strong>n</strong>. And as discussed earlier, n is the pointer to the first element or pointer to the array <strong>n[]</strong>. So, we have actually passed the pointer.</p>
+            <p>In the above example in which we calculated the average of the values of the elements of an array, we already knew the size of the array i.e., 8.</p>
+            <p>Suppose, we are taking the size of the array from the user. In that case, the size of the array is not fixed. Here, we need to pass the size of the array as the second argument to the function.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">float</span> <span class="nf">average</span><span class="p">(</span><span class="kt">float</span> <span class="n">a</span><span class="p">[],</span> <span class="kt">int</span> <span class="n">size</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                <span class="kt">float</span> <span class="n">avg</span><span class="p">,</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">sum</span><span class="o">+=</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">avg</span> <span class="o">=</span> <span class="n">sum</span><span class="o">/</span><span class="n">size</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">avg</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">size</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter the size of array"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">size</span><span class="p">;</span>
+                  <span class="kt">float</span> <span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="p">[</span><span class="n">size</span><span class="p">];</span>
+                  <span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="n">size</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of n["</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"] : "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">[</span><span class="n">j</span><span class="p">];</span>
+                  <span class="p">}</span>
+                  <span class="n">b</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">size</span><span class="p">);</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Average of numbers= "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            Enter the size of array<br>
+            <span style="color:#ce9d9d">4</span><br>
+            Value of n[0] : <br>
+            <span style="color:#ce9d9d">47</span><br>
+            Value of n[1] : <br>
+            <span style="color:#ce9d9d">74</span><br>
+            Value of n[2] : <br>
+            <span style="color:#ce9d9d">45</span><br>
+            Value of n[3] : <br>
+            <span style="color:#ce9d9d">56</span><br>
+            Average of numbers= 55.5
+                    </div>
+            </div>
+            </div>
+            <p>The code is similar to the previous one except that we passed the size of array explicitly - <strong>float average(float a[], int size)</strong>.</p>
+            <p>We can also pass an array to a function using pointers. Let's see how.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">;</span><span class="o">++</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">p</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">size</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">[</span> <span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span> <span class="p">};</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            n[0] = 1<br>
+            n[1] = 2<br>
+            n[2] = 3<br>
+            n[3] = 4<br>
+            n[4] = 5<br>
+            n[5] = 6<br>
+            n[6] = 7<br>
+            n[7] = 8
+                    </div>
+            </div>
+            </div>
+            <p>In the above example, the address of the array i.e., address of n[0] is passed to the formal parameters of the function.</p>
+            <p><strong style="color:brown;">void display(int *p)</strong> - This means that the function 'display' is taking a pointer of an integer and not returning any value.</p>
+            <p>Now, we passed the pointer of an integer i.e., pointer of array n[] - 'n' as per the demand of our function 'display'.<br>
+            Since <strong>p</strong> is the address of the array <strong>n[]</strong> in the function 'display', i.e., the address of the first element of the array (n[0]), therefore <strong>*p</strong> represents the value of n[0]. In the for loop in the function, <strong>p++</strong> increases the value of p by 1. So when i=0, the value of *p gets printed. Then p++ increases *p to *(p+1) and thus in the second loop, the value of *(p+1) i.e. n[1] gets printed. This loop continues till i=7 when the value of *(p+7) i.e. n[7] gets printed.</p>
+            <img alt="passing array to function" src="/staticroot/images/d.png" style="max-width:60%;height:auto;">
+            <h2>For-each loop</h2>
+            <hr>
+            <p>There is a new form of for loop which makes iterating over arrays easier. It is called for-each loop. It is used to iterate over an array. Let's see an example of this.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">ar</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span> <span class="p">};</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="nl">m</span> <span class="p">:</span> <span class="n">ar</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">m</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#oneee" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="oneee">
+            <div class="code_out code_outone well">
+            1<br>
+            2<br>
+            3<br>
+            4<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            9<br>
+            10
+                        </div>
+            </div>
+            </div>
+            <p>This is very simple. Here, the variable <strong>m</strong> will go to every element of the array <strong>ar</strong> and will take its value.<br>
+            So, in the first iteration, m is the 1<sup>st</sup> element of array ar i.e. 1.<br>
+            In second iteration, it is the 2<sup>nd</sup> element i.e. 2 and so on. Just focus on the syntax of this for loop, rest of the part is very easy.</p>
+            <h2>2D Arrays</h2>
+            <hr>
+            <p>What if arrays are 2 dimensional?</p>
+            <p>Yes, 2-dimensional arrays also exist and are generally known as <strong>matrix</strong>. These consist of rows and columns.</p>
+            <p>Before going into its application, let's first see how to declare and initialize a 2 D array.</p>
+            <p>Similar to one-dimensional array, we define 2-dimensional array as below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int a[2][4];
+            </p>
+            </div>
+            <p>Here, <strong>a</strong> is a 2-D array of type int which consists of <strong>2 rows</strong> and <strong>4 columns</strong>.</p>
+            <p>It is like</p>
+            <table class="table-default">
+            <tbody><tr>
+            <th></th>
+            <th>Column 0</th>
+            <th>Column 1</th>
+            <th>Column 2</th>
+            <th>Column 3</th>
+            </tr>
+            <tr>
+            <td>Row 0</td>
+            <td>a[0][0]</td>
+            <td>a[0][1]</td>
+            <td>a[0][2]</td>
+            <td>a[0][3]</td>
+            </tr>
+            <tr>
+            <td>Row 1</td>
+            <td>a[1][0]</td>
+            <td>a[1][1]</td>
+            <td>a[1][2]</td>
+            <td>a[1][3]</td>
+            </tr>
+            </tbody></table>
+            <p>Now let's see how to initialize a 2-dimensional array.</p>
+            <h3>Initialization of 2 D Array</h3>
+            <hr>
+            <p>Same as in one-dimensional array, we can assign values to a 2-dimensional array in 2 ways as well.</p>
+            <p>In the first method, just assign a value to the elements of the array. If no value is assigned to any element, then its value is assigned zero by default.</p>
+            <p>Suppose we declared a 2-dimensional array <strong>a[2][2]</strong>. Then to assign it values, we need to assign a value to its elements.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int a[2][2];<br>
+            a[0][0]=1;<br>
+            a[0][1]=2;<br>
+            a[1][0]=3;<br>
+            a[1][1]=4;
+            </p>
+            </div>
+            <p>The second way is to declare and assign values at the same time as we did in one-dimensional array.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int a[2][3] = { 1, 2, 3, 4, 5, 6 };
+            </p>
+            </div>
+            <p>Here, value of a[0][0] is 1, a[0][1] is 2, a[0][2] is 3, a[1][0] is 4, a[1][1] is 5 and a[1][2] is 6.</p>
+            <p>We can also write the above code as:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int a[2][3] = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;{1, 2, 3},<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;{4, 5, 6 }<br>
+                };
+            </p>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                        While assigning values to an array at the time of declaration, there is no need to give dimensions in one-dimensional array, but in 2 D array, we need to give at least the second dimension.
+                    </div>
+            </div>
+            </div>
+            <p>Let's consider different cases of initializing an array.</p>
+            <p><strong>int a[2][2] = { 1, 2, 3, 4 };</strong> /* valid */ <br>
+            <strong>int a[ ][2] = { 1, 2, 3, 4 };</strong> /* valid */ <br>
+            <strong>int a[2][ ] = { 1, 2, 3, 4 };</strong> /* invalid */ <br>
+            <strong>int a[ ][ ] = { 1, 2, 3, 4 };</strong> /* invalid */</p>
+            <h3>Why use 2 D Array?</h3>
+            <hr>
+            <p>Suppose we have 3 students each studying 2 subjects (subject 1 and subject 2) and we have to display the marks in both the subjects of the 3 students. Let's input the marks from the user.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">float</span> <span class="n">marks</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">2</span><span class="p">];</span>
+                  <span class="kt">int</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
+                  <span class="k">for</span><span class="p">(</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="cm">/* input of marks from the user */</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter marks of student "</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">for</span><span class="p">(</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Subject "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                          <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">marks</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                    <span class="p">}</span>
+                  <span class="p">}</span>
+                 <span class="cm">/* printing the marks of students */</span>
+                  <span class="k">for</span><span class="p">(</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Marks of student "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">for</span><span class="p">(</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">2</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Subject "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">" : "</span> <span class="o">&lt;&lt;</span> <span class="n">marks</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+                  <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            Enter marks of student 1<br>
+            Subject 1<br>
+            <span style="color:#ce9d9d">78</span><br>
+            Subject 2<br>
+            <span style="color:#ce9d9d">94</span><br>
+            Enter marks of student 2<br>
+            Subject 1<br>
+            <span style="color:#ce9d9d">87</span><br>
+            Subject 2<br>
+            <span style="color:#ce9d9d">91</span><br>
+            Enter marks of student 3<br>
+            Subject 1<br>
+            <span style="color:#ce9d9d">62</span><br>
+            Subject 2<br>
+            <span style="color:#ce9d9d">56</span><br>
+            Marks of student 1<br>
+            Subject 1 : 78<br>
+            Subject 2 : 94<br>
+            Marks of student 2<br>
+            Subject 1 : 87<br>
+            Subject 2 : 91<br>
+            Marks of student 3<br>
+            Subject 1 : 62<br>
+            Subject 2 : 56
+                    </div>
+            </div>
+            </div>
+            <p>In the above example, firstly we defined our array consisting of 3 rows and 2 columns as <strong>float marks[3][2];</strong></p>
+            <p>Here, the elements of the array will contain the marks of the 3 students in the 2 subjects as follows.</p>
+            <table class="table-default">
+            <tbody><tr>
+            <th></th>
+            <th>Subject 1</th>
+            <th>Subject 2</th>
+            </tr>
+            <tr>
+            <td>Student 1</td>
+            <td>78</td>
+            <td>94</td>
+            </tr>
+            <tr>
+            <td>Student 2</td>
+            <td>87</td>
+            <td>91</td>
+            </tr>
+            <tr>
+            <td>Student 3</td>
+            <td>62</td>
+            <td>56</td>
+            </tr>
+            </tbody></table>
+            <p>In our example, firstly we are taking the value of each element of the array using a for loop inside another for loop.</p>
+            <p>In the first iteration of the outer for loop, value of 'i' is 0. With the value of 'i' as 0, when the inner for loop first iterates, the value of 'j' becomes zero and thus marks[i][j] becomes marks[0][0]. By writing <strong>cin &gt;&gt; marks[i][j];</strong>, we are taking the value of marks[0][0].</p>
+            <p>After that, the inner for loop again iterates and the value of 'j' becomes 1. marks[i][j] becomes marks[0][1] and its value is taken from the user.</p>
+            <p>Then, the outer loop iterates for the second time and the value of 'i' becomes 1 and the whole process continues.</p>
+            <p>After assigning the values to the elements of the array, we are printing the values of the elements of the array, in the same way, using another for loop inside for loop.</p>
+            <p>Let's see one more example of 2 D Array</p>
+            <p>Suppose there are 2 factories and each of these factories produces items of 4 different types like some items of type 1, some items of type 2 and so on. We have to calculate the total product of each factory i.e. sum of the items of each type that a factory produces.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">4</span><span class="p">];</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">9</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">8</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum of the items produced in the first factory :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">sum1</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sum2</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">sum1</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">i</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum of the items produced in the second factory :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">sum2</span> <span class="o">+=</span> <span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">];</span>
+                <span class="p">}</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">sum2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ten" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ten">
+            <div class="code_out code_outone well">
+            Sum of the items produced in the first factory :<br>
+            18<br>
+            Sum of the items produced in the second factory :<br>
+            22
+                    </div>
+            </div>
+            </div>
+            <p>Here, <strong>s[0][i]</strong> represents the number of items of the first factory and type i, where i takes value from 0 to 3 using for loop and <strong>s[1][i]</strong> represents the nunmber of items of the second factory of type i. E.g. - s[0][2] represents the third type of item of first factory and s[1][2] represents the third type of item of second factory. <strong>sum1</strong> is the sum of all these items of factory 1. Similar is the case of the second factory.</p>
+            <p>So, initally, sum1 is 0. Now in first iteration, s[0][i] is s[0][0]. This means that it will represent number of first item of first factory. So, <strong>sum1 += s[0][i]</strong> will become <strong>sum1 += s[0][0]</strong>. So, sum1 will become 2. Similarly in second iteration, s[0][i] will become s[0][1] and will represent the second type of items of first factory. Now, sum1 will become <strong>2+5 i.e. 7</strong>. Similarly things will go further.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p  class="quote">You practice and you get better. It's very simple.<br><span style="float:right;">-Phillip Glass</span></p>
+            </div>
+            <div>
+            <a href="pointer.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="stdArray.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+
+    </body></html>

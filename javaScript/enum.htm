@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Enumeration
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Enum in C++</h1><hr>
+        <div id="content">
+            <p><strong>Enumeration(enum)</strong> is a user-defined datatype (same as structure). It consists of various elements of that type. There is no such specific use of enum, we use it just to make our codes neat and more readable. We can write C programs without using enumerations also.</p>
+            <p>For example, Summer, Spring, Winter and Autumn are the names of four seasons. Thus, we can say that these are of type season. So this becomes an enumeration with name <strong>season</strong> and <strong>Summer, Spring, Winter and Autumn</strong> as its elements.</p>
+            <p>So, you are clear with the basic idea of enum. Now let's see how to define it.</p>
+            <h2>Defining an Enum</h2>
+            <hr>
+            <p>An enum is defined in the same way as structure with the keyword <strong>struct</strong> replaced by the keyword <strong>enum</strong> and the elements separated by 'comma' as follows.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="3698" __idm_id__="277534721"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p><strong><span style="color:brown;">enum</span> enum_name<br>
+            <span style="color:blue;">{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;element1,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;element2,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;element3,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;element4,<br>
+            <span style="color:brown;">}</span><span style="color:brown;">;</span></strong></p>
+            <p>Now let's define an enum of the above example of seasons.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            enum Season{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Summer,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Spring,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Winter,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Autumn<br>
+            };
+                </p>
+            </div>
+            <p>Here, we have defined an enum with name 'Season' and 'Summer, Spring, Winter and Autumn' as its elements.</p>
+            <h2>Declaration of Enum Variable</h2>
+            <hr>
+            <p>We also declare an enum variable in the same way as structures. We create an enum variable as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            enum Season{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Summer,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Spring,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Winter,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Autumn<br>
+            };<br>
+            int main()<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;enum Season s;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+            }
+                </p>
+            </div>
+            <p>Here <strong>s</strong> is the variable of the enum named Season. This variable will represent a season. We can also declare an enum variable as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            enum Season{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Summer,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Spring,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Winter,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Autumn<br>
+            }s;
+                </p>
+            </div>
+            <h3>Values of the Members of Enum</h3>
+            <hr>
+            <p>All the elements of an enum have a value. By default, the value of the first element is 0, that of the second element is 1 and so on.</p>
+            <p>Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">Season</span><span class="p">{</span> <span class="n">Summer</span><span class="p">,</span> <span class="n">Spring</span><span class="p">,</span> <span class="n">Winter</span><span class="p">,</span> <span class="n">Autumn</span><span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">enum</span> <span class="n">Season</span> <span class="n">s</span><span class="p">;</span>
+                <span class="n">s</span> <span class="o">=</span> <span class="n">Spring</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            1
+                        </div>
+            </div>
+            </div>
+            <p>Here, first, we defined an enum named 'Season' and declared its variable 's' in the main function as we have seen before. The values of Summer, Spring, Winter and Autumn are 0, 1, 2 and 3 respectively. So, by writing <strong>s = Spring</strong>, we assigned a value '1' to the variable 's' since the value of 'Spring' is 1.</p>
+            <p>We can also assign some value to an enum variable as shown in the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">Season</span><span class="p">{</span> <span class="n">Summer</span><span class="p">,</span> <span class="n">Spring</span><span class="p">,</span> <span class="n">Winter</span><span class="p">,</span> <span class="n">Autumn</span><span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">enum</span> <span class="n">Season</span> <span class="n">s1</span> <span class="o">=</span> <span class="n">Spring</span><span class="p">;</span>
+                <span class="k">enum</span> <span class="n">Season</span> <span class="n">s2</span><span class="p">(</span><span class="n">Winter</span><span class="p">);</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s1</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">s2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            1<br>
+            2
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we declared two enum variables <strong>s1</strong> and <strong>s2</strong>. Here, we are declaring and assigning values to the variables at the same time. We are assigning values to the variables by two ways in this example.<br>
+            <strong>enum Season s1 = Spring; - </strong>This statement is assigning the value of Spring i.e. 1 to s1.<br>
+            <strong>enum Season s2(Winter); - </strong>This is the second way you can assign the value at the time of declaration. This statement is assigning the value of Winter i.e. 2 to s2.</p>
+            <p>We can also change the default value and assign any value of our choice to an element of enum. Once we change the default value of any enum element, then the values of all the elements after it will also be changed accordingly. An example will make this point clearer.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">Days</span><span class="p">{</span> <span class="n">sun</span><span class="p">,</span> <span class="n">mon</span><span class="p">,</span> <span class="n">tue</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">wed</span><span class="p">,</span> <span class="n">thurs</span><span class="p">,</span> <span class="n">fri</span><span class="p">,</span> <span class="n">sat</span><span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">enum</span> <span class="n">Days</span> <span class="n">day</span><span class="p">;</span>
+                <span class="n">day</span> <span class="o">=</span> <span class="n">thurs</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">day</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            7
+                        </div>
+            </div>
+            </div>
+            <p>The default value of sun will be 0, mon will be 1, tue will be 2 and so on. In the above example, we defined the <strong>value of tue</strong> as <strong>5</strong>. So the values of wed, thurs, fri and sat will become 6, 7, 8 and 9 respectively. There will be no effect on the values of sun and mon which will remain 0 and 1 respectively. Thus the value of thurs i.e. 7 will get printed.</p>
+            <p>Let's see one more example of enum.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">Days</span><span class="p">{</span> <span class="n">sun</span><span class="p">,</span> <span class="n">mon</span><span class="p">,</span> <span class="n">tue</span><span class="p">,</span> <span class="n">wed</span><span class="p">,</span> <span class="n">thurs</span><span class="p">,</span> <span class="n">fri</span><span class="p">,</span> <span class="n">sat</span><span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">enum</span> <span class="n">Days</span> <span class="n">day</span><span class="p">;</span>
+                <span class="n">day</span> <span class="o">=</span> <span class="n">thurs</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">day</span><span class="o">+</span><span class="mi">2</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            6
+                        </div>
+            </div>
+            </div>
+            <p>In this example, the value of thurs i.e. 4 is assigned to the variable day. Since we are printing 'day+2' i.e. 6 (=4+2), so the output will be 6.</p>
+            <p>We can also directly print the value of any element of an enum.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="k">enum</span> <span class="n">Season</span><span class="p">{</span> <span class="n">Summer</span><span class="p">,</span> <span class="n">Spring</span><span class="p">,</span> <span class="n">Winter</span><span class="p">,</span> <span class="n">Autumn</span><span class="p">};</span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">Winter</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            2
+                        </div>
+            </div>
+            </div>
+            <p>Thus we are directly printing the value of Winter i.e. 2 in the above example.</p>
+            <div>
+            <a href="dyanamicMemory.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="enumClass.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

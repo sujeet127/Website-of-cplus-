@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            friend class and Function
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Friend Class and Function in C++</h1><hr>
+        <div id="content">
+            <p>If a function is defined as a <strong>friend function</strong> of a class, then that function can access all the <strong>private</strong> and <strong>protected</strong> data.</p>
+            <p>To make a function as a friend of a class, it is declared inside the class either in private or in public section with keyword <strong>friend</strong> before its declaration as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class Temperature<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int celsius;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Temperature()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;celsius = 0;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">friend</span> int temp( Temperature )   &nbsp;&nbsp;&nbsp;&nbsp;//declaring friend function<br>
+            };
+                </p>
+            </div>
+            <p>Here <strong>temp</strong> is a friend function of the class <strong>Temperature</strong>. So, it can access all the private and protected members of the class.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="2740" __idm_id__="266374146"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Temperature</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">celsius</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Temperature</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">celsius</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">friend</span> <span class="kt">int</span> <span class="n">temp</span><span class="p">(</span> <span class="n">Temperature</span> <span class="p">);</span>   <span class="c1">// declaring friend function</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">temp</span><span class="p">(</span> <span class="n">Temperature</span> <span class="n">t</span> <span class="p">)</span>     <span class="c1">// friend function definition</span>
+            <span class="p">{</span>
+                <span class="n">t</span><span class="p">.</span><span class="n">celsius</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+                <span class="k">return</span> <span class="n">t</span><span class="p">.</span><span class="n">celsius</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Temperature</span> <span class="n">tm</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Temperature in celsius : "</span> <span class="o">&lt;&lt;</span> <span class="n">temp</span><span class="p">(</span> <span class="n">tm</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Temperature in celsius : 40
+                        </div>
+            </div>
+            </div>
+            <p>Here we declared a function 'temp' as the friend function of the class 'Temperature'. In the friend function, we directly accessed the private member <strong>celsius</strong> of the class 'Temperature'.<br>
+            When the first statement of the main function created an object 'tm' of the class 'Temperature' thus calling its constructor and assigning a value 0 to its data member celsius.<br>
+            The second statement of the main function called the function 'temp' which assigned a value 40 to celsius.</p>
+            <p>We can also have the same friend function of two classes as shown in the next example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">B</span><span class="p">;</span>       <span class="c1">//declaration of class B</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">value</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">friend</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">);</span>     <span class="c1">// declaring friend function</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">B</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">value</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">B</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">value</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">friend</span> <span class="kt">int</span> <span class="n">sum</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">B</span><span class="p">);</span>     <span class="c1">// declaring friend function</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">sum</span><span class="p">(</span> <span class="n">A</span> <span class="n">v1</span><span class="p">,</span> <span class="n">B</span> <span class="n">v2</span> <span class="p">)</span>             <span class="c1">// friend function definition</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="p">(</span><span class="n">v1</span><span class="p">.</span><span class="n">value</span> <span class="o">+</span> <span class="n">v2</span><span class="p">.</span><span class="n">value</span><span class="p">);</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+                <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Sum : "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Sum : 8
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we declared <strong>sum()</strong> as a friend function of the classes <strong>A</strong> and <strong>B</strong>. So, this function can now access the private and protected members of both these classes. The objects of both the classes are passed into as an argument to the function.<br>
+            First, we created an object for both the classes, thus calling their respective constructors and initializing the values of their respective data member <strong>value</strong> to 5 and 3. The function 'sum' then returned the sum of the data members of the two classes by calling the data members of the two classes by their respective objects.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Note that we declared class B before defining class A because in the body of class A, the friend function takes the parameters 'A' and 'B'.
+                        </div>
+            </div>
+            </div>
+            <h2>Friend Class</h2>
+            <hr>
+            <p>We can also make a class a friend of another class. In that case, all the member function of the class declared as friend become the friend functions of the other class.</p>
+            <p>Let's see how to make a class a friend of another.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class A<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;friend class B;<br>
+            <br>
+            };<br>
+            <br>
+            class B<br>
+            {<br>
+            <br>
+            };
+                </p>
+            </div>
+            <p>Class <strong>B</strong> is declared as a friend of class <strong>A</strong> in the above code. So, now all the member functions of class B became friend functions of class A.</p>
+            <p>Let's see an example of a class friend.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Square</span>
+            <span class="p">{</span>
+                <span class="n">friend</span> <span class="n">class</span> <span class="n">Rectangle</span><span class="p">;</span>      <span class="c1">// declaring Rectangle as friend class</span>
+                <span class="kt">int</span> <span class="n">side</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Square</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">s</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">side</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+                <span class="p">{</span>
+                    <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="kt">void</span> <span class="n">shape</span><span class="p">(</span> <span class="n">Square</span> <span class="n">a</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">length</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">side</span><span class="p">;</span>
+                    <span class="n">breadth</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">side</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Square</span> <span class="n">square</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+                <span class="n">Rectangle</span> <span class="n">rectangle</span><span class="p">;</span>
+                <span class="n">rectangle</span><span class="p">.</span><span class="n">shape</span><span class="p">(</span><span class="n">square</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">rectangle</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            25
+                        </div>
+            </div>
+            </div>
+            <p>We declared <strong>Rectangle</strong> as a <strong>friend class</strong> of <strong>Square</strong>. Thus now, all the functions of Rectangle can directly access any private member of Square.<br>
+            In the main function, the first statement created an object 'square' of the class Square, thus calling its constructor and assigning <strong>5</strong> to its data member <strong>side</strong>.<br>
+            The second statement in the main function created an object 'rectangle' of the class Rectangle.<br>
+            In the third statement, 'rectangle' called the function <strong>shape()</strong> with the object of the class Square passed as its argument. In the 'shape()' function, the value of 'side' (private data member of Square) was assigned to length and breadth. The fourth statement called the function 'getArea' of the class Rectangle.</p>
+            <h2>Class Members as Friend</h2>
+            <hr>
+            <p>We can also make a function of one class as a friend of another class. We do this in the same way as we make a function as a friend of a class. The only difference is that we need to write <strong>class_name ::</strong> in the declaration before the name of that function in the class whose friend it is being declared. The friend function is only specified in the class and its entire body is declared outside the class. It will be clear from the example given below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class A; // forward declaration of A needed by B<br>
+            <br>
+            class B<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;display( A a ); //only specified. Body is not declared<br>
+            };<br>
+            <br>
+            class A<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;friend void B::display( A );<br>
+            };<br>
+            <br>
+            void B::display(A a)  //declaration here<br>
+            {
+            <br>
+            }
+                </p>
+            </div>
+            <p>Let's see its example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span><span class="p">;</span> <span class="c1">// forward declaration of A needed by B</span>
+            
+            <span class="n">class</span> <span class="n">B</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">display</span><span class="p">(</span><span class="n">A</span> <span class="n">obj</span><span class="p">);</span> <span class="c1">//no body declared</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">friend</span> <span class="kt">void</span> <span class="n">B</span><span class="o">::</span><span class="n">display</span><span class="p">(</span><span class="n">A</span><span class="p">);</span>
+            <span class="p">};</span>
+            
+            <span class="kt">void</span> <span class="n">B</span><span class="o">::</span><span class="n">display</span><span class="p">(</span><span class="n">A</span> <span class="n">obj</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">obj</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="n">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">A</span> <span class="n">a</span><span class="p">;</span>
+                <span class="n">B</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">b</span><span class="p">.</span><span class="n">display</span><span class="p">(</span><span class="n">a</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            4
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            You need to run this code using gcc filename.cpp -lstdc++ -o filename
+                        </div>
+            </div>
+            </div>
+            <div>
+            <a href="Encapsulation.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="file.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

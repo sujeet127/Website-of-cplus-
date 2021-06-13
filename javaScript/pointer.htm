@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Pointer
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Pointers in C++</h1><hr>
+        <div id="content">
+            <p>We will discuss <strong>pointers</strong> here. Playing with pointers in C++ is really fun.</p>
+            <p>Now, let's again have a look at the declaration.</p>
+            <p><strong>int a= 44;</strong></p>
+            <p>As we know, the variable 'a' will take some space and will store 44 in it.</p><div id="pixfuture160" style="height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="1288"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Now let's go to the undiscussed part. As we all know that when we declare 'a', it is given a memory location and the value of 'a' is stored in that memory location. In the world of programming, 'a' will also have an address. So, this address is the address of that memory location in which the value of 'a' is stored.</p>
+            <p>Address of 'a' is something like 0xffff377c. It will vary for every computer as per memory given to 'a' at that time.</p>
+            <p>Now coming to the <strong>pointer</strong>, a pointer points to some variable, that is, it stores the address of a variable. E.g.- if 'a' has an address 0xffff377c, then the pointer to 'a' will store a value 0xffff377c in it. So, if 'b' is pointer to 'a' and the value of 'a' is 10 and address is 0xffff377c, then 'b' will have a value 0xffff377c and its address will be different.</p>
+            <p>Address in C++ is represented as <strong>&amp;a</strong> read as <strong>address of a</strong>. Remember that all the time when we were taking the value of 'a' using 'cin', we were taking an input from the user and storing it at the address of 'a', i.e. in a.</p>
+            <h2>How to Use Pointers?</h2>
+            <hr>
+            <p>You must be enjoying programming in C++, and will do even more now. Till now, you have just seen what is a pointer. So, let's introduce pointers in our program.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int a = 44;<br>
+            int *b; /* declaration of pointer b */<br>
+            b = &amp;a;
+            </p>
+            </div>
+            <p><strong>int *b -</strong> This statement should mean that '*b' is an integer but then what is the significance of '*' before 'b'? It means that b points to some integer ('b' is a pointer to some integer).</p>
+            <p>Or we can say that 'b' will store the address of some integer.</p>
+            <p><strong>b = &amp;a; -</strong> As said, 'b' will store the address of some integer because it is a pointer to an integer. In this declaration, it is storing the address of 'a'. Since 'b' is a pointer and '&amp;a' represents address, so, by declaring 'b = &amp;a;' we are storing the address of 'a' in 'b'.</p>
+            <p>So,<br>
+            <strong>*b</strong> is the value of the variable 'b' is pointing to. Here *b is 44. As stated earlier, <strong>'int *b;'</strong> means that '*b' is an integer, but '*' before means that b is a pointer. So, '*b' will be the value of the variable to which 'b' is pointing. Here, 'b' is pointing to 'a' therefore, 'b' will store the address of 'a' and '*b' will be the value of the integer to which 'b' is pointing i.e. 'a'</p>
+            <p>So, in short,<br>
+            int a; - 'a' is an integer.<br>
+            int *b; - 'b' is a pointer to an integer.<br>
+            b = &amp;a - 'b' is now pointing to 'a'(value of 'b' is the address of 'a').<br>
+            '*b' will now represent a (value of '*b' is the value of 'a').</p>
+            <p>Let's see an example of pointers.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+                  <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"p = "</span> <span class="o">&lt;&lt;</span> <span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"*p = "</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"&amp;p = "</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"*&amp;p = "</span> <span class="o">&lt;&lt;</span> <span class="o">*&amp;</span><span class="n">p</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            p = 0xffff377c<br>
+            *p = 10<br>
+            &amp;p = 0xffff3778<br>
+            *&amp;p = 0xffff377c
+                    </div>
+            </div>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                        Value of address will vary every time we run our program because every time a new memory will be allocated.
+                    </div>
+            </div>
+            </div>
+            <p>As discussed earlier, 'p' is a pointer to 'a'. Since 'a' has a value of 10, so '*p' is 10. 'p' stores the address of a. So the output <strong>p = 0xffff377c</strong> implies that 0xffff377c is the address of 'a'. <strong>'&amp;p'</strong> represents the address of 'p' which is 0xffff3778. Now, <strong>'*&amp;p'</strong> is the value of '&amp;p' and the value of '&amp;p' is the address of 'a'. So, it is 0xffff377c.</p>
+            <h2>Passing Pointers to Function</h2>
+            <hr>
+            <p>Let's first consider an example that will swap two numbers i.e., interchange the values of two numbers.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span> <span class="kt">int</span> <span class="o">*</span><span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="o">*</span><span class="n">b</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+                <span class="o">*</span><span class="n">a</span> <span class="o">=</span> <span class="o">*</span><span class="n">b</span><span class="p">;</span>
+                <span class="o">*</span><span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter first number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter second number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num2</span><span class="p">;</span>
+                <span class="n">swap</span><span class="p">(</span> <span class="o">&amp;</span><span class="n">num1</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">num2</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"First number = "</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Second number = "</span> <span class="o">&lt;&lt;</span> <span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Enter first number <br>
+            <span style="color:#ce9d9d">2</span> <br>
+            Enter second number <br>
+            <span style="color:#ce9d9d">4</span> <br>
+            First number = 4 <br>
+            Second number = 2
+                    </div>
+            </div>
+            </div>
+            <p>Swapping means to interchange the values.<br>
+            <strong style="color:brown;">void swap( int *a, int *b )</strong> - It means our function 'swap' is taking two pointers as argument. So, while calling this function, we will have to pass the address of two integers ( <strong>call by reference</strong> ).<br>
+            <strong>int t; t = *a;</strong> We took any integer t and gave it a value '*a'.<br>
+            <strong>*a = *b</strong> - Now, *a is *b. This means that now the values of *a and *b will be equal to that of *b.<br>
+            <b>*b = t;</b> - Since 't' has an initial value of '*a', therefore, '*b' will also contain that initial value of '*a'. Thus, we have interchanged the values of the two variables.</p>
+            <p>Since we have done this swapping with pointers ( we have targeted on address ), so, this interchanged value will also reflect outside the function and the values of 'num1' and 'num2' will also get interchanged.</p>
+            <p>In the above example, we passed the address of the two variables (num1 and num2) to the swap function. The address of num1 is stored in 'a' pointer and that of num2 in 'b' pointer. In the swap function, we declared a third variable 't' and the values of 'a' and 'b' (and thus that of num1 and num2 ) gets swapped.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+            <p>In normal function call ( <strong>call by value</strong> ), the parameters of a function are xerox copies of the arguments passed to the function. It is like we are passing xerox copies.</p>
+            <p>So altering them won't affect the real values.</p>
+            <p>But in <strong>call by referance</strong>, we pass the address of variables to the function. Passing address is like passing original 'x' and 'y'.</p>
+            <p>Altering the parameters will alter the real values also.</p>
+            </div>
+            </div>
+            </div>
+            <p>In the swapping example also, we used call by reference in which we passed the address of num1 and num2 as the arguments to the function. The function parameters 'a' and 'b' point to the address of num1 and num2 respectively. So, any change in the parameters 'a' and 'b' changes the value of num1 and num2 also.</p>
+            <p>Let's see a normal function call (passing values and not address) and try to alter the value of the variable.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">swap</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">t</span><span class="p">;</span>
+                <span class="n">t</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter first number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter second number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num2</span><span class="p">;</span>
+                <span class="n">swap</span><span class="p">(</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"First number = "</span> <span class="o">&lt;&lt;</span> <span class="n">num1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Second number = "</span> <span class="o">&lt;&lt;</span> <span class="n">num2</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Enter first number <br>
+            <span style="color:#ce9d9d">2</span> <br>
+            Enter second number <br>
+            <span style="color:#ce9d9d">4</span> <br>
+            
+            
+            
+            First number = 2<br>
+            Second number = 4
+                    </div>
+            </div>
+            </div>
+            <p>In the above example, we are trying to interchange the values of two variables. We passed num1 and num2 as arguments in the function swap. 'a' and 'b' are the copies of 'num1' and 'num2' respectively. In the swap function, the values of 'a' and 'b' got interchanged while the values of 'num1' and 'num2' remained unchanged.</p>
+            <p>So, you have seen that the numbers got swapped inside the function but outside it, there was no change. Because by passing values to functions, copies of the values got passed and not the real values. So, outside the function there was no effect on the variables.</p>
+            <p>If you have any confusion left, then just go through the above two codes again and you will understand it. If not, then you can always raise your doubts in the <a href="/discussion/" target="_blank">discussion section</a>.</p>
+            <h2>Pointers to Array</h2>
+            <hr>
+            <p>We also have pointers to array which we will see in the next topic Array.</p>
+            <p>Before moving to the next topic, practice a lot of problems on pointers so that you have a strong grip over it.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">You are only good as the chances you take.<br><span style="float:right;">-Al Pacino</span></p>
+            </div>
+            <div>
+            <a href="scopeOfVariables.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="array.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+
+    </body></html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Operators
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Operators in C++</h1><hr>
+        <div id="content">
+            <p>In C++, there are symbols which tell the compiler to perform certain operations on variables. These symbols are known as <strong>operators</strong>. For example, <strong>(+)</strong> is an operator which is used for adding the values of two variables.</p>
+            <p>Let's see different types of operators in C++.</p>
+            <ul>
+            <li>Arithmetic Operators</li>
+            <li>Relational Operators</li>
+            <li>Increment and Decrement Operators</li>
+            <li>Logical Operators</li>
+            <li>Assignment Operators</li>
+            </ul>
+            <h2>Arithmetic Operators</h2><hr>
+            <p>Arithmetic Operators are the type of operators which take numerical values (either literals or variables) as their operands and return a single numerical value.</p>
+            <p>Let's assume the values of 'a' and 'b' to be 8 and 4 respectively.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="248" __idm_id__="106366977"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <table class="table-default" style="margin-bottom:8px;">
+            <tbody><tr>
+            <th>Operator</th>
+            <th>Description</th>
+            <th>Example</th>
+            </tr>
+            <tr>
+            <td>+</td>
+            <td>Adds operands</td>
+            <td>a+b=12</td>
+            </tr>
+            <tr>
+            <td>-</td>
+            <td>Subtracts second operand from first</td>
+            <td>a-b=4</td>
+            </tr>
+            <tr>
+            <td>*</td>
+            <td>Multiplies both operands</td>
+            <td>a*b=32</td>
+            </tr>
+            <tr>
+            <td>/</td>
+            <td>Divides numerator by denominator.</td>
+            <td>a/b=2</td>
+            </tr>
+            <tr>
+            <td>%</td>
+            <td>Modulus Operator returns the remainder of an integer division.</td>
+            <td>a%b=0</td>
+            </tr>
+            </tbody></table>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sum = "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"difference = "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"product = "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span> <span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"remainder = "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span> <span class="n">a</span> <span class="o">%</span> <span class="n">b</span> <span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            sum = 47<br>
+            difference = 37<br>
+            product = 210<br>
+            remainder = 2
+                        </div>
+            </div>
+            </div>
+            <p><strong>int a = 42, b = 5; - </strong>As seen before, this statement declares two integer variables 'a' and 'b' and assigns them the values 42 and 5 respectively.<br>
+            In the next statement, <strong>sum =</strong> will be printed as it is, since it is enclosed within <strong>" "</strong>. After that, the expression <strong>( a + b )</strong> will get evaluated and its value (42 + 5 = 47) will get printed. Thus, <strong>sum = 47</strong> will get printed. Similarly, other statements will get evaluated and printed on the screen.</p>
+            <p>We can also introduce a third variable to store the sum of the first two variables as done in the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">c</span><span class="p">;</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;</span> <span class="s">"sum = "</span> <span class="o">&lt;</span> <span class="n">c</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            sum = 47
+                        </div>
+            </div>
+            </div>
+            <p>Here we declared a third integer variable 'c' and stored the value of <strong>a + b</strong> (42 + 5 = 47) in it, thus making its value 47. Finally, <strong>sum = 47</strong> gets printed.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            When an integer is divided by another integer, the answer is rounded off to the nearest lower integer.
+                        </div>
+            </div>
+            </div>
+            <p>When we divide two integers, the result is an integer. For example, <strong>7/3 = 2</strong> (not 2.33333).</p>
+            <p>To get the exact decimal value of the answer, at least one of numerator or denominator should have decimal(float).</p>
+            <p>All 7/3.0, 7.0/3 and 7.0/3.0 return 2.33333</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mi">7</span><span class="o">/</span><span class="mf">3.0</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mf">7.0</span><span class="o">/</span><span class="mi">3</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="mf">7.0</span><span class="o">/</span><span class="mf">3.0</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            2<br>
+            2.33333<br>
+            2.33333<br>
+            2.33333
+                        </div>
+            </div>
+            </div>
+            <p>Let's see one more example of dividing two integers.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">x</span><span class="o">/</span><span class="kt">float</span><span class="p">(</span><span class="n">y</span><span class="p">))</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="n">y</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="kt">float</span><span class="p">(</span><span class="n">y</span><span class="p">));</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three1" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three1">
+            <div class="code_out code_outone well">
+            2<br>
+            2.5<br>
+            2.5<br>
+            2.5
+                        </div>
+            </div>
+            </div>
+            <p>
+            This example was just to show you the use of type casting. We converted the integer values of 'x' and 'y' into float in the middle of our program and as per our need.
+            </p>
+            <h2>Precedance of Operators</h2><hr>
+            <p>In Maths, you might have learned about BODMAS rule, but that rule is not applied here. If we have written more than one operation in one line, then which operation should be done first is governed by the following rules :- <strong>Expression inside brackets '()' are evaluated first</strong>. After that, this table is followed ( The operator at the top has higher precedence and that at the bottom has the least precedence ):</p>
+            <table class="table-default" style="margin-bottom:8px;">
+            <tbody><tr>
+            <th>Operator</th>
+            <th>Associativity</th>
+            </tr>
+            <tr>
+            <td>++ -- !</td>
+            <td>Right to left</td>
+            </tr>
+            <tr>
+            <td>* / %</td>
+            <td>Left to right</td>
+            </tr>
+            <tr>
+            <td>+ -</td>
+            <td>Left to right</td>
+            </tr>
+            <tr>
+            <td>&gt; &gt;= &lt; &lt;=</td>
+            <td>Left to right</td>
+            </tr>
+            <tr>
+            <td>== =!</td>
+            <td>Left to right</td>
+            </tr>
+            <tr>
+            <td>&amp;&amp;</td>
+            <td>Left to right</td>
+            </tr>
+            <tr>
+            <td>||</td>
+            <td>Left to right</td>
+            </tr>
+            <tr>
+            <td>= += -= *= /= %=</td>
+            <td>Right to left</td>
+            </tr>
+            </tbody></table>
+            <p>Let's consider an expression</p>
+            <p><strong>n = 4 * 8 + 7</strong></p>
+            <p>Since the priority order of multiplication operator ( * ) is greater than that of addition operator ( + ), so first 4 will get multiplied with 8 and after that 7 will be added to the product.</p>
+            <p>Suppose two operators have the same priority order in an expression, then the evaluation will start from left or right as shown in the above table.</p>
+            <p>For example, take the expression.</p>
+            <p><strong>10 / 5 + 2 * 3 -8</strong></p>
+            <p>Since the priorities of / and * are greater than those of + and -, therefore / and * will be evaluated first. Since / and * have the same priority order, so these will be evaluated from left to right simplifying to the following expression.</p>
+            <p><strong>2 + 2 * 3 - 8</strong></p>
+            <p>After /, * will be evaluated resulting in the following expression</p>
+            <p><strong>2 + 6 - 8</strong></p>
+            <p>Again + and - have the same precedence, therefore these will also be evaluated from left to right i.e. first 2 and 6 will be added after which 8 will be subtracted resulting in 0.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If you don't want to remember these rules, then just put the expression you want to execute first in brackets. Eg- If you want to divide the product of (2+2) and 444 by the quotient of (999/5), then write the expression as - ((2+2)*444)/(999/5). This will get evaluated as (4*444)/(999/5) and finally get simplified to 1776/199 (as 999/5 is 199 and not 199.8).
+                        </div>
+            </div>
+            </div>
+            <h2>Relational Operators</h2><hr>
+            <p>
+                    Relational Operators check the relationship between two operands. It returns 1 if the relationship is true and 0 if it is false.
+                </p>
+            <p>
+                    Following is the list of relational operators in C++.
+                </p>
+            <p>
+                    Again, assume the value of 'a' to be 8 and that of 'b' to be 4.
+                </p>
+            <table class="table-default" style="margin-bottom:20px;">
+            <tbody><tr>
+            <th>Operator</th>
+            <th>Description</th>
+            <th>Example</th>
+            </tr>
+            <tr>
+            <td>==</td>
+            <td>Equal to</td>
+            <td>(a == b) is false</td>
+            </tr>
+            <tr>
+            <td>!=</td>
+            <td>Not equal to</td>
+            <td>(a != b) is true</td>
+            </tr>
+            <tr>
+            <td>&gt;</td>
+            <td>Greater than</td>
+            <td>(a &gt; b) is true</td>
+            </tr>
+            <tr>
+            <td>&lt;</td>
+            <td>Less than</td>
+            <td>(a &lt; b) is false</td>
+            </tr>
+            <tr>
+            <td>&gt;=</td>
+            <td>Greater than or equal to</td>
+            <td>(a &gt;= b) is true</td>
+            </tr>
+            <tr>
+            <td>&lt;=</td>
+            <td>Less than or equal to</td>
+            <td>(a &lt;= b) is false</td>
+            </tr>
+            </tbody></table>
+            <p class="para_content">
+                    Let's see an example to understand the use of these operators.
+                </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            0<br>
+            1<br>
+            1<br>
+            0<br>
+            1<br>
+            0
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, since the value of 'a' is not equal to 'b', therefore <strong>(a == b)</strong> (equal to) returned false and <strong>(a !=b)</strong> (not equal to) returned true.<br>
+            Since the value of 'a' is greater than 'b', therefore <strong>(a &gt; b)</strong> (greater than) and <strong>(a &gt;= b)</strong> (greater than or equal to) returned true whereas <strong>(a &lt; b)</strong> (less than) and <strong>(a &lt;= b)</strong> (less than or equal to) returned false.</p>
+            <h3>Difference between = and ==</h3><hr>
+            <p>Although = and == seem to be same, but they are quite different fromn each other. <strong>=</strong> is the <strong>assignment operator</strong> while <strong>==</strong> is the <strong>equality operator</strong>.</p>
+            <p>= assign values from its right side operands to its left side operands whereas == compares values.</p>
+            <p>
+                    Take two examples.
+                </p>
+            <p>
+            <strong>x = 5;</strong>
+            </p>
+            <p>
+            <strong>x == 5;</strong>
+            </p>
+            <p>
+                    By writing x = 5, we assigned a value 5 to x, whereas by writing x == 5, we checked if the value of x is 5 or not.
+                </p>
+            <img alt="difference in = and == in C++" src="/staticroot/images/fig9.png" style="max-width:50%;height:auto;">
+            <h2>Logical Operators</h2><hr>
+            <p>
+                    In C++, if we write <strong>A and B</strong>, then the expression is true if both A and B are true. Whereas, if we write <strong>A or B</strong>, then the expression is true if either A or B or both are true.
+                </p>
+            <p>
+            <strong>A and B - Both A and B</strong>
+            </p>
+            <p>
+            <strong>A or B - Either A or B or both.</strong>
+            </p>
+            <p>
+                    The symbol for <strong>AND</strong> is <strong>&amp;&amp;</strong> while that of <strong>OR</strong> is <strong>||</strong>.
+                </p>
+            <p>
+                    Again assume the value of 'a' to be 8 and that of 'b' to be 4.
+                </p>
+            <table class="table-default" style="margin-bottom:20px;">
+            <tbody><tr>
+            <th>Operator</th>
+            <th>Description</th>
+            <th>Example</th>
+            </tr>
+            <tr>
+            <td>&amp;&amp;</td>
+            <td>Logical AND. If both the operands are non-zero, then the condition becomes true</td>
+            <td>(a &amp;&amp; b) is true</td>
+            </tr>
+            <tr>
+            <td>||</td>
+            <td>Logical OR. If any one or both the operands are non-zero, then the condition becomes true</td>
+            <td>(a || b) is true</td>
+            </tr>
+            <tr>
+            <td>!</td>
+            <td>Logical NOT. It is used to reverse the condition. So, if a condition is true, ! makes it false and vice versa.</td>
+            <td>(!(false)) is true</td>
+            </tr>
+            </tbody></table>
+            <p>In <strong>Logical AND (&amp;&amp;)</strong> operator, if any one of the expression is false, the condition becomes false. Therefore, for the condition to become true, both the expressions must be true.</p>
+            <p>For example, <b>(3&gt;2)&amp;&amp;(5&gt;4)</b> returns true because both the expressions are true. Conditions (3&gt;2)&amp;&amp;(5&lt;4), (3&lt;2)&amp;&amp;(5&gt;4) and (3&lt;2)&amp;&amp;(5&lt;4) are false because atleast one of the expressions are false in each case.</p>
+            <p>For <strong>Logical OR (||)</strong> operator, the condition is only false when both the expressions are false. If any one expression is true, the condition returns true. Therefore, (3&lt;2)||(5&lt;4) returns false whereas (3&gt;2)||(5&lt;4), (3&lt;2)||(5&gt;4) and (3&gt;2)||(5&gt;4) returns true.</p>
+            <p><strong>Logical Not (!)</strong> operator converts true to false and vice versa. For example, !(4&lt;7) is true because the expression (4&lt;7) is false and the operator ! makes it true.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"(a &amp;&amp; b) = "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"(a || b) = "</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">||</span> <span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"!(a&gt;b) = "</span> <span class="o">&lt;&lt;</span> <span class="o">!</span><span class="p">(</span><span class="n">a</span><span class="o">&gt;</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            (a &amp;&amp; b) = 0<br>
+            (a || b) = 1<br>
+            !(a&gt;b) = 0
+                        </div>
+            </div>
+            </div>
+            <p>In the expression<strong>(a &amp;&amp; b)</strong>, since the value of 'b' is 0, therefore the condition became false and thus returned 0. Since the value of 'a' is non-zero, therefore the expression <strong>(a || b)</strong> became true and thus returned 1. The expression (a&gt;b) is true (since the value of 'a' is greater than 'b') and thus the expression <strong>!(a&gt;b)</strong> became false.</p>
+            <h2>Assignment Operators</h2><hr>
+            <p>Assignment Operators are used to assign values from its right side operands to its left side operands. The most common assignment operator is <b>=</b>.</p>
+            <p>If we write <b>a = 10;</b> means that we are assigning a value '10' to the variable 'a'.</p>
+            <p>There are more assignment operators which are listed in the following table.</p>
+            <table class="table-default" style="margin-bottom:20px;">
+            <tbody><tr>
+            <th>Operator</th>
+            <th>Description</th>
+            <th>Example</th>
+            </tr>
+            <tr>
+            <td>=</td>
+            <td>Assigns value of right operand to left operand</td>
+            <td>C = A+B is same as C = A + B</td>
+            </tr>
+            <tr>
+            <td>+=</td>
+            <td>Adds the value of right operand to left operand and assigns the final value to the left operand</td>
+            <td>C += A is same as C = C + A</td>
+            </tr>
+            <tr>
+            <td>-=</td>
+            <td>Subtracts the value of right operand from left operand and assigns the final value to the left operand</td>
+            <td>C -= A is same as C = C - A</td>
+            </tr>
+            <tr>
+            <td>*=</td>
+            <td>Multiplies the value right operand to left operand and assigns the final value to the left operand</td>
+            <td>C *= A is same as C = C * A</td>
+            </tr>
+            <tr>
+            <td>/=</td>
+            <td>Divides the value of left operand from right operand and assigns the final value to the left operand</td>
+            <td>C /= A is same as C = C / A</td>
+            </tr>
+            <tr>
+            <td>%=</td>
+            <td>takes modulus using two operands and assigns the result to the left operand</td>
+            <td>C %= A is same as C = C % A</td>
+            </tr>
+            </tbody></table>
+            <p>
+            Before going further, let's have a look at an example:
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            8<br>7
+                        </div>
+            </div>
+            </div>
+            <p>
+            <b style="color:brown">a = a+1</b> - '<b>=</b>' operator starts from right. eg.- if a is 4 and b is 5, then a = b will make a to 5 and b will remain 5.<br>
+            a = a+b; - Similarly, since '+' has higher priority than '=', so, a+b will be calculated first.
+            <br>
+            In the exact same fashion, in <b>a = a+1</b>, a+1 will be calculated first since <b>+</b> has higher priority than <b>=</b>. Now, the expression will become <b>a = 8</b> making the value of 'a' equal to 8.<br>
+            Similarly, <b>a = a-1</b> will make the value of 'a' equal to 7 again.
+            </p>
+            <p>To understand this, consider the value of a variable 'n' as 5. Now if we write <strong>n +=2</strong>, the expression gets evaluated as <strong>n = n+2</strong> thus making the value of 'n' as 7 ( n = 5 + 2 ). Let's look at an example where different assignment operators are used.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a += 4 "</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of a: "</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">+=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a -= 4 "</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of a: "</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">-=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a *= 4 "</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of a: "</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">*=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a /= 4 "</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of a: "</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">/=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a %= 4 "</span> <span class="o">&lt;&lt;</span> <span class="s">"Value of a: "</span><span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">a</span> <span class="o">%=</span> <span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            a += 4 Value of a: 11<br>
+            a -= 4 Value of a: 7<br>
+            a *= 4 Value of a: 28<br>
+            a /= 4 Value of a: 7<br>
+            a %= 4 Value of a: 3
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, initially, the value of 'a' is 7.<br>
+            The expression <strong>a += 4 </strong>gets evaluated as 'a = a+4' thus making the value of 'a' as 11. After this, the expression <strong>a -= 4</strong> gets evaluated as 'a = a-4' thus subtracting 4 from the current value of 'a' (i.e. 11) and making it 7 again. Similarly, other expressions will get evaluated.</p>
+            <h2>Increment and Decrement Operators</h2><hr>
+            <p>++ and -- are called increment and decrement operators respectively.</p>
+            <p><strong>++</strong> adds 1 to the operand whereas <strong>--</strong> subtracts 1 from the operand.</p>
+            <p><strong>a++</strong> increases the value of a variable 'a' by 1 and <strong>a--</strong> decreases the value of a by 1.</p>
+            <p>Similarly, <strong>++a</strong> increases the value of 'a' by 1 and <strong>--a</strong> decreases the value of a by 1.</p>
+            <p>In <strong>a++</strong> and <strong>a--</strong>, ++ and -- are used as <strong>postfix</strong> whereas in <strong>++a</strong> and <strong>--a</strong>, ++ and -- are used as <strong>prefix</strong>.</p>
+            <p>For example, suppose the value of a is 5, then a++ and ++a changes the value of 'a' to 6. Similarly, a-- and --a changes the value of 'a' to 4.</p>
+            <h3>Difference between Prefix and Postfix</h3><hr>
+            <p>While both a++ and ++a increases the value of 'a', the only difference between these is that a++ returns the value of 'a' before the value of 'a' is incremented and ++a first increases the value of 'a' by 1 and then returns the incremented value of 'a'.</p>
+            <p>Similarly, a-- first returns the value of 'a' and then decreases its value by 1 and --a first decreases the value of 'a' by 1 and then returns the decreased value.</p>
+            <p>An example will make the difference clear.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">a</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">d</span><span class="o">=</span><span class="mi">8</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a++ = "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="o">++</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"++b = "</span> <span class="o">&lt;&lt;</span> <span class="o">++</span><span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"c-- = "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span><span class="o">--</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"--d = "</span> <span class="o">&lt;&lt;</span> <span class="o">--</span><span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eightt" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eightt">
+            <div class="code_out code_outone well">
+            a++ = 8<br>
+            ++b = 9<br>
+            c-- = 8<br>
+            --d = 7
+                        </div>
+            </div>
+            </div>
+            <p>In <strong>a++</strong>, postfix increment operator is used with 'a' which first printed the current value of 'a' (8) and then incremented it to 9.<br>
+            Similarly in <strong>++b</strong>, the prefix operator first added one to the current value of 'b' thus making it 9 and then printed the incremented value. The same will be followed for the decremented operators.</p>
+            <h2>sizeof</h2><hr>
+            <p><strong>sizeof()</strong> operator is used to return the size of a variable. Suppose we have an integer variable 'i', so the value of sizeof(i) will be 4 because on declaring the variable 'i' as of type integer, the size of the variable becomes 4 bytes.</p>
+            <p>Look at the following example to find the size of int, char, float and double variables</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+                <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+                <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size of integer variable i : "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size of integer variable j : "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size of character variable c : "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size of float variable f : "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"size of double variable d : "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            size of integer variable i : 4<br>
+            size of integer variable j : 4<br>
+            size of character variable c : 1<br>
+            size of float variable f : 4<br>
+            size of double variable d : 8
+                        </div>
+            </div>
+            </div>
+            <p>Here, sizes of character, float and double variables are 1, 4 and 8 bytes respectively, so <strong>sizeof</strong> operator applied to these returns 1, 4 and 8 respectively. Whenever we declare an integer variable, a space in the memory equal to 4 bytes gets occupied by it. It doesn't matter whether we assign a value to the variable or not, space will allocate. Since, both i and j are integer variables, therefore the sizes of both of these are 4 bytes, regardless of whether a value is assigned to these or not.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Size of the variables will be different for 32 bit and 64 bit compiler.
+                        </div>
+            </div>
+            </div>
+            <p>Let's see another example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">j</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>
+                <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>
+                <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">char</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ten" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ten">
+            <div class="code_out code_outone well">
+            4<br>
+            1<br>
+            4<br>
+            8
+                        </div>
+            </div>
+            </div>
+            <p>Here we printed the sizes of int, char, float and double using sizeof operator, same as we did in the previous example, except for the difference that this time we directly passed the name of the <strong>datatype</strong> in the <strong>sizeof</strong> operator.</p>
+            <p>So, now anytime you need to know the size of any datatype, you can do so by using <b>sizeof</b> operator.</p>
+            <h2>Let's do some Math</h2><hr>
+            <p>What if you want to take out the sine, cos or log of a number?</p>
+            <p>Yes, we can perform such mathematical operations in C++.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If you are not aware of these mathematical functions, then don't go into these and continue your coding.
+                        </div>
+            </div>
+            </div>
+            <p>All these functions are defined in the <strong>cmath</strong> library. Therefore, to use any such function in our program, we need to include this library in the beginning of our program. For this, we have to include the following code in the beginning of our program.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            #include &lt;cmath&gt;
+                </p>
+            </div>
+            <p>After importing the library, we can enjoy the different mathematical functions in C++.</p>
+            <p>Let's see some of the mathematical functions.</p>
+            <table class="table-default" style="margin-bottom:8px;">
+            <tbody><tr>
+            <th>Function</th>
+            <th>Description</th>
+            </tr>
+            <tr>
+            <td>sin</td>
+            <td>Calculates the sine value of some angle in radians</td>
+            </tr>
+            <tr>
+            <td>cos</td>
+            <td>Calculates the cosine value of some angle in radians</td>
+            </tr>
+            <tr>
+            <td>ceil</td>
+            <td>Calculates the number which is equal to the integer just greater than the number passed</td>
+            </tr>
+            <tr>
+            <td>floor</td>
+            <td>Calculates the number which is equal to the integer just smaller than the number passed</td>
+            </tr>
+            <tr>
+            <td>fmin</td>
+            <td>Returns the smaller number among the numbers passed to it</td>
+            </tr>
+            <tr>
+            <td>fmax</td>
+            <td>Returns the larger number among the numbers passed to it</td>
+            </tr>
+            <tr>
+            <td>fabs</td>
+            <td>Calculates the absolute value of a number</td>
+            </tr>
+            <tr>
+            <td>round</td>
+            <td>Rounds a float or a double to the nearest integer</td>
+            </tr>
+            <tr>
+            <td>sqrt</td>
+            <td>Calculates the square root of a number</td>
+            </tr>
+            <tr>
+            <td>pow</td>
+            <td>It takes two numbers as parameters and returns the value of the first number raised to the power equal to the second number</td>
+            </tr>
+            <tr>
+            <td>log</td>
+            <td>Returns the logarithm of a number.</td>
+            </tr>
+            </tbody></table>
+            <p>Now let's see the examples of some of these functions.</p>
+            <h3>ceil</h3><hr>
+            <p>It calculates the number which is equal to the integer just greater than it. For example, if the number 4.56 is passed to the function, it will return 5.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+            <span class="p">{</span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ceil</span><span class="p">(</span><span class="mf">4.7</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eleven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eleven">
+            <div class="code_out code_outone well">
+            5
+                        </div>
+            </div>
+            </div>
+            <h3>fabs</h3><hr>
+            <p>It returns the absolute value of the number passed to it. Absolute value of a number is the magnitude of the number with a positive sign. For example, the absolute value of 2 is 2 whereas the absolute value of -2 is also 2.</p>
+            <p>To take out the absolute value of -5.6, we have to write the following code.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+            <span class="p">{</span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">fabs</span><span class="p">(</span><span class="o">-</span><span class="mf">5.6</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#twelve" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="twelve">
+            <div class="code_out code_outone well">
+            5.6
+                        </div>
+            </div>
+            </div>
+            <h3>pow</h3><hr>
+            <p>It takes two parameters and returns the value of the first parameter raised to the power equal to the value of the second parameter.</p>
+            <p>For example, the value of the number 3 raised to the power 2 is equal to multiplying three two times which is equal to 9 (= 3*3).</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+            <span class="p">{</span>
+              <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">pow</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#thirteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="thirteen">
+            <div class="code_out code_outone well">
+            9
+                        </div>
+            </div>
+            </div>
+            <h3>fmin and fmax</h3><hr>
+            <p>fmin and fmax returns the smaller and the greater among the two numbers passed to these functions.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cmath&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span> <span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Smaller number : "</span><span class="o">&lt;&lt;</span> <span class="n">fmin</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Larger number : "</span><span class="o">&lt;&lt;</span> <span class="n">fmax</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#forteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="forteen">
+            <div class="code_out code_outone well">
+            Smaller number : 2<br>
+            Larger number : 4
+            
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Don't practice until you get it right. Practice until you can't get it wrong.</p>
+            </div>
+            <div>
+            <a href="variablesAndLiterals.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="decideIfElse.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

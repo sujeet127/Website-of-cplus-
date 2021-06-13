@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Scope of Variables
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Scope of Variables in C++</h1><hr>
+        <div id="content">
+            <p>Scope is a region of a program. <strong>Variable Scope</strong> is a region in a
+            program where a variable is declared and used.</p>
+            <p>Variables are thus of two types depending on the region where these are declared
+            and used.</p>
+            <h2>Local Variables</h2><hr>
+            <p>Variables that are declared inside a function or a block are called <strong>local
+            variables</strong> and are said to have <strong>local scope</strong>. These local
+            variables can only be used within the function or block in which these are
+            declared.</p>
+            <p>For functions, local variable can either be a variable which is declared in the
+            body of that function or can be defined as function parameters in the function
+            definition</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="1182" __idm_id__="768574465"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Now let's see an example where a local variable is declared in the function
+            definition.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">multiply</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+                    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+                    <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                    <span class="kt">int</span> <span class="n">z</span><span class="p">;</span>
+                    <span class="n">z</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">);</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">z</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            15
+                        </div>
+            </div>
+            </div>
+            <p>In this example, variables <strong>a</strong> and <strong>b</strong> are declared in the definition of the function <strong>multiply</strong> and are used within the function. These have no meaning outside the function. 'a' and 'b' are the copies of the variables 'x' and 'y' respectively and store their respective values. Thus, any change in the values of 'a' and 'b' does not affect the values of 'x' and 'y'.<br>
+            Here, 'a' and 'b' are the local variables for the function 'multiply' and 'x' and 'y' are the local variables for the function main.</p>
+            <p>Let's take one more example to see that local variables are assets of the function in which these are declared.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">func1</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">void</span> <span class="nf">func2</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">func1</span><span class="p">();</span>
+                <span class="n">func2</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            4<br>
+            5
+                        </div>
+            </div>
+            </div>
+            <p>In the function <strong>func1</strong>, we declared a variable <strong>x</strong> and initialized it with a value <strong>4</strong>. This variable is in the body of the function func1 and thus gets destroyed when the body of the function func1 ends. So, when we called func1, 4 gets printed.<br>
+            We declared another variable <strong>x</strong> in the function <strong>func2</strong> and gave it a value <strong>5</strong>. This variable also gets destroyed as the body of func2 ends and has no relation with the variable <strong>x</strong> of func1.<br>
+            So, the two variables are independent of each other and are limited to only the function in which these are declared.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Same as function, variables declared inside a block are also local variables and are accessible only within the block.
+                        </div>
+            </div>
+            </div>
+            <p>A <strong>block</strong> is a group of statements enclosed within the curly braces <strong>{ }</strong>. For example, the body of a function is a block. The body of loops or conditional statements like if..else is also a block. </p>
+            <h2>Global Variables</h2><hr>
+            <p>Variables that are defined outside of all the functions and are accessible throughout the program are <strong>global variables</strong> and are said to have <strong>global scope</strong>. Once declared, these can be accessed by any function in the program.</p>
+            <p>Let's see an example of a global variable.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="n">g</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="n">g</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">g</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            8
+                        </div>
+            </div>
+            </div>
+            <p>Here, <strong>g</strong> is a <strong>global variable</strong> since it is declared outside of the main function. Thus unlike the local variable 'a' which can only be used in the function main, 'g' can be used throughout the program and can be used in all the functions in the program. In this example, we declared 'g' outside of all the functions and gave it a value in the function.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="n">g</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">func1</span><span class="p">(){</span>
+                <span class="n">g</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">g</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">func1</span><span class="p">();</span>
+                <span class="n">g</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">g</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            20<br>
+            30
+                        </div>
+            </div>
+            </div>
+            <p>Same as we can change the value of any local variable in a function any number of times and the value last assigned overrides the previous value, we can also override the value of the global variable in a function.<br>
+            We assigned a value <strong>10</strong> to <strong>g</strong> at the time of its declaration. Firstly, we called the function <strong>func1</strong> in the main function in which we assigned <strong>20</strong> to 'g'. Thus, the value of 'g' became 20 in the function func1 and thus 20 got printed.<br>
+            After that, we assigned <strong>30</strong> to 'g' in the <strong>main</strong> function thus making the value of 'g' 30 in the main function and printing 30.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Programming is a skill best acquired by practice and example rather than from books.<br><span style="float:right;">-Alan Turing</span></p>
+            </div>
+            <div>
+            <a href="inlineFunction.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="pointer.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

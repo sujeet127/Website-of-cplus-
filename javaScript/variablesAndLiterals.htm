@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Variables and Literals
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Variables and Literals in C++</h1><hr>
+        <div id="content">
+            <p>Till now, you have seen how to print something on the screen and the basics of writing code in C++. Now let's move forward.</p>
+            <p>Before introducing variables, look at the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>    <span class="c1">// declaring integer variable n</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>    <span class="c1">// assigning 4 to n</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">;</span>  <span class="c1">//printing the value of n</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            4
+                        </div>
+            </div>
+            </div>
+            <p>In this example, <strong>n</strong> is a <strong>variable</strong>. Variables are used to store certain values. In our case, we stored a value of 4 to the variable <strong>n</strong>. Let's understand the above example.</p>
+            <p><strong style="color:brown;">int n; - </strong>This statement declares that variable 'n' can store some integer value. Whenever a variable is declared, it occupies some space in memory.<br>
+            <strong style="color:brown;">n = 4; - </strong>This assigns a value 4 to the variable 'n'.<br>
+            <strong style="color:brown;">std::cout &lt;&lt; n; - </strong>This statement prints the value of the variable 'n' and hence 4 gets printed.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="156" __idm_id__="516215810"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>
+            Note that 'n' is <b>not</b> written inside <b>" "</b>. 'n' written inside <b>" "</b> would have printed simple <b>n</b> instead of the value of 'n'. Let's see an example:
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>    <span class="c1">// declaring integer variable n</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>    <span class="c1">// assigning 4 to n</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n is "</span> <span class="o">&lt;&lt;</span>  <span class="n">n</span><span class="p">;</span>  <span class="c1">//printing the value of n</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#onee" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="onee">
+            <div class="code_out code_outone well">
+            n is 4
+                        </div>
+            </div>
+            </div>
+            <p>
+            As you have seen, 'n' inside <b>" "</b> is simple alphabetical character but the later 'n' is the one used as variable.
+            </p>
+            <h4>Initialization</h4>
+            <p>We can also assign the value to a variable at the time of its declaration. Such assignment is known as <strong>initialization</strong>. Thus, we can assign a value <strong>4</strong> to a variable <strong>n</strong> at the time of its declaration as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            int n = 4;
+                </p>
+            </div>
+            <p>Here, we initialized a variable 'n' with a value 4.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            An uninitialized variable takes some garbage value.
+                        </div>
+            </div>
+            </div>
+            <p>An <strong>uninitialized</strong> variable is the one to which we have not assigned any value. Unlike some programming languages where a variable which has not been assigned any value takes a value zero, an uninitialized variable in C++ by default takes some garbage value.</p>
+            <h2>Data Types</h2><hr>
+            <p>Variables can be of different types depending on the type of data it can store. In the last example, the variable 'n' was declared 'int' and thus can store an integer value. Therefore, it was of type <b>int</b>. Similarly, a variable which stores a character value is of type <b>char</b> and so on.</p>
+            <p>We specify the type of a variable at the time of declaration. For example, a character variable is declared as shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    char ch;
+                </p>
+            </div>
+            <p>In the above declaration, <b>ch</b> is the name of the variable which is of type <b>char</b> i.e., it can store character values. Let's see an example to print a character value.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">ch</span><span class="p">;</span>       <span class="c1">// declaring character variable</span>
+                <span class="n">ch</span> <span class="o">=</span> <span class="sc">'b'</span><span class="p">;</span>      <span class="c1">// assigning value 'b' to variable</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            b
+                        </div>
+            </div>
+            </div>
+            <p>Here <strong>ch</strong> is the name of a variable of type <strong>char</strong> which is given a character value <strong>b</strong>. Note that the character value is assigned within <strong>' '</strong>. Characters are written inside <b>' '</b>.</p>
+            <p>Similarly, there are other data types like float (number having decimal), double (number having decimal) and boolean (true or false). These are listed in the following table along with their sizes.</p>
+            <table class="table-default" style="margin-bottom:8px;">
+            <tbody><tr>
+            <th>Type</th>
+            <th>Keyword</th>
+            <th>Size (bytes)</th>
+            <th>Range of Value</th>
+            </tr>
+            <tr>
+            <td>Integer</td>
+            <td>int</td>
+            <td>4</td>
+            <td>-2,147,483,648 to 2,147,483,647</td>
+            </tr>
+            <tr>
+            <td>Floating point</td>
+            <td>float</td>
+            <td>4</td>
+            <td>1.8E-38 to 3.4E+38</td>
+            </tr>
+            <tr>
+            <td>Double floating point</td>
+            <td>double</td>
+            <td>8</td>
+            <td>2.2E-308 to 1.8E+308</td>
+            </tr>
+            <tr>
+            <td>Character</td>
+            <td>char</td>
+            <td>1</td>
+            <td>–128 to 127</td>
+            </tr>
+            <tr>
+            <td>Boolean</td>
+            <td>bool</td>
+            <td>1</td>
+            <td>false or true</td>
+            </tr>
+            </tbody></table>
+            <p>The sizes of variables might change depending on the compiler and the computer you are using.</p>
+            <p>Thus, we can store any type of data in a variable by declaring its datatype. Let's see an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>      <span class="c1">//declaring integer variable</span>
+                <span class="kt">float</span> <span class="n">f</span><span class="p">;</span>    <span class="c1">//declaring float variable</span>
+                <span class="kt">double</span> <span class="n">d</span><span class="p">;</span>   <span class="c1">//declaring double variable</span>
+                <span class="kt">char</span> <span class="n">c</span><span class="p">;</span>     <span class="c1">//declaring character variable</span>
+                <span class="kt">bool</span> <span class="n">b</span><span class="p">,</span> <span class="n">bl</span><span class="p">;</span>     <span class="c1">//decaring boolean variable;</span>
+            
+                <span class="c1">//assigning values to these variables</span>
+            
+                <span class="n">i</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+                <span class="n">f</span> <span class="o">=</span> <span class="mf">34.234</span><span class="p">;</span>
+                <span class="n">d</span> <span class="o">=</span> <span class="mf">34.43242343</span><span class="p">;</span>
+                <span class="n">c</span> <span class="o">=</span> <span class="sc">'g'</span><span class="p">;</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+                <span class="n">bl</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="mi">4</span><span class="p">;</span>
+            
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"int : "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"float : "</span> <span class="o">&lt;&lt;</span> <span class="n">f</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"double : "</span> <span class="o">&lt;&lt;</span> <span class="n">d</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"char : "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"b : "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"bl : "</span> <span class="o">&lt;&lt;</span> <span class="n">bl</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            int : 45<br>
+            float : 34.234<br>
+            double : 34.4324<br>
+            char : g<br>
+            b : 1<br>
+            bl : 0
+                        </div>
+            </div>
+            </div>
+            <p>Here we declared variables of type int, float, double, char and boolean and stored respective values in these. One thing to note here is that <b>boolean</b> gives <b>1</b> when <b>true</b> and <b>0</b> when <b>false</b>. We declared two boolean variables (b and bl). Since we assigned true to b, therefore it printed 1 and since the expression which we assigned to bl (5 &lt; 4) is false, hence it printed 0.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Boolean variable returns 1 if the value assigned to it is true, otherwise 0.
+                        </div>
+            </div>
+            </div>
+            <h3>Taking input for different data-types</h3><hr>
+            <p>Now let's see an example to input a character in C++.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#fivetwo" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="fivetwo">
+            <div class="code_out code_outone well">
+            <span style="color:#ce9d9d">g</span><br>
+            g
+                        </div>
+            </div>
+            </div>
+            <p>This is the same as what we did in the case of integers, with the only difference in the datatype. Similarly, we can input all types of values from the user like float, double etc.</p>
+            <h3>How is a character value stored?</h3><hr>
+            <p>Whenever a character value is given to a variable of type char, its <b>ASCII value</b> (an integer value) gets stored (and not the character value).</p>
+            <p>We use <b>int(ch)</b> to print the <b>integer value (ASCII value)</b> of any character 'ch'.</p>
+            <p>You can download the full ASCII from <a href="http://www.codesdope.com/media/pdf/ASCII.pdf" target="_blank">here</a>.</p>
+            <p>Let's see an example to print the ASCII value of a character.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">char</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="kt">int</span><span class="p">(</span><span class="n">ch</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five1" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five1">
+            <div class="code_out code_outone well">
+            <span style="color:#ce9d9d">A</span><br>
+            65
+                        </div>
+            </div>
+            </div>
+            <p>When we gave the value 'A' to the variable 'ch', the ASCII code (65) of 'A' gets stored in ch. So, <b>int(ch)</b> displays its <b>integer value</b> i.e. ASCII value.</p>
+            <h2>Type Casting</h2><hr>
+            <p>Suppose, you have a variable whose value is 23.2332 but at some line of your code you want to use its integer value only i.e. 23. The simplest solution is <b>type casting<b></b>.</b></p>
+            <p><b>Type Casting</b> is the conversion of a variable from one data type to another data type. For example, if we want to convert a char value to an int value.</p>
+            <p>Type Conversions are of two types - implicit and explicit.</p>
+            <h3>Implicit Conversion</h3><hr>
+            <p>
+                    Suppose, we are adding two numbers. The first number is of type int and the second number is of type float. Since we cannot add an int and a float, so both the numbers have to be of the same data type i.e., either both are int or both are float. Since float is a larger data type than int, therefore int variable gets converted into float automatically and then both the float variables add up. This automatic conversion is called implicit conversion.
+                </p>
+            <div class="well imp_well" style="margin-top:20px;">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            All the character variables get converted to integers while performing arithmetic operations or in any other such expression.
+                        </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">ch</span> <span class="o">=</span> <span class="sc">'h'</span><span class="p">;</span>
+            
+                <span class="c1">//will add ASCII value of ch</span>
+                <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">ch</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sum = "</span> <span class="o">&lt;&lt;</span> <span class="n">sum</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five2" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five2">
+            <div class="code_out code_outone well">
+                            Sum = 116
+                        </div>
+            </div>
+            </div>
+            <p>
+                    In the above code, when 'a' and 'ch' were added, the integer value of 'ch' (ASCII value) i.e. 104 gets added to the integer value of 'a' to produce a sum of 116.
+                </p>
+            <hr style="margin-top:30px;">
+            <h3>Explicit Conversion</h3><hr>
+            <p>
+                    We can also manually convert values from one data type to another as follows:
+                </p>
+            <p>
+            <b>
+            <span style="color:blue">(</span>
+                    data-type
+                    <span style="color:blue">)</span>
+                    expression
+                    <span style="color:brown">;</span>
+            </b>
+            </p>
+            <p class="para_content">
+                    Consider an example.
+                </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">float</span> <span class="n">x</span> <span class="o">=</span> <span class="mf">2.45</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five3" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five3">
+            <div class="code_out code_outone well">
+                            2
+                        </div>
+            </div>
+            </div>
+            <p>In this example, since x is declared of type float, therefore we are converting <b>float</b> to type <b>int</b> by writing <b>(int)x</b>.</p>
+            <p>This is the same thing we did to get the ASCII value of a character. We just converted it into <b>int</b>.</p>
+            <h2>l-values and r-values</h2><hr>
+            <p>We know that when we declare a variable, it is given a memory location and its value is stored in that location. Each memory location has an address which becomes the address of the variable which occupies that memory location.</p>
+            <p>Now let's come to l-value and r-value. An <strong>l-value</strong> is a value which has an address. Thus all variables are l-values since variables have addresses. Since the name l-value stands for left-value, so these are always on the left side in an assignment statement (a statement in which we assign the value from the right side to the left side). Therefore whenever a variable is assigned some value, it is always written on the left side of the assignment operator (=).</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            In C++, the value on the right side of <b>=</b> is assigned to the left side. E.g.- x = 8 will make x equal to 8 but 8 = x will give you error because you can't assign any value to 8, which is not a variable.
+                        </div>
+            </div>
+            </div>
+            <p>An <strong>r-value</strong> is a value which is assigned to an l-value. For example, in the statement <strong>x = 8;</strong>, x is a l-value since it is a variable to which some value is being assigned and 8 is an r-value since it is being assigned to x. Note that when we write <strong>5 = 8;</strong>, there will be a compilation error because 5 is not an l-value (since it is not a variable having any memory space). Let's look at the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">;</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x = "</span> <span class="o">&lt;&lt;</span> <span class="n">x</span> <span class="o">&lt;&lt;</span> <span class="s">", y = "</span> <span class="o">&lt;&lt;</span> <span class="n">y</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            x = 4, y = 6
+                        </div>
+            </div>
+            </div>
+            <p>In the statement <strong>x = 4;</strong>, 4 is an r-value since it is on the right-hand side and is being assigned to 'x' which is an l-value. Similarly, in the statement <strong>y = x + 2;</strong>, 'y' is an l-value since it is on the left side and has a memory space. The expression 'x + 2' is an r-value since its value (4 + 2 = 6) is being assigned to the variable 'y'.</p>
+            <p>
+            Note that to print the value of 'x', 'x' is written without <b>" "</b>.
+            </p>
+            <h2>Literals</h2><hr>
+            <p>Literals are constants which have the same value which cannot be changed in the whole program. For example in <strong>x = 5</strong>, 'x' is a variable and 5 is a literal (constant) and thus the value of 'x' can be changed but not of 5.</p>
+            <p>Commonly used literals are Integer Numerals, Floating-Point Numerals, Characters, Strings, Boolean and user-defined literals. Let's have a brief look at them one by one.</p>
+            <h4>Integer Literals</h4>
+            <p>These are constants which are integer values. For example, 45, -256 etc.</p>
+            <h4>Floating-Point Literals</h4>
+            <p>These constants are numbers with decimal. These are of type <strong>float</strong> or <strong>double</strong>. Numbers like 23.434, 1.2e-234 and 4.57e152 are examples of floating-point literals.</p>
+            <h3>Characters and Strings</h3><hr>
+            <p><b>Characters</b> are enclosed within <strong>' '</strong>. These can be letters (like 'a','s','z', etc), escape sequence (like \t) or some universal character.</p>
+            <p>There are some special <strong>sequence characters</strong> like '\t', '\n' which have some specific meaning. For example,
+            <br>'<strong>\n</strong>' is used for changing line,
+            <br>'<strong>\t</strong>' is used to give a tab space horizontally,<br>
+            '<strong>\v</strong>' is used to give one tab space vertically,
+            <br>'<strong>\'</strong>', '<strong>\"</strong>', '<strong>\\</strong>' and '<strong>\?</strong>' are used to print ', ", \ and ? respectively.</p>
+            <p>
+            <b>Strings</b> are the collection of characters. In simple English, it is a letter, word, sentence or collection of sentences. You will go through a whole topic on string.
+            </p>
+            <p>Strings are constants which are enclosed within <strong>" "</strong> like "Hello World", "C++".</p>
+            <p>
+            So, 'a' is a character but "a" is a string.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello"</span> <span class="o">&lt;&lt;</span> <span class="sc">'\t'</span> <span class="o">&lt;&lt;</span> <span class="s">"World"</span> <span class="o">&lt;&lt;</span> <span class="sc">'\n'</span> <span class="o">&lt;&lt;</span> <span class="sc">'\\'</span> <span class="o">&lt;&lt;</span> <span class="sc">'\''</span> <span class="o">&lt;&lt;</span> <span class="sc">'\"'</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Hello&nbsp;&nbsp;&nbsp;&nbsp;World<br>
+            \'"
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, the <b>string</b> written within <strong>" "</strong> got printed as it is. <strong>' \t '</strong> gave a one tab space between "Hello" and "World" and '\n' changed the line. '\'', '\\', '\"' printed ', \ and " respectively.</p>
+            <h4>Boolean</h4>
+            <p>We have two Boolean literals which are <strong>true</strong> and <strong>false</strong>. These Boolean literals are also keywords in C++.</p>
+            <p>Thus literals are just constants which we have been using in our programs so far. There are also some user-defined literals which you will learn in later chapters.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">There is no glory in practice but there is no glory without practice.</p>
+            </div>
+            <div>
+            <a href="gearup.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="operators.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+
+    </body></html>

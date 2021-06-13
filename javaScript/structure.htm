@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Structure
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Structure in C++</h1><hr>
+        <div id="content">
+            <p>We have already dealt with arrays. Arrays are used to store similar type of data. Have you ever thought if there is any way to store <strong>dissimilar</strong> data?</p>
+            <p>The answer is yes. We use <strong>structures</strong> to store different types of data. For example, you are a student. Your name is a string and your phone number and roll_no are integers. So, here name, address and phone number are those different types of data. Here, structure comes in the picture.</p>
+            <h2>Defining a Structure</h2><hr>
+            <p>The syntax for structure is:</p>
+            <p><strong>
+            <span style="color:brown;">struct</span> structure_name<br>
+            <span style="color:blue;">{</span><br>
+            <span style="color:brown;">data-type</span> member-1<span style="color:brown;">;</span><br>
+            <span style="color:brown;">data-type</span> member-2<span style="color:brown;">;</span><br>
+            <span style="color:brown;">data-type</span> member-3<span style="color:brown;">;</span><br>
+            <span style="color:brown;">data-type</span> member-4<span style="color:brown;">;</span><br>
+            <span style="color:blue;">}</span><span style="color:brown;">;</span>
+            </strong></p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="1964" __idm_id__="183641089"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>In our case, let's name the structure as <strong>student</strong>. The members of the structure in our case are name, roll_no and phone_number.</p>
+            <p>So, our structure will look like:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            struct student<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int roll_no;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;std::string name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int phone_number;<br>
+            };
+            </p>
+            </div>
+            <h2>Declaration of Structure Variable</h2>
+            <hr>
+            <p>Just as we declare variables of type int, char etc, we can declare variables of a structure as well.</p>
+            <p>Suppose we want to store the roll no, name and phone number of three students. For this, we will define a structure named <strong>student</strong> (as declared above) and then declare three variables, say <strong>p1</strong>, <strong>p2</strong> and <strong>p3</strong> (which will represent the three students respectively) of type 'student'. This declaration will be done in the main function.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            struct student<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int roll_no;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;std::string name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int phone_number;<br>
+            };<br>
+            int main()<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;struct student p1, p2, p3;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return 0;<br>
+            }
+            </p>
+            </div>
+            <p>We can also declare structure variables at the time of defining the structure as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            struct student<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int roll_no;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;std::string name;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;int phone_number;<br>
+            }p1, p2, p3;
+            </p>
+            </div>
+            <p>Now, let's see how to enter the details of each student i.e. roll_no, name and phone number.</p>
+            <p>Suppose we want to assign a roll number to the first student. For that, we need to access the roll number of the first student. We do this by writing</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            p1.roll_no = 1;
+            </p>
+            </div>
+            <p>This means that we <strong>use dot (.) to use variables in a structure</strong>. p1.roll_no can be understood as roll_no of p1.</p>
+            <p>Now, let's store the details of all the three students.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="k">struct</span> <span class="n">student</span>
+                <span class="p">{</span>
+                      <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                      <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                    <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+                <span class="p">};</span>
+            
+                <span class="k">struct</span> <span class="n">student</span> <span class="n">p1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="s">"Brown"</span><span class="p">,</span><span class="mi">123443</span><span class="p">};</span>
+                  <span class="k">struct</span> <span class="n">student</span> <span class="n">p2</span><span class="p">,</span> <span class="n">p3</span><span class="p">;</span>
+                  <span class="n">p2</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+                  <span class="n">p2</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Sam"</span><span class="p">;</span>
+                  <span class="n">p2</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">1234567822</span><span class="p">;</span>
+                  <span class="n">p3</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+                  <span class="n">p3</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Addy"</span><span class="p">;</span>
+                  <span class="n">p3</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">1234567844</span><span class="p">;</span>
+            
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"First Student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p1</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Second Student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Third Student"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p3</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p3</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p3</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            First Student<br>
+            roll no : 1<br>
+            name : Brown<br>
+            phone no : 123443<br>
+            Second Student<br>
+            roll no : 2<br>
+            name : Sam<br>
+            phone no : 1234567822<br>
+            Third Student<br>
+            roll no : 3<br>
+            name : Addy<br>
+            phone no : 1234567844
+                        </div>
+            </div>
+            </div>
+            <p><strong style="color:brown;">struct student p1 = {1,"Brown",123443};</strong> - This line is just to show that we can also initialize a structure in this way.</p>
+            <p>In the next line, we are just giving values to the variables and printing those.</p>
+            <p>Structures use continuous memory locations.</p>
+            <h2>Array of Structures</h2>
+            <hr>
+            <p>We can also make an array of structures. In the first example in structures, we stored the data of 3 students. Now suppose we need to store the data of 100 such children. Declaring 100 separate variables of the structure is definitely not a good option. For that, we need to create an array of structures.</p>
+            <p>Let's see an example for 5 students.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">struct</span> <span class="n">student</span>
+            <span class="p">{</span>
+              <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+              <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+              <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="k">struct</span> <span class="n">student</span> <span class="n">stud</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+                  <span class="kt">int</span> <span class="n">i</span><span class="p">;</span>
+            
+                <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>                   		<span class="c1">//taking values from user</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Student "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter roll no"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">stud</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">roll_no</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter name"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">stud</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter phone number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">stud</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">phone_number</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">){</span>							<span class="c1">//printing values</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Student "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">stud</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Name : "</span> <span class="o">&lt;&lt;</span> <span class="n">stud</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">stud</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Student 1<br>
+            Enter roll no<br>
+            <span style="color:#ce9d9d">1</span><br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Sam</span><br>
+            Enter phone number<br>
+            <span style="color:#ce9d9d">12345345</span><br>
+            Student 2<br>
+            Enter roll no<br>
+            <span style="color:#ce9d9d">2</span><br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Brown</span><br>
+            Enter phone number<br>
+            <span style="color:#ce9d9d">56793234</span><br>
+            Student 3<br>
+            Enter roll no<br>
+            <span style="color:#ce9d9d">3</span><br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Peter</span><br>
+            Enter phone number<br>
+            <span style="color:#ce9d9d">54729678</span><br>
+            Student 4<br>
+            Enter roll no<br>
+            <span style="color:#ce9d9d">4</span><br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Addy</span><br>
+            Enter phone number<br>
+            <span style="color:#ce9d9d">98326265</span><br>
+            Student 5<br>
+            Enter roll no<br>
+            <span style="color:#ce9d9d">5</span><br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Max</span><br>
+            Enter phone number<br>
+            <span style="color:#ce9d9d">43576476</span><br>
+            Student 1<br>
+            Roll no : 1<br>
+            Name : Sam<br>
+            Phone no : 12345345<br>
+            Student 2<br>
+            Roll no : 2<br>
+            Name : Brown<br>
+            Phone no : 56793234<br>
+            Student 3<br>
+            Roll no : 3<br>
+            Name : Peter<br>
+            Phone no : 54729678<br>
+            Student 4<br>
+            Roll no : 4<br>
+            Name : Addy<br>
+            Phone no : 98326265<br>
+            Student 5<br>
+            Roll no : 5<br>
+            Name : Max<br>
+            Phone no : 43576476
+                        </div>
+            </div>
+            </div>
+            <p>Here we created an array named <strong>stud</strong> having 5 elements of structure student. Each of the element stores the information of a student. For example, stud[0] stores the information of the first student, stud[1] for the second and so on.</p>
+            <p>We can also copy two structures at one go.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">struct</span> <span class="n">student</span>
+            <span class="p">{</span>
+              <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+              <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+              <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="k">struct</span> <span class="n">student</span> <span class="n">p1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="s">"Brown"</span><span class="p">,</span><span class="mi">123443</span><span class="p">};</span>
+                  <span class="k">struct</span> <span class="n">student</span> <span class="n">p2</span><span class="p">;</span>
+                  <span class="n">p2</span> <span class="o">=</span> <span class="n">p1</span><span class="p">;</span>
+            
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"name : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"phone number : "</span> <span class="o">&lt;&lt;</span> <span class="n">p2</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            roll no : 1<br>
+            name : Brown<br>
+            phone number : 123443
+                        </div>
+            </div>
+            </div>
+            <p>We just have to write p1 = p2 and that's it. By writing this, all the elements of p1 will get copied to p2.</p>
+            <h2>Pointers to Structures</h2>
+            <hr>
+            <p>Like we have pointers to int, char and other data-types, we also have pointers pointing to structures. These pointers are called <strong>structure pointers</strong>.</p>
+            <p>Now, how to define a pointer to a structure? The answer is below:</p>
+            <p><strong>
+            <span style="color:brown;">struct</span> structure_name<br>
+            <span style="color:blue;">{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-1<span style="color:brown;">;</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-1<span style="color:brown;">;</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-1<span style="color:brown;">;</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">data-type</span> member-1<span style="color:brown;">;</span><br>
+            <span style="color:blue;">}</span><span style="color:brown;">;</span><br>
+            <span style="color:brown;">int</span> main<span style="color:blue;">()</span><br>
+            <span style="color:brown;">{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:brown;">struct</span> structure_name *ptr<span style="color:brown;">;</span><br>
+            <span style="color:blue;">}</span>
+            </strong></p>
+            <p>Let's see an example using structure pointer.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">struct</span> <span class="n">student</span>
+            <span class="p">{</span>
+              <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+              <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+            
+                <span class="k">struct</span> <span class="n">student</span> <span class="n">stud</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Sam"</span><span class="p">,</span><span class="mi">1</span><span class="p">};</span>
+                  <span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="n">ptr</span><span class="p">;</span>
+                  <span class="n">ptr</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">stud</span>
+            
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">stud</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">stud</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">ptr</span><span class="o">-&gt;</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Sam1<br>
+            Sam1
+                        </div>
+            </div>
+            </div>
+            <p><strong style="color:brown;">struct student *ptr;</strong> - We declared 'ptr' as a pointer to the structure <strong>student</strong>.</p>
+            <p><strong style="color:brown;">ptr = &amp;stud</strong> - We made our pointer <strong>ptr</strong> to point to the structure variable <strong>stud</strong>. Thus, 'ptr' now stores the address of the structure variable 'stud'.</p>
+            <p>This is the same which we do while defining a pointer to any other variable.</p>
+            <p><strong>cout &lt;&lt; ptr-&gt;name &lt;&lt; ptr-&gt;roll_no &lt;&lt; endl;</strong> - We use <strong>-&gt;</strong> operator to access the members of a structure using a pointer to that structure.</p>
+            <hr>
+            <h2>Structure to Function</h2><hr>
+            <p>We can also pass a structure to a function.</p>
+            <p>There are two methods by which we can pass structures to functions.</p>
+            <ul style="font-size:17px;">
+            <li>Passing by Value</li>
+            <li>Passing by Reference</li>
+            </ul>
+            <h3>Passing by Value</h3><hr>
+            <p>In this, we pass structure variable as an argument to a function. Let's see an example to make it clearer.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">struct</span> <span class="n">student</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                  <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="k">struct</span> <span class="n">student</span> <span class="n">st</span><span class="p">)</span>
+            <span class="p">{</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">st</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Name : "</span> <span class="o">&lt;&lt;</span> <span class="n">st</span><span class="p">.</span><span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">st</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="k">struct</span> <span class="n">student</span> <span class="n">s</span><span class="p">;</span>
+                  <span class="n">s</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                  <span class="n">s</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Ron"</span><span class="p">;</span>
+                  <span class="n">s</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">888888</span><span class="p">;</span>
+                  <span class="n">display</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Roll no : 4<br>
+            Name : Ron<br>
+            Phone no : 888888
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we are printing roll number, name and phone number of a student using a function. We first declared a structure named student with roll_no, name and phone number as its members and 's' as its variable. Then we assigned the values of roll number, name and phone number to the structure variable s. Just as we pass any other variable to a function, we passed the structure variable 's' to a function 'display'.</p>
+            <p>Now, while defining the function, we passed a copy of the variable 's' as its argument with 'struct student' written before it because the variable which we have passed is of type structure named student. Finally, in the function, we printed the name, roll number and phone number of the structure variable.</p>
+            <h3>Passing by Reference</h3><hr>
+            <p>In passing by reference, the address of a structure variable is passed to a function. In this, if we change the structure variable which is inside the function, the original structure variable which is used for calling the function changes. This was not the case in calling by value.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;cstring&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="k">struct</span> <span class="n">student</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">roll_no</span><span class="p">;</span>
+                  <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="n">phone_number</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="k">struct</span> <span class="n">student</span> <span class="o">*</span><span class="n">st</span><span class="p">)</span>
+            <span class="p">{</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Roll no : "</span> <span class="o">&lt;&lt;</span> <span class="n">st</span> <span class="o">-&gt;</span> <span class="n">roll_no</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Name : "</span> <span class="o">&lt;&lt;</span> <span class="n">st</span> <span class="o">-&gt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Phone no : "</span> <span class="o">&lt;&lt;</span> <span class="n">st</span> <span class="o">-&gt;</span> <span class="n">phone_number</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="k">struct</span> <span class="n">student</span> <span class="n">s</span><span class="p">;</span>
+                  <span class="n">s</span><span class="p">.</span><span class="n">roll_no</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+                  <span class="n">s</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">"Ron"</span><span class="p">;</span>
+                  <span class="n">s</span><span class="p">.</span><span class="n">phone_number</span> <span class="o">=</span> <span class="mi">888888</span><span class="p">;</span>
+                  <span class="n">display</span><span class="p">(</span><span class="o">&amp;</span><span class="n">s</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Roll no : 4<br>
+            Name : Ron<br>
+            Phone no : 888888
+                        </div>
+            </div>
+            </div>
+            <p>This case is similar to the previous one, the only difference is that this time, we are passing the address of the structure variable to the function. While declaring the function, we passed the pointer of the copy 'st' of the structure variable 's' in its parameter. Since the pointer is of a variable of type structure named student, we wrote 'struct student' before the name of the pointer in the argument of the function. In the function , we accessed the members of the pointer using -&gt; sign as discussed before.</p>
+            <p>Try to change the value of the variables inside the function in both the cases and see the changes in the real variables.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">If you do not practice, you don't deserve to win.<br><span style="float:right;">-Andre Agassi</span></p>
+            </div>
+            <div>
+            <a href="preProcessor.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="oop.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+        
+    </body></html>

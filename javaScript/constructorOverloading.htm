@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Constructor Overloading
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Constructor Overloading in C++</h1><hr>
+        <div id="content">
+            <p>Suppose we have a 'Student' class and while making its object, we want to pass a name of it and if nothing is passed then the name should be "unknown". And yes! we can do this by having two constructors.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Student</span>
+            <span class="p">{</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Student</span><span class="p">(</span> <span class="n">string</span> <span class="n">n</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">Student</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="s">"unknown"</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="n">printName</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Student</span> <span class="n">a</span><span class="p">(</span> <span class="s">"xyz"</span> <span class="p">);</span>
+                <span class="n">Student</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">a</span><span class="p">.</span><span class="n">printName</span><span class="p">();</span>
+                <span class="n">b</span><span class="p">.</span><span class="n">printName</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            xyz<br>
+            unknown
+            </div>
+            </div>
+            </div>
+            <p>And it is working!</p>
+            <p>This is called <strong>constructor overloading</strong>.</p>
+            <p>Now let's understand this example. Here, we made two objects of class 'Student'. While creating an object 'a', we passed a string "xyz" to the object as <strong>Student a( "xyz" );</strong>. This invoked the constructor having a string parameter <strong>Student( string n )</strong>.</p>
+            <p>Similarly, while creating a second object 'b' of the class Student, we didn't pass anything to the object 'b' as <strong>Student b;</strong>. So, the constructor having no parameter <strong>Student()</strong> got invoked and initialized the <strong>name</strong> with the value <strong>unknown</strong>.</p>
+            <h2>Condition for constructor overloading</h2>
+            <hr>
+            <p>The one condition for constructor overloading is that both the constructors must have different parameters. Like in the above example, in the first constructor, we passed one String and in the second, nothing.</p>
+            <p>We can't make two constructors having exactly same arguments( e.g.- both having two ints ).</p>
+            <p><strong>Either number of argument or type of argument must vary.</strong></p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+            <p>We can have any number of constructors but with different arguments.</p>
+            </div>
+            </div>
+            </div>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Don't let your dreams be dreams.<br><span style="float:right;">-Jack Johnson</span></p>
+            </div>
+            <div>
+            <a href="subClass.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="arrayOfObjects.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

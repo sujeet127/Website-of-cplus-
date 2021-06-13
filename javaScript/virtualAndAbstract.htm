@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Virtual and Abstract
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Virtual and Abstract in C++</h1><hr>
+        <div id="content">
+            <p>Before going to virtual function, let's first have a look at <strong>early binding</strong> and <strong>late binding</strong>.</p>
+            <p>Binding means matching the function call with the correct function definition by the compiler. It takes place either at compile time or at runtime.</p>
+            <h2>Early Binding</h2><hr>
+            <p>In early binding, the compiler matches the function call with the correct function definition at compile time. It is also known as <strong>Static Binding</strong> or <strong>Compile-time Binding</strong>. By default, the compiler goes to the function definition which has been called during compile time. So, all the function calls you have studied till now are due to early binding.</p>
+            <p>You have learned about function overriding in which the base and derived classes have functions with the same name, parameters and return type. In that case also, early binding takes place.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="2472" __idm_id__="996872193"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>In function overriding, we called the function with the objects of the classes. Now let's try to write the same example but this time calling the functions with the pointer to the base class i.e., refernce to the base class' object.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Animals</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is parent class"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Dogs</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Animals</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Dogs bark"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Animals</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+                <span class="n">Dogs</span> <span class="n">d</span><span class="p">;</span>
+                <span class="n">a</span><span class="o">=</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">sound</span><span class="p">();</span>   <span class="c1">//  early binding</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            This is parent class
+                        </div>
+            </div>
+            </div>
+            <p>Now in this example, we created a pointer <strong>a</strong> to the parent class Animals. Then by writing <strong>a= &amp;d </strong>, the pointer 'a' started referring to the object <strong>d</strong> of the class Dogs.<br>
+            <strong>a -&gt; sound(); - </strong>On calling the function <strong>sound()</strong> which is present in both the classes by the pointer 'a', the function of the parent class got called, even if the pointer is referring to the object of the class Dogs.</p>
+            <p>This is due to Early Binding. We know that <strong>a</strong> is a pointer of the parent class referring to the object of the child class. Since early binding takes place at compile-time, therefore when the compiler saw that <strong>a</strong> is a <strong>pointer of the parent class</strong>, it matched the call with the 'sound()' function of the parent class without considering which object the pointer is referring to.</p>
+            <h2>Late Binding</h2><hr>
+            <p>In the case of late binding, the compiler matches the function call with the correct function definition at runtime. It is also known as <strong>Dynamic Binding</strong> or <strong>Runtime Binding</strong>.</p>
+            <p>In late binding, the compiler identifies the type of object at runtime and then matches the function call with the correct function definition.</p>
+            <p>By default, early binding takes place. So if by any means we tell the compiler to perform late binding, then the problem in the previous example can be solved.</p>
+            <p>This can be achieved by declaring a <strong>virtual function</strong>.</p>
+            <h2>Virtual function</h2><hr>
+            <p><strong style="color:brown;">Virtual Function</strong> is a member function of the base class which is overridden in the derived class. The compiler performs <strong>late binding</strong> on this function.</p>
+            <p>To make a function virtual, we write the keyword <strong>virtual</strong> before the function definition.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Animals</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">virtual</span> <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is parent class"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Dogs</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Animals</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Dogs bark"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Animals</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+                <span class="n">Dogs</span> <span class="n">d</span><span class="p">;</span>
+                <span class="n">a</span><span class="o">=</span> <span class="o">&amp;</span><span class="n">d</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">-&gt;</span> <span class="n">sound</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Dogs bark
+                        </div>
+            </div>
+            </div>
+            <p>Since the function <strong>sound()</strong> of the base class is made virtual, the compiler now performs late binding for this function. Now, the function call will be matched to the function definition at runtime. Since the compiler now identifies pointer <strong>a</strong> as referring to the object 'd' of the derived class Dogs, it will call the sound() function of the class Dogs.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If we declare a member function in a base class as a virtual function, then that function automatically becomes virtual in all of its derived classes.
+                        </div>
+            </div>
+            </div>
+            <p>If we make any function inside a base class virtual, then that function becomes virtual in all its derived classes. This means that we don't need to declare that function as virtual separately in its derived classes.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            We can also call private function of derived class from a base class pointer by declaring that function in the base class as virtual.
+                        </div>
+            </div>
+            </div>
+            <p>Compiler checks if the members of a class are private, public or protected only at compile time and not at runtime. Since our function is being called at runtime, so we can call any type of function, private or public as shown in the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Animals</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">virtual</span> <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"This is parent class"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Dogs</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Animals</span>
+            <span class="p">{</span>
+                <span class="nl">private</span><span class="p">:</span>
+                    <span class="n">virtual</span> <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Dogs bark"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Animals</span> <span class="o">*</span><span class="n">a</span><span class="p">;</span>
+                <span class="n">Dogs</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">b</span><span class="p">;</span>
+                <span class="n">a</span><span class="o">-&gt;</span><span class="n">sound</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Dogs bark
+                        </div>
+            </div>
+            </div>
+            <p>Since the same function (virtual function) having different definitions in different classes is called depending on the type of object that calls the function, this is also a part of <strong>Polymorphism</strong>.</p>
+            <h2>Pure Virtual Function</h2>
+            <hr>
+            <p><strong>Pure virtual function</strong> is a virtual function which has no definition. Pure virtual functions are also called <strong>abstract functions</strong>.</p>
+            <p>To create a pure virtual function, we assign a value <strong>0</strong> to the function as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    virtual void sound() = 0;
+                </p>
+            </div>
+            <p>Here sound() is a pure virtual area.</p>
+            <h2>Abstract Class</h2>
+            <hr>
+            <p>An <strong>abstract class</strong> is a class whose instances (objects) can't be made. We can only make objects of its subclass (if they are not abstract). Abstract class is also known as <strong>abstract base class</strong>.</p>
+            <p><strong>An abstract class has at least one abstract function (pure virtual function).</strong></p>
+            <p>Let's look at an example of abstract class.</p>
+            <p>Suppose there are some employees working in a firm. The firm hires only two types of employees- either driver or developer. Now, you have to develop a software to store information about them.</p>
+            <p>So, here is an idea - There is no need to make objects of employee class. We will make objects to only driver or developer. Also, both must have some salary. So, there must be a common function to know about salary.</p>
+            <p>This need will be best accomplished with <strong>abstract class</strong>.</p>
+            <p>So, we can make 'Employee' an abstract class and 'Developer' and 'Driver' its subclasses.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Employee</span>                    <span class="c1">//  abstract base class</span>
+            <span class="p">{</span>
+                <span class="n">virtual</span> <span class="kt">int</span> <span class="n">getSalary</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>    <span class="c1">// pure virtual function</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Developer</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Employee</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">salary</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Developer</span><span class="p">(</span><span class="kt">int</span> <span class="n">s</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">salary</span> <span class="o">=</span> <span class="n">s</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getSalary</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">salary</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Driver</span> <span class="p">:</span> <span class="n">public</span> <span class="n">Employee</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">salary</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Driver</span><span class="p">(</span><span class="kt">int</span> <span class="n">t</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">salary</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getSalary</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">salary</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Developer</span> <span class="n">d1</span><span class="p">(</span><span class="mi">5000</span><span class="p">);</span>
+                <span class="n">Driver</span> <span class="n">d2</span><span class="p">(</span><span class="mi">3000</span><span class="p">);</span>
+                <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">d1</span><span class="p">.</span><span class="n">getSalary</span><span class="p">();</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="n">d2</span><span class="p">.</span><span class="n">getSalary</span><span class="p">();</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Salary of Developer : "</span> <span class="o">&lt;&lt;</span> <span class="n">a</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Salary of Driver : "</span> <span class="o">&lt;&lt;</span> <span class="n">b</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Salary of Developer : 5000<br>
+            Salary of Driver : 3000
+                        </div>
+            </div>
+            </div>
+            <p>The <strong>getSalary()</strong> function in the class <strong>Employee</strong> is a pure virtual function. Since the Employee class contains this pure virtual function, therefore it is an <strong>abstract base class</strong>.<br>
+            Since the abstract function is defined in the subclasses, therefore the function 'getSalary()' is defined in both the subclasses of the class Employee.<br>
+            You must have understood the rest of the code.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Subclasses of an abstract base class must define the abstract method, otherwise, they will also become abstract classes.
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            In an abstract class, we can also have other functions and variables apart from pure virtual function.
+                        </div>
+            </div>
+            </div>
+            <p>Let's see one more example of abstract base class.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Animals</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">virtual</span> <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">Dogs</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Dogs bark"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">Cats</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Cats meow"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="n">Pigs</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">sound</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Pigs snort"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Dogs</span> <span class="n">d</span><span class="p">;</span>
+                <span class="n">Cats</span> <span class="n">c</span><span class="p">;</span>
+                <span class="n">Pigs</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">d</span><span class="p">.</span><span class="n">sound</span><span class="p">();</span>
+                <span class="n">c</span><span class="p">.</span><span class="n">sound</span><span class="p">();</span>
+                <span class="n">p</span><span class="p">.</span><span class="n">sound</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Dogs bark<br>
+            Cats meow<br>
+            Pigs snort
+                        </div>
+            </div>
+            </div>
+            <h2>Interface</h2><hr>
+            <p><strong>Interface</strong> or <strong>Interface class</strong> is a class which is the same as abstract class with a difference that all its functions are pure virtual and it has no member variables. Its derived classes must implement each of its virtual functions i.e., provide definition to each of the pure virtual functions of the base class.</p>
+            <p><strong>Like an abstract class, we can't create objects of an interface.</strong></p>
+            <p>We can also say that interface is an abstract class with no member variables and all its member functions pure virtual.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Name of an interface class often begins with the letter <strong>I</strong>.
+                        </div>
+            </div>
+            </div>
+            <p>Let's see an example of it.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            class IShape<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;public:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual getArea() = 0;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;virtual getPerimeter() = 0;<br>
+            };
+                </p>
+            </div>
+            <p>IShape is an interface because it contains only pure virtual functions.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">IShape</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">virtual</span> <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="n">virtual</span> <span class="kt">int</span> <span class="nf">getPerimeter</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Rectangle</span> <span class="p">:</span> <span class="n">public</span> <span class="n">IShape</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Rectangle</span><span class="p">(</span><span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getPerimeter</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="p">(</span><span class="n">length</span> <span class="o">+</span> <span class="n">breadth</span><span class="p">);</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="n">class</span> <span class="nl">Square</span> <span class="p">:</span> <span class="n">public</span> <span class="n">IShape</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">side</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">Square</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">side</span> <span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">side</span> <span class="o">*</span> <span class="n">side</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">getPerimeter</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">side</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+                <span class="n">Square</span> <span class="n">s</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Rectangle :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" Perimeter : "</span> <span class="o">&lt;&lt;</span> <span class="n">rt</span><span class="p">.</span><span class="n">getPerimeter</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Square :"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area : "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">getArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="s">" Perimeter : "</span> <span class="o">&lt;&lt;</span> <span class="n">s</span><span class="p">.</span><span class="n">getPerimeter</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Rectangle :<br>
+            Area : 28 Perimeter : 22<br>
+            Square :<br>
+            Area : 16 Perimeter : 16
+                        </div>
+            </div>
+            </div>
+            <p>So we just saw that IShape is an interface with two pure virtual functions. These virtual functions are implemented (defined) in its subclasses Rectangle and Square according to their requirements.</p>
+            <p>So, an interface is just an abstract class with all pure virtual methods.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Everything is practice</p>
+            </div>
+            <div>
+            <a href="multipleInheritance.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="Encapsulation.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

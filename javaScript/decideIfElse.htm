@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Decide if/else
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">if and else in C++</h1><hr>
+        <div id="content">
+            <p>Till now, you have just seen how to take input and print anything on the screen. Now, your real coding part will begin.</p>
+            <p>Many times, we need to first see the conditions and accordingly make a decision. For example, if it is raining, we will take an umbrella otherwise not. Similarly, if a number is divisible by 2, it is even, otherwise, it is odd.</p>
+            <img alt="if and else C++" src="/staticroot/images/fig7.png" style="max-width:50%;height:auto;">
+            <p>We take such type of decisions in C++ also by using <strong>if...else</strong>.</p>
+            <h2>if statement</h2><hr>
+            <p>Again take the example of raining. If it is raining, a person will take an umbrella.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="467" __idm_id__="769286147"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>In C++, such type of decisions are taken using <strong>if</strong> statement. Let's first have a look at its syntax.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <span style="color:brown;">if(</span>condition<span style="color:brown;">)</span><br>
+            <span style="color:brown;">{</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">statements</span><br>
+            <span style="color:brown;">}</span>
+            </p>
+            </div>
+            <p>If the condition written within the brackets of if statement is true, then the statements written in the body of the if statement (i.e. within the curly braces '{ }') get executed.</p>
+            <p>Let's see an example of if statement.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+                <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a is equal to b"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            a is equal to b
+                        </div>
+            </div>
+            </div>
+            <p>Here the condition <strong>a == b</strong> is true and thus the statement in the body of the if statement got executed and "a is equal to b" got printed.<br>
+            Note that <strong>{ }</strong> represents the body of <strong>if</strong>. Whatever is written inside these curly braces is part of <strong>if</strong>.</p>
+            <p>So, the condition of if statement is checked and if found true, the statement(s) in its body are executed.</p>
+            <h2>if...else statement</h2><hr>
+            <p>Now, consider that a chocolate costs 10 rupees and a candy costs 5 rupees. So, if you have at least 10 rupees, you can buy a chocolate, otherwise you have to buy a candy.</p>
+            <p>In the world of programming, this is done by using <strong>if...else</strong> statement. Let'see how.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <span style="color:brown;">if(</span>condition<span style="color:brown;">)</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">statement 1</span><br>
+            <span style="color:brown;">else</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">statement 2</span>
+            </p>
+            </div>
+            <p>If the condition is true, statement 1 will be executed. Otherwise, statement 2 gets executed.</p>
+            <p>Now, let's see the same example which we saw above, but this time using <b>if...else</b> statement.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+                <span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mi">45</span><span class="p">;</span>
+                <span class="n">b</span> <span class="o">=</span> <span class="mi">47</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="n">b</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a is equal to b"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"a is not equal to b"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            a is not equal to b
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, the value of 'a' is not equal to that of 'b'. Since the expression <strong>( a == b )</strong> is false, therefore the statement in the body of <b>else</b> i.e., <strong>'cout &lt;&lt; "a is not equal to b" &lt;&lt; endl;'</strong> gets executed.</p>
+            <p>Consider one more example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number is even"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number is odd"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Enter number<br>
+            <span style="color:#ce9d9d">5</span><br>
+            Number is odd
+                        </div>
+            </div>
+            </div>
+            <p>For a number to be even, it must be divisible by 2. This means that it should give a remainder 0 if divided by 2.<br>
+            We entered 5 here and the value of n%2 i.e. 5%2 is 1. So, the statement in the body of <strong>else</strong> gets executed and <strong>Number is odd</strong> is printed on the screen.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            To execute only one statement in <b>if</b> or <b>else</b> (as in previous example), you can skip curly brackets { }. If you want to execute multiple statements in <b>if</b>, then enclose the statements within curly brackets { }.
+                        </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter your age"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">age</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You are 18+"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Eligible to vote"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You are not yet 18"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Not eligible to vote"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Enter your age<br>
+            <span style="color:#ce9d9d">20</span><br>
+            You are 18+<br>
+            Eligible to vote
+                        </div>
+            </div>
+            </div>
+            <p>In this example, since the user entered the age as 20, which is greater than 18, so the condition <strong>age &gt;= 18</strong> became true. Therefore, the statements in the body of if got executed. If the user enters the age less than 18, then the condition 'age &gt;= 18' will become false and the statements in the body of else statement will be executed.</p>
+            <hr>
+            <h2>Nested if/else statements</h2>
+            <p>We can also use if or else inside another if or else if statements.</p>
+            <p>To understand this, let's see an example to print whether a number is the greatest or not by using one <strong>if</strong> inside another <strong>if</strong>.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">z</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">z</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"z is the greatest number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            z is the greatest number
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, the first expression i.e., <strong>(x&gt;y)</strong> is true. So, the statements enclosed within the curly brackets {} of the first if condition will be executed.<br>
+            Within the curly brackets, the first statement i.e., <strong>if(x&gt;z)</strong> will be executed first.<br>
+            Since this condition is true, the statement <strong>cout &lt;&lt; "z is the greatest number" &lt;&lt; endl;</strong> within the curly brackets of this <b>if</b> condition will be executed.</p>
+            <p>So, first we checked if 'x' is greater than 'y' or not. If it is, then we compared it with 'z'.</p>
+            <p>Isn't that simple?</p>
+            <p>Let's see the same example using <strong>if...else</strong> inside another <strong>if...else</strong>.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">){</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">)</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x is the greatest integer"</span><span class="p">;</span>
+                    <span class="k">else</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x is not the greatest integer"</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x is not the greatest integer"</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            x is not the greatest integer
+                        </div>
+            </div>
+            </div>
+            <p>Here the condition <strong>x &gt; y</strong> is true. So the statements enclosed within the curly brackets { } of the first if condition will be executed. Within the curly brackets, the first line i.e. <strong>if( x &gt; z )</strong> will be executed first. Since this condition is false, the statement <strong>cout &lt;&lt; "x is the greatest integer";</strong> within the curly brackets of this if condition will not be executed. So, the statement of its corresponding else (i.e. the inner else) <strong>cout &lt;&lt; "x is not the greatest integer";</strong> will be executed.</p>
+            <p>We can also do the same thing using <strong>&amp;&amp;</strong>.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">))</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x is the greatest integer"</span><span class="p">;</span>
+                <span class="k">else</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x is not the greatest integer"</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            x is not the greatest integer
+                        </div>
+            </div>
+            </div>
+            <p>Here, the condition inside if will be true only if both (x &gt; y) and (x &gt; z) are true. If that is the case, then x will be the greatest number otherwise not.</p>
+            <h2>else if statements</h2><hr>
+            <p>Many times we fall in situations when 'if' and 'else' are not sufficient. For example, if you have 5 rupees then you will buy a candy, or if you have 10 rupees, then a chocolate and if more than 100, then a cake. Thanks to C++, because it provides another tool 'else if' to get this done.</p>
+            <p>Consider this example to find the greatest among three numbers.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;;</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">y</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">)</span> <span class="p">){</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"x is the greatest integer"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span> <span class="p">(</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&gt;</span> <span class="n">z</span><span class="p">)</span> <span class="p">){</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"y is the greatest integer"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"z is the greatest integer"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            y is the greatest integer
+                        </div>
+            </div>
+            </div>
+            <p>We can give condition in <strong>else if</strong> also. First, the condition of <strong>if</strong> will be checked. If it is false, then condition of <strong>else if</strong> will be checked, and if that is also false then else will be executed.</p>
+            <p>In the above example, we are given three numbers x, y and z and have to find the highest among them.<br>
+            For that, first, we will compare the first number with the other two i.e., 'x' with both 'y' and 'z'. Now, if the condition <strong>(x&gt;y &amp;&amp; x&gt;z)</strong> is true (if both are true, means x is the greatest ), then the statements enclosed within the curly brackets {} of the first if condition will be executed. If not so, then it will go to else if and check for <strong>(y&gt;x &amp;&amp; y&gt;z)</strong>. If this condition is true, then the corresponding statements will be executed, otherwise, it will go to else.</p>
+            <p>Let's see one more example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="sc">'A'</span><span class="p">;</span>
+                <span class="k">if</span><span class="p">(</span> <span class="n">grade</span> <span class="o">==</span> <span class="sc">'A'</span> <span class="p">){</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Excellent !"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">grade</span> <span class="o">==</span> <span class="sc">'B'</span><span class="p">){</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Outstanding !"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">grade</span> <span class="o">==</span> <span class="sc">'C'</span><span class="p">){</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Good !"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">grade</span> <span class="o">==</span> <span class="sc">'D'</span><span class="p">){</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Can do better"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">grade</span> <span class="o">==</span> <span class="sc">'E'</span><span class="p">){</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Just passed"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">grade</span> <span class="o">==</span> <span class="sc">'F'</span><span class="p">){</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"You failed"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">else</span><span class="p">{</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Invalid grade"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            Excellent !
+                        </div>
+            </div>
+            </div>
+            <p>First, the condition of <strong>if</strong> is checked. If it is true, then only the statements inside that 'if' are executed, otherwise it checks the condition inside <strong>else if</strong>. If it is true, then its body is executed, otherwise next else if is checked. If none of them are true then else is executed.</p>
+            <p>We can also solve the above example using <strong>switch..case</strong>, which makes the code much simpler.</p>
+            <h2>Switch..case</h2><hr>
+            <p>Normally, if we have to choose one case among many choices, nested if-else is used. But if the number of choices is large, switch..case is a better option as it makes our code more neat and easier.</p>
+            <p>Let's have a look at its syntax.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <span style="color:brown;">switch(</span>expression<span style="color:brown;">)</span><br>
+              {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">case</span> constant1:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statement(s);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">break</span>;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">case</span> constant2:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statement(s);<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">break</span>;<br>
+            <span style="color:brown;">/* you can give any number of cases */</span><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:blue;">default</span>:<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;statement(s);<br>
+              }
+                </p>
+            </div>
+            <p>In <strong>switch...case</strong>, the value of the <strong>expression</strong> enclosed in the brackets <strong>( )</strong> following switch is checked. If the value of the expression matches the value of the <strong>constant</strong> in <strong>case</strong>, the statement(s) corresponding to that case will be executed.</p>
+            <p>If the expression does not match any of the constant values, then the statements corresponding to <strong>default</strong> are executed.</p>
+            <p>Now, let's see the above example using switch..case.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="sc">'B'</span><span class="p">;</span>
+                  <span class="k">switch</span> <span class="p">(</span> <span class="n">grade</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="k">case</span> <span class="sc">'A'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Excellent ! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                         <span class="k">break</span> <span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'B'</span><span class="o">:</span>
+                         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Outstanding ! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                          <span class="k">break</span> <span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'C'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Good ! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                          <span class="k">break</span> <span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'D'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Can do better "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                          <span class="k">break</span> <span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'E'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Just passed "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                          <span class="k">break</span> <span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'F'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" You failed "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                          <span class="k">break</span> <span class="p">;</span>
+                    <span class="k">default</span> <span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Invalid grade "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ten" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ten">
+            <div class="code_out code_outone well">
+            Outstanding !
+                        </div>
+            </div>
+            </div>
+            <p>In this example, the value of <strong>grade</strong> is <strong>B</strong>. Since the value of the constants of the first case is not 'B', so <strong>case 'B'</strong> will be executed and 'Outstanding !' will be printed. Then <strong>break</strong> statement will terminate the switch without checking the rest of the cases. This is how it works.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            No need to write break in default case because it automatically terminates once default statements are executed.
+                        </div>
+            </div>
+            </div>
+            <p>Now let's see what happens when we don't add break after the cases.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">char</span> <span class="n">grade</span> <span class="o">=</span> <span class="sc">'B'</span><span class="p">;</span>
+                  <span class="k">switch</span> <span class="p">(</span> <span class="n">grade</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="k">case</span> <span class="sc">'A'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Excellent ! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'B'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Outstanding ! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'C'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Good ! "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'D'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Can do better "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'E'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Just passed "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">case</span> <span class="sc">'F'</span><span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" You failed "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="k">default</span> <span class="o">:</span>
+                          <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">" Invalid grade "</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;;</span>
+                  <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eleven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eleven">
+            <div class="code_out code_outone well">
+            Outstanding ! <br>
+             Good ! <br>
+             Can do better<br>
+             Just passed <br>
+             You failed <br>
+             Invalid grade
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, the value of grade is <strong>'B'</strong>, so the control jumped to <strong>case 'B'</strong>. Since there is no <strong>break</strong> statement after any case, so all the statements after case 'B' will also be executed.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If you want to execute only that case whose constant value equals the value of the expression of switch statement, then use <b>break</b> statement.
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            Always enclose character values within   <b>' '</b>.
+                        </div>
+            </div>
+            </div>
+            <p>Let's see another example where the value of the expression is an integer.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">;</span>
+                <span class="k">switch</span> <span class="p">(</span> <span class="n">i</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">case</span>   <span class="mi">1</span><span class="o">:</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number is 1"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                         <span class="k">break</span> <span class="p">;</span>
+                      <span class="k">case</span>   <span class="mi">2</span><span class="o">:</span>
+                         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number is 2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                         <span class="k">break</span> <span class="p">;</span>
+                      <span class="k">default</span> <span class="o">:</span>
+                         <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number is greater than 2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#twelve" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="twelve">
+            <div class="code_out code_outone well">
+            Number is 2
+                        </div>
+            </div>
+            </div>
+            <h2>Another form of if else</h2><hr>
+            <p>We can also judge the condition using the <strong>ternary operator</strong>. The ternary operator checks whether a given condition is true and then evaluates the expressions accordingly. It works as follows.</p>
+            <p><strong>condition <span style="color:brown;">?</span> expression1 <span style="color:brown;">:</span> expression2;</strong></p>
+            <p>If the <strong>condition</strong> is true, then <strong>expression1</strong> gets evaluated, otherwise <strong>expression2</strong> gets evaluated.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">age</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter age"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">age</span><span class="p">;</span>
+                <span class="p">(</span><span class="n">age</span> <span class="o">&gt;</span> <span class="mi">18</span><span class="p">)</span> <span class="o">?</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"eligible to vote"</span> <span class="o">:</span> <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"not eligible to vote"</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#thirteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="thirteen">
+            <div class="code_out code_outone well">
+            Enter age<br>
+            <span style="color:#ce9d9d">5</span><br>
+            not eligible to vote
+                        </div>
+            </div>
+            </div>
+            <p>Here, if the condition <strong>(age &gt; 18)</strong> is true, then expression1 i.e., <strong>cout &lt;&lt; "eligible to vote"</strong> will get evaluated, otherwise, expression2 i.e., <strong>cout &lt;&lt; "not eligible to vote"</strong> will get evaluated. Since the value of age that we entered (10) is less than 18, therefore expression2 got evaluated and "not eligible to vote" got printed.</p>
+            <p>Let's see another example in which we want to find the greater among two numbers.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span> <span class="n">num</span><span class="p">;</span>
+                <span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="n">num2</span> <span class="o">&gt;</span> <span class="n">num1</span><span class="p">)</span> <span class="o">?</span> <span class="nl">num2</span> <span class="p">:</span> <span class="n">num1</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"The greater number is "</span> <span class="o">&lt;&lt;</span> <span class="n">num</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#fourteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="fourteen">
+            <div class="code_out code_outone well">
+            The greater number is 5.
+                        </div>
+            </div>
+            </div>
+            <p>In this example, if the condition <strong>(num2 &gt; num1)</strong> is true, then num2 i.e., 5 will get assigned to num, otherwise, num1 i.e., 4 will get assigned to num. In our case, the values of num1 and num2 are 4 and 5 respectively. Thus, the condition 'num2 &gt; num1' is true and the value of num2 i.e., 5 got assigned to num and so 5 got printed.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Knowledge is of no value unless you put it into practice.<br><span style="float:right;">-Anton Chekhov</span></p>
+            </div>
+            <div>
+            <a href="operators.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="loops.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next></span></a>
+            </div>
+            </div>
+    </body></html>

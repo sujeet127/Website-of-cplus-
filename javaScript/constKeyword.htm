@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Const Keyword
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Const Keyword in C++</h1><hr>
+        <div id="content">
+            <p><strong>Const</strong> keyword is used to make any element of a program constant. Let's see its significance with different program elements.</p>
+            <h3>Const Variables</h3><hr>
+            <p>If we declare a variable as <strong>const</strong>, we cannot change its value. A const variable must be assigned a value at the time of its declaration.</p>
+            <p>Once initialized, if we try to change its value, then we will get compilation error. The following two cases will give us an error since in both these cases, we are trying to change the value of a const variable.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">const</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>          <span class="c1">// declaring and initializing a const variable</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>          <span class="c1">// this will give compilation error</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">const</span> <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>          <span class="c1">// declaring and initializing a const variable</span>
+                <span class="n">a</span><span class="o">++</span><span class="p">;</span>          <span class="c1">// this will give compilation error</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <h3>Const Function Parameters and Return type</h3><hr>
+            <p>We can also make the type of argument and return type of a function <strong>const</strong>. Once declared constant, we will get compilation error if we try to change it.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="3359" __idm_id__="928933889"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">func</span><span class="p">(</span> <span class="k">const</span> <span class="kt">int</span> <span class="n">a</span> <span class="p">)</span>    <span class="c1">// const argument</span>
+            <span class="p">{</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>    <span class="c1">// compilation error</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <p>This will result in compilation error since we cannot assign a value to any const variable after its declaration. Initialization of any const variable (in our case, <strong>a</strong>) takes place at the time of its declaration.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="nf">func</span><span class="p">()</span>   <span class="c1">// const return type</span>
+            <span class="p">{</span>
+                <span class="k">return</span> <span class="mi">4</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="kt">int</span> <span class="n">a</span><span class="p">;</span>
+                <span class="n">a</span> <span class="o">=</span> <span class="n">func</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <p>In the above code, the return type of the function <strong>func</strong> is const and so we returned a const integer value.</p>
+            <h3>Const Pointer</h3><hr>
+            <p>If we make a pointer <strong>const</strong>, we cannot change the pointer. This means that the pointer will always point to the same address but we can change the value of that address.</p>
+            <p>We declare a const pointer as follows.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+            <span class="kt">int</span><span class="o">*</span> <span class="k">const</span> <span class="n">p</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">a</span>   <span class="c1">// const pointer p pointing to the variable a</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <p>Note that we cannot change the pointer <strong>p</strong> but can change the value of <strong>a</strong>.</p>
+            <h3>Pointer to Const Variable</h3><hr>
+            <p>On the contrary to the above case, we can make the variable to which a pointer is pointing as <strong>const</strong>. Let's see how to declare a pointer to const variable.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="k">const</span> <span class="kt">int</span><span class="o">*</span> <span class="n">p</span><span class="p">;</span>   <span class="c1">// const pointer p pointing to a const int variable</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <p>Here, <strong>p</strong> is a pointer which is pointing to a const int variable. This means that we cannot change the value of that int variable.</p>
+            <h3>Constant Data Members of Class</h3><hr>
+            <p>Data members are just variables declared inside a class. <strong>const</strong> data members are not assigned values during its declaration. Const data members are assigned values in the constructor.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="k">const</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="n">A</span><span class="p">(</span><span class="kt">int</span> <span class="n">y</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">A</span> <span class="n">a</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <h3>Constant Objects of Classes</h3><hr>
+            <p>We can also make an object of class const. We make an object const by writing the <strong>const</strong> keyword at the beginning of the object declaration as shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            const A a(4);
+                </p>
+            </div>
+            <p>We made the object <strong>a</strong> of class A const by writing the const keyword before the class name at the time of its declaration.</p>
+            <p>A const class object is initialized through the constructor.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            We cannot modify the data members of a const object.
+                        </div>
+            </div>
+            </div>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+                    <span class="n">A</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="k">const</span> <span class="n">A</span> <span class="n">a</span><span class="p">;</span>      <span class="c1">// declaring const object 'a' of class 'A'</span>
+                <span class="n">a</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>       <span class="c1">// compilation error</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <p>The above program will give compilation error. Since we declared 'a' as a const object of class A, we cannot change its data members. When we created 'a', its constructor got called assigning a value 0 to its data member 'x'. Since 'x' is a data member of a const object, we cannot change its value further in the program. So when we tried to change its value, we got compilation error.</p>
+            <h3>Constant Member Function of Class</h3><hr>
+            <p>A <strong>const</strong> member function cannot change the value of any data member of the class and cannot call any member function which is not constant.</p>
+            <p>To make any member function const, we add the <strong>const</strong> keyword after the list of the parameters after the function name.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="n">class</span> <span class="n">A</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+                    <span class="kt">void</span> <span class="nf">func</span><span class="p">()</span> <span class="k">const</span>
+                    <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>        <span class="c1">// this will give compilation error</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            </pre></div>
+            </div>
+            </div>
+            </div>
+            <p>The above code will give us compilation error because 'func()' is a const member function of class A and we are trying to assign a value to its data member 'x'.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            A const object can only call a const member function.
+                        </div>
+            </div>
+            </div>
+            <p>This is because a const object cannot change the value of the data members and a const member function also cannot change the value of the data member of its class. So, a const object would like to call a function which does not violate its rule.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            We cannot make constructors const
+                        </div>
+            </div>
+            </div>
+            <p class="quote">The reason for this is that const objects initialize the values of their data members through constructors and if we make the constructor const, then the constructor would not change the values of the data members and the object would remain uninitialized.</p>
+            <div>
+            <a href="template.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="dyanamicMemory.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

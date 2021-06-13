@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Let's Start 
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Basics of C++</h1>
+        <div id="content">
+            <p>In the last chapter, you saw how to print "Hello World" on the screen. Now let's see how the code worked by understanding the significance of each of its line.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+               <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World"</span><span class="p">;</span>
+               <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Hello World
+                        </div>
+            </div>
+            </div>
+            <p>On compiling the above code, <b>Hello World</b> will be printed on the screen.</p>
+            <p>So, you have just written a code that can print anything on the screen. Sounds good! Now, let's understand this code in detail so that we can print any message.</p>
+            <p>Let's start with <strong style="color:brown;">std::cout &lt;&lt; "Hello World";</strong> - <b>std</b> (short form of standard) is a namespace and <b>cout</b> is defined in this std namespace. Now a question comes in your mind that what is a namespace?</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="275"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Basically, a namespace is a special area inside which something is defined. So, in this case, <b>cout</b> is defined in <b>std</b> namespace. Thus, <b>std::cout</b> states that cout is defined in the std namespace or to use the definition of <b>cout</b> which is defined in <b>std</b> namespace.</p>
+            <p>
+            So, std::cout is used to use the definition of cout from std namespace.
+            </p>
+            <p><b>&lt;&lt;</b> is the <b>output operator</b>.<br>You will learn about operators in the next chapters. For now, just understand that here <b>&lt;&lt;</b> is used to pass "Hello World" to cout. Thus, <b style="color:brown;">std::cout &lt;&lt; "Hello World";</b> passes "Hello World" to cout and cout will print this Hello World on the screen.</p>
+            
+            <p>One more thing you need to know here is that <strong>std::cout</strong> is an object in the <strong>iostream library</strong>. You will learn about objects in the later chapters. For now, just understand that the whole <b>std::cout</b> thing resides inside <b>iostream</b> library and for this we need to include <b>iostream</b> in our code.
+            <br>
+            To include the iostream library, we write the following code.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            <span style="color:brown;">#include</span> <span style="color:blue;">&lt;iostream&gt;</span>
+            </p>
+            </div>
+            <p>Here, <strong>#include</strong> links our program to the iostream library or it will make iostream library available for our use.</p>
+            <p>So after including <strong>iostream</strong>, we are ready to use <strong>cout</strong> in our program.</p>
+            <p>
+                So, <span style="color:brown;">#include</span> <span style="color:blue;">&lt;iostream&gt;</span> will make <b>std::cout</b> available for use and <span style="color:brown;">std::cout&lt;&lt;"Hello World"</span> will use the definition of cout from std namespace to print <b>Hello World</b> (passed by &lt;&lt;) on the screen.
+            </p><p>
+            </p><p>
+            Let's come to <b>int main</b>. <b>main</b> is a function.<br>Now, what is a function?
+            </p>
+            <p><strong>A function</strong> is like a machine which takes something from us (not necessarily) and then performs an operation on it. In simple words, a function takes <b>input</b> from the user and gives back <b>output</b>. Simple, isn't it?</p>
+            
+            <p>
+            <strong style="color:brown;">int main() - </strong><strong>main</strong> is a <strong>function</strong> or <b>main</b> is the name of the function.<br>
+            <strong>int main()</strong> means that the function main gives us an integer (It will return an integer value as output).
+            </p>
+            <p>
+            </p><p><strong style="color:brown;">return 0; - </strong>As mentioned earlier, the function main returns an integer value (int main()), therefore here we are returning 0. <strong>return</strong> is a <strong>keyword</strong> which is used to return some value from a function. It indicates that our program has been run successfully and we terminate our main function with this return statement.
+            </p>
+            <p>
+            <strong style="color:brown;">{ } - </strong>Curly braces '{}' following the main function represents the body of the main function. All the statements written inside this curly braces are in the body of the main function.
+            </p>
+            
+            <h3>Why do we use the main function?</h3><hr>
+            <p>When a C++ code is executed, the main function is executed first. Thus the statements written inside the main function (within the curly braces following the main function) will be executed first. So to execute any statement, we put it inside the main function.</p>
+            <p>The execution of every C++ program starts from this <b>main</b> function. All C++ programs must have this main() function.
+            </p>
+            <p>So, our workflow is -<br>
+            <b>#include&lt;iostream&gt;</b> included the iostream library. After this in the main function, <b>std::cout&lt;&lt;"Hello world"</b> printed Hello world on the screen and <b>return 0</b> returned 0 from the main function indicating the successful execution of our code.</p>
+            <h2>Printing a new line</h2><hr>
+            <p>In our previous example, we printed "Hello World". What if we want to print "Hello" and "World" in two separate lines?</p>
+            <p>We can do this by using <strong>std::endl</strong> which is used to change line. Just like cout, endl is also defined in the std namespace and thus written as std::endl.</p>
+            <p>Let's see the following example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>   <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello"</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"World"</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Hello<br>
+            World
+                        </div>
+            </div>
+            </div>
+            <p>Here, after "Hello" got printed, std::endl changed the line and thus "World" got printed on a separate line. If we had not written std::endl, then Hello and World would have got printed in the same line as follows.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+               <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello"</span><span class="p">;</span>
+               <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"World"</span><span class="p">;</span>
+               <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            HelloWorld
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, <strong>std::cout &lt;&lt; "Hello";</strong> printed "Hello" and after that <strong>std::cout &lt;&lt; "World";</strong> printed "World". Thus, World got printed just after Hello with no space between the two.</p>
+            <p>We can also use multiple <strong>&lt;&lt;</strong> to print the above result as shown below.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+               <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello"</span> <span class="o">&lt;&lt;</span> <span class="s">"World"</span><span class="p">;</span>
+               <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            HelloWorld
+                        </div>
+            </div>
+            </div>
+            <h3>Another way to print newline</h3><hr>
+            <p>Let's see this example first:</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+               <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello</span><span class="se">\n</span><span class="s">World"</span><span class="p">;</span>
+               <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Hello<br>World
+                        </div>
+            </div>
+            </div>
+            <p>
+            <b style="color:brown;">\n</b> is newline character which is used for changing line. It is just like another character but prints a new line.
+            <br>
+            In <b>Hello\nWorld</b>, when compiler printed H when it encounters 'H', e when 'e'. Similarly, it printed a new line when it encountered <b>\n</b>
+            </p>
+            
+            <h2>Commenting</h2><hr>
+            <p>Comments are statements which are written inside our code which are just ignored by the compiler while compiling our code. These are written to make our code more readable. Comments are written between <strong>'/* */'</strong> or after <strong>//</strong>.</p>
+            <h3>Why comments?</h3><hr>
+            <p>As mentioned earlier, it makes our code more readable. Assume that you have written a software and after releasing it, you hired a few good programmers for the maintenance. Without comments, it would be a very difficult task for them to understand your code. And most of the time it happens that the person who has written a code is not the one who is going to modify it. So, make it a habit of writing comments.</p>
+            <p>Comments written after <strong>//</strong> are <strong>single line comments</strong>. Thus if you change line, then the new line will not be a part of your comment.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="c1">//This is single line comment</span>
+            <span class="c1">//This is also a comment</span>
+            <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+               <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World"</span><span class="p">;</span>
+               <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Hello World
+                        </div>
+            </div>
+            </div>
+            <p>Comment can also be <strong>multi-lined</strong> by enclosing it between <strong>/*</strong> and <strong>*/</strong> as shown in the following example. But we can't put one comment inside another. e.g. - <strong>/* This is a /*comment*/ */</strong> is invalid.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cm">/*Hello World code*/</span>
+            <span class="cm">/* Comments will not be compiled and will be ignored */</span>
+            <span class="cm">/* It is a</span>
+            <span class="cm">multiline</span>
+            <span class="cm">comment*/</span>
+            <span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+               <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Hello World"</span><span class="p">;</span>
+               <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            Hello World
+                        </div>
+            </div>
+            </div>
+           
+            <p>Coding is all about practice and solving questions. So, solve questions as much as you can. Solve questions after completing every chapter then only go for the next chapter.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            In future, when writing long codes, make sure that you run your code from time to time while writing instead of completing your whole code and running at last. This will make debugging your code easier if you have made some errors.
+                        </div>
+            </div>
+            </div>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">The best way to predict the future is to create it.<br><span style="float:right;">-Peter Druker</span></p>
+            </div>
+            <div>
+            <a href="introduction.htm" ><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="gearup.htm" ><span style="float:right;font-size:20px;color:black;" class="next">Next</a>
+            </div>
+            <p></p><p></p><p></p></div>
+    </body>
+</html>

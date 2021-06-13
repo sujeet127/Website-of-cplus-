@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Pre-Processor
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Pre-processor in C++</h1>
+        <hr>
+        <div id="content">
+            <p>Pre-processor processes our program before going to the compiler. You may not get it right now but will soon understand what it means.</p>
+            <h2>How to Declare</h2>
+            <hr>
+            <p><strong>Pre-processor directives</strong> begin with a hash symbol <strong>#</strong>. Preprocessor directives are preprocessor commands.</p>
+            <p>The most common preprocessor directive is</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            #include
+                </p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="1851" __idm_id__="117670913"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            </div>
+            <p>Here, <strong>#include</strong> is a preprocessor directive and it makes header file like iostream available for us i.e. include header file in our program.</p>
+            <p>Let's take another example of a pre-processor directive.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            #define PI 3.14
+                </p>
+            </div>
+            <p>Here, <strong>#define</strong> is a pre-processor directive. It is used to define something like here we have defined that PI is 3.14. So, before going to the compiler, if <strong>PI</strong> comes anywhere in the program, it will be replaced by <strong>3.14</strong>.</p>
+            <p>Following is a C++ program to find the area of a circle.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#define PI 3.14</span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">radius</span><span class="p">;</span>
+                  <span class="kt">float</span> <span class="n">area</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter radius of circle"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">radius</span><span class="p">;</span>
+                  <span class="n">area</span> <span class="o">=</span> <span class="n">PI</span><span class="o">*</span><span class="n">radius</span><span class="o">*</span><span class="n">radius</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area of circle is "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Enter radius of circle <br>
+            <span style="color:#ce9d9d">4</span><br>
+            Area of circle is 50.24
+                        </div>
+            </div>
+            </div>
+            <p>The only thing that you should understand here is that in our program, PI is replaced by 3.14 whenever it came in the program even before compiling. So, <strong style="color:brown;">PI*radius*radius</strong> - will be <strong>3.14*radius*radius</strong>.</p>
+            <h2>Macros with Arguments</h2>
+            <hr>
+            <p>#define can be used to write macro definitions as well as shown below. Macros are also like functions but are a bit different from that. They can also take arguments. Let's see an example to understand how to use these.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            #define area(r) (3.14*r*r)
+                </p>
+            </div>
+            <p>Let's see an example to print the area of a circle using macros</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#define area(r) (3.14*r*r)</span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">radius</span><span class="p">;</span>
+                  <span class="kt">float</span> <span class="n">area</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter radius of circle"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">radius</span><span class="p">;</span>
+                  <span class="n">area</span> <span class="o">=</span> <span class="n">area</span><span class="p">(</span><span class="n">radius</span><span class="p">);</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area of circle is "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Enter radius of circle <br>
+            <span style="color:#ce9d9d">4</span><br>
+            Area of circle is 50.24
+                        </div>
+            </div>
+            </div>
+            <p>We have defined a macro 'area' which takes one argument that is 'r'. So when we called area(radius), it got replaced by 3.14*radius*radius.</p>
+            <p>It is like we have defined something and whenever it will appear in our program, will be replaced by that definition.</p>
+            <h2>Let's Compare Macro with Function</h2>
+            <hr>
+            <p>We have just seen an example to print the area of a circle using macros. Now let's see the same example using function.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">float</span> <span class="nf">CircleArea</span><span class="p">(</span><span class="kt">int</span> <span class="n">r</span><span class="p">)</span>
+            <span class="p">{</span>
+                  <span class="kt">float</span> <span class="n">a</span><span class="p">;</span>
+                  <span class="n">a</span> <span class="o">=</span> <span class="mf">3.14</span><span class="o">*</span><span class="n">r</span><span class="o">*</span><span class="n">r</span><span class="p">;</span>
+                  <span class="kt">int</span> <span class="n">radius</span><span class="p">;</span>
+                  <span class="k">return</span> <span class="n">a</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">radius</span><span class="p">;</span>
+                  <span class="kt">float</span> <span class="n">area</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span><span class="p">;</span> <span class="s">"Enter radius of circle"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">radius</span><span class="p">;</span>
+                  <span class="n">area</span> <span class="o">=</span> <span class="n">CircleArea</span><span class="p">(</span><span class="n">radius</span><span class="p">);</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area of circle is "</span> <span class="o">&lt;&lt;</span> <span class="n">area</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Enter radius of circle <br>
+            <span style="color:#ce9d9d">4</span><br>
+            Area of circle is 50.24
+                        </div>
+            </div>
+            </div>
+            <p>Let's have a look at the basic differences between a macro and a function.</p>
+            <p>The first difference is that macros replace codes by their value ( as it replaced area(r) with (3.14*r*r) ). So, every time code will be allocated some space. This means that every time area(r) will appear, it will allocate space in memory. But this is not the case with function.</p>
+            <p>Secondly, function call takes some time but macro is defined before the actual program. So, macro is faster.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">First of all, convince yourself that you are the best because rest of your life is going to go proving this to others<br><span style="float:right;">-Wasim Akram</span></p>
+            </div>
+            <div>
+            <a href="stdString.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="structure.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Standard Array
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">std::array in C++</h1><hr>
+        <div id="content">
+            <p>Before learning about <strong>std::array</strong>, let's first see the need for it.</p>
+            <p><strong>std::array</strong> is a container that wraps around fixed size arrays. It also doesn't loose the information of its length when decayed to a pointer.</p>
+            <p>You know that when we pass an array (also known as C-style array) to a function, the address of the array gets passed to the function i.e. the pointer to the array gets passed to the function. Thus, the information about the size of the array gets lost.</p>
+            <p>To deal with such situations, we use <strong>std::array</strong> and <strong>std::vector</strong>. In this chapter, we will be looking at std::array and std::vector in the next one.</p><div id="pixfuture160" style="height: 1px; width: 640px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="1415" __idm_id__="809844737"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Let's first have a look at the syntax of std::array.</p>
+            <h2>Declaration of std::array</h2><hr>
+            <p>The declaration of std::array is as follows:</p>
+            <p><strong><span style="color:blue;">std::array&lt;</span><span style="color:brown;">datatype</span><span style="color:blue;">,</span>array_size<span style="color:blue;">&gt;</span> array_name<span style="color:brown;">;</span></strong></p>
+            <p>This is a simple declaration of an std::array. Let's look at the declaration of an integer array of length 5.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::array&lt;int, 5&gt; n;
+                </p>
+            </div>
+            <p>Here <strong>'n'</strong> is an std::array of type int and length 5.</p>
+            <p>In order to use std::array, we need to include the following code in the beginning of our program.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                #include &lt;array&gt;
+                </p>
+            </div>
+            <h2>Initialization of std::array</h2><hr>
+            <p>Like arrays, we initialize an std::array by simply assigning it values at the time of declaration. For example, we will initialize an integer type std::array named 'n' of length 5 as shown below;</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::array&lt;int, 5&gt; n = {1, 2, 3, 4, 5};
+                </p>
+            </div>
+            <p>There is another way of initializing an std::array which is shown below.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::array&lt;int, 5&gt; n { {1, 2, 3, 4, 5} };
+                </p>
+            </div>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                        The length of an std::array must be known at the time of compilation.
+                    </div>
+            </div>
+            </div>
+            <p>Unlike C-style arrays in which writing array length at the time of initialization was not necessary, we cannot omit writing the array length in case of std::array. For example, the following initialization is incorrect.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::array<int,> n { {1, 2, 3, 4, 5} }; &nbsp;&nbsp;// incorrect
+                </int,></p>
+            </div>
+            <p>We can also assign values to the array as follows.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                std::array<int, 5=""> n;<br>
+                n = {1, 2, 3, 4, 5};
+                </int,></p>
+            </div>
+            <p>std::array functions exactly the same as C-style arrays. Now, after knowing how to declare and assign values to an array, let's see a simple example of printing the value of an element of an std::array.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+            
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+                            3
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we simply printed the value of the third element of the array by printing <strong>n[2]</strong>.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                        If you are getting any compilation error, instruct your compiler to use C++11 by using the following command to compile:<br>
+            
+            g++ -std=c++11 -o filename filename.cpp
+                    </div>
+            </div>
+            </div>
+            <h3>Length of std::array</h3><hr>
+            <p>We can return the length of an std::array using the <strong>size()</strong> function. The following example illustrates its use.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+            
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number of elements in the array are : "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+                            Number of elements in the array are : 5
+                        </div>
+            </div>
+            </div>
+            <p>Thus, the size() function returned the number of elements in the array. Now, let's look at another example just to make you realize that an std::array functions no different than a C-type array.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">n</span><span class="p">;</span>
+            
+                <span class="c1">//taking values of elements from user</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter value of n["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"]"</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+                <span class="p">}</span>
+            
+                <span class="cm">/* printing the values of elements of array */</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n["</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Enter value of n[0]<br>
+            <span style="color:#ce9d9d">1</span><br>
+            Enter value of n[1]<br>
+            <span style="color:#ce9d9d">2</span><br>
+            Enter value of n[2]<br>
+            <span style="color:#ce9d9d">3</span><br>
+            Enter value of n[3]<br>
+            <span style="color:#ce9d9d">4</span><br>
+            Enter value of n[4]<br>
+            <span style="color:#ce9d9d">5</span><br>
+            n[0] = 1<br>
+            n[1] = 2<br>
+            n[2] = 3<br>
+            n[3] = 4<br>
+            n[4] = 5
+                        </div>
+            </div>
+            </div>
+            <p>In this example, we simply took the values of the elements of the array using the first for loop and printed them using the second for loop. Notice that we did not write <strong>std::</strong> before <strong>array</strong> in the declaration of the array because we wrote the statement <strong>using namespace std</strong> before the main function.</p>
+            <h2>Passing std::array to function</h2><hr>
+            <p>
+            Let's look at an example of passing an std::array to a function.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">printArray</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"length: "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n["</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+            
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">n</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">};</span>
+            
+                <span class="n">printArray</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#threee" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="threee">
+            <div class="code_out code_outone well">
+            length: 5<br>
+            n[0] = 1<br>
+            n[1] = 2<br>
+            n[2] = 3<br>
+            n[3] = 4<br>
+            n[4] = 5
+                        </div>
+            </div>
+            </div>
+            <p>
+            <b style="color:brown;">void printArray(const std::array&lt;int, 5&gt; &amp;n)</b> - <b>const</b> is used here to prevent the compiler from making a copy of the array and this enhances the performance.<br>
+            The passed array will be <b>n</b> in this function as <b>&amp;n</b> is the parameter of the function 'printArray'.
+            </p>
+            <p>
+            Also, use of the <b>size</b> function on the array inside the function gave us 5 thus, showing that an std::array doesn't lose its property of length when passed to a function.
+            </p>
+            <h2>Member Functions</h2><hr>
+            <p>There are a number of member functions of <strong>std::array</strong> (pre-defined functions). Let's see some of these methods.</p>
+            <h3>at()</h3><hr>
+            <p><strong>at()</strong> function is used to access the element at specified position (index). Let's rewrite the above example by using the at() function with the array name to take input and print the values of the elements of an std::array.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">5</span><span class="o">&gt;</span> <span class="n">n</span><span class="p">;</span>
+            
+                <span class="c1">//taking values of elements from user</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter value of n["</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">"]"</span><span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">i</span><span class="p">);</span>
+                  <span class="p">}</span>
+            
+                 <span class="cm">/* printing the values of elements of array */</span>
+                  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                           <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n["</span> <span class="o">&lt;&lt;</span> <span class="n">j</span> <span class="o">&lt;&lt;</span> <span class="s">"] = "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span><span class="p">.</span><span class="n">at</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Enter value of n[0]<br>
+            <span style="color:#ce9d9d">1</span><br>
+            Enter value of n[1]<br>
+            <span style="color:#ce9d9d">2</span><br>
+            Enter value of n[2]<br>
+            <span style="color:#ce9d9d">3</span><br>
+            Enter value of n[3]<br>
+            <span style="color:#ce9d9d">4</span><br>
+            Enter value of n[4]<br>
+            <span style="color:#ce9d9d">5</span><br>
+            n[0] = 1<br>
+            n[1] = 2<br>
+            n[2] = 3<br>
+            n[3] = 4<br>
+            n[4] = 5
+                        </div>
+            </div>
+            </div>
+            <p>Here <strong>n.at(i)</strong> is the same as writing <strong>n[i]</strong>, which means the element at the i<sup>th</sup> position.</p>
+            <h3>front()</h3><hr>
+            <p><strong>front()</strong> function returns the first element of an std::array.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">double</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="mf">5.6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.7</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">};</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+                            5.6
+                        </div>
+            </div>
+            </div>
+            <h3>back()</h3><hr>
+            It returns the last element of an std::array.
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">char</span><span class="p">,</span> <span class="mi">6</span><span class="o">&gt;</span> <span class="n">ch</span> <span class="o">=</span> <span class="p">{</span><span class="sc">'a'</span><span class="p">,</span> <span class="sc">'b'</span><span class="p">,</span> <span class="sc">'c'</span><span class="p">,</span> <span class="sc">'d'</span><span class="p">,</span> <span class="sc">'e'</span><span class="p">,</span> <span class="sc">'f'</span><span class="p">};</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">ch</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+                            f
+                        </div>
+            </div>
+            </div>
+            <h3>empty()</h3><hr>
+            <p>This function checks whether an std::array contains any element or not. It returns <strong>1</strong> if the length of an std::array is 0 and <strong>0</strong> if not.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">2</span><span class="o">&gt;</span> <span class="n">a1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">};</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">0</span><span class="o">&gt;</span> <span class="n">a2</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a1</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a2</span><span class="p">.</span><span class="n">empty</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#seven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="seven">
+            <div class="code_out code_outone well">
+            0<br>
+            1
+                        </div>
+            </div>
+            </div>
+            <p>Since <strong>a1</strong> contains 2 elements, so <strong>a1.empty()</strong> returned <strong>1</strong> and since <strong>a2</strong> does not contain any element, <strong>a2.empty()</strong> returned <strong>0</strong>.</p>
+            <h3>max_size()</h3><hr>
+            <p>This function returns the maximum number of elements that the std::array can hold. The following example will make it clear.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">8</span><span class="o">&gt;</span> <span class="n">arr</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">max_size</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eight" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eight">
+            <div class="code_out code_outone well">
+            8
+                        </div>
+            </div>
+            </div>
+            <h3>fill()</h3><hr>
+            <p><strong>fill()</strong> function fills all the elements of the std::array with the same specified value.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">arr</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+                <span class="n">arr</span><span class="p">.</span><span class="n">fill</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#nine" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="nine">
+            <div class="code_out code_outone well">
+            2
+                        </div>
+            </div>
+            </div>
+            <p>In this example, <strong>arr.fill(2)</strong> assigned 2 to all the elements of <strong>arr</strong>. Therefore we got 2 when we printed the value of arr[3].</p>
+            <h3>swap</h3><hr>
+            <p>This function swaps the contents i.e. it exchanges the value of one std::array with that of another.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">a1</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">a2</span> <span class="o">=</span> <span class="p">{</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">};</span>
+                <span class="n">a1</span><span class="p">.</span><span class="n">swap</span><span class="p">(</span><span class="n">a2</span><span class="p">);</span>
+            
+                <span class="c1">//printing the values of the elements of a1</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Elements of a1"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">a1</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a1</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="p">}</span>
+            
+                  <span class="c1">//printing the values of the elements of a2</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Elements of a2"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">j</span> <span class="o">&lt;</span> <span class="n">a2</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">j</span><span class="o">++</span> <span class="p">)</span>
+                  <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a2</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#ten" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="ten">
+            <div class="code_out code_outone well">
+            Elements of a1<br>
+            5<br>
+            6<br>
+            7<br>
+            8<br>
+            Elements of a2<br>
+            1<br>
+            2<br>
+            3<br>
+            4
+            
+                        </div>
+            </div>
+            </div>
+            <p>Here, <strong>a1.swap(a2)</strong> interchanged the values of the two std::array.</p>
+            <h2>Iterators</h2><hr>
+            <p>
+            Instead of indices, we can also use iterators to iterate over a container (e.g. std::array). An iterator is a kind of pointing item which can be pointed to an element of a container and has the ability to iterate over the container. It means that if we have an iterator at the beginning of an std::array then, it can go over the entire std::array pointing each item of the std::array.
+            </p>
+            <p>
+            We are provided with the following iterator functions:
+            </p><ul>
+            <li>begin</li>
+            <li>end</li>
+            <li>rbegin</li>
+            <li>rend</li>
+            </ul>
+            <p></p>
+            <p>
+            <b>begin</b> - Returns an iterator to the first element of the container.
+            </p>
+            <p><img alt="begin in C++" src="/staticroot/images/begin_cpp.png" style="max-width:35%;height:auto;"></p>
+            <p>
+            <b>end</b> - Returns an iterator to the end i.e. the element after the <b>theoretical</b> last element of the container.
+            </p>
+            <p><img alt="end in C++" src="/staticroot/images/end_cpp.png" style="max-width:35%;height:auto;"></p>
+            <p>
+            <b>rbegin</b> - Returns a reverse iterator to the first element of the reversed container.
+            </p>
+            <p><img alt="rbegin in C++" src="/staticroot/images/rbegin_cpp.png" style="max-width:35%;height:auto;"></p>
+            <p>
+            <b>rend</b> - Returns a reverse iterator to the <b>theoretical</b> element preceding the first element of the container.
+            </p>
+            <p><img alt="rend in C++" src="/staticroot/images/rend_cpp.png" style="max-width:35%;height:auto;"></p>
+            <p>
+            Let's see an example to understand this.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;iterator&gt;</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">};</span>
+            
+                <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#eleven" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="eleven">
+            <div class="code_out code_outone well">
+            1<br>
+            2<br>
+            3<br>
+            4
+            
+                        </div>
+            </div>
+            </div>
+            <p>
+            <b>auto i = a.begin()</b> - You must be thinking the reason for using <b>auto</b> here. It is used to automatically assign the correct type to the variable <b>i</b> by the compiler. You will learn more about it in the chapter 'Storage classes'.
+            </p>
+            <p>
+            <b>cout &lt;&lt; *i &lt;&lt; endl;</b> - <b>*i</b> is used to access the element at i or the element at which i is pointing.
+            </p>
+            <p>
+            Rest of the code is simple to understand.
+            </p>
+            <h3>sort</h3><hr>
+            <p>
+            <b>sort</b> is used to sort the elements in a range in ascending order. We need to add a header <b>algorithm</b> to use it. Let's see it working through an example.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;iterator&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;algorithm&gt;//for sort</span><span class="cp"></span>
+            
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">4</span><span class="o">&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="mi">47</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+            
+                <span class="n">sort</span><span class="p">(</span><span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span><span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">());</span>
+            
+                <span class="k">for</span><span class="p">(</span><span class="k">auto</span> <span class="n">i</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span> <span class="n">i</span> <span class="o">!=</span> <span class="n">a</span><span class="p">.</span><span class="n">end</span><span class="p">();</span> <span class="o">++</span><span class="n">i</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#twelve" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="twelve">
+            <div class="code_out code_outone well">
+            1<br>
+            23<br>
+            47<br>
+            90
+            
+                        </div>
+            </div>
+            </div>
+            <p>
+            You can see that the function <b>sort</b> arranged the array <b>a</b> in ascending order.
+            </p>
+            <h2>Multidimensional std::array</h2>
+            <hr>
+            <p>
+                Similar to C-style arrays, we can also make multidimensional std::array. Let's look at the syntax to make a 3x3 std::array.
+            </p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+                    std::array&lt;std::array&lt;int, 3&gt;, 3&gt; a { {{1,2,3}, {4,5,6}, {7,8,9}} };
+                </p>
+            </div>
+            <p>
+                This is quite simple to understand. The inner array (std::array&lt;int, 3&gt;) is an array of 3 integers and the outer array is an array of 3 such inner arrays (std::array&lt;inner array, 3&gt;).
+            </p>
+            <p>
+                Thus, we didn't do anything new here. Instead of making an array of integers, we made an array of arrays.
+            </p>
+            <p>
+                Let's look at an example to make a multidimensional array and access all its elements.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">a</span>  <span class="p">{{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}}};</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#thirteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="thirteen">
+            <div class="code_out code_outone well">
+            1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+            4&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;6<br>
+            7&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;9<br>
+            </div>
+            </div>
+            </div>
+            <h3>Passing a multidimensional std::array to a function</h3>
+            <hr>
+            <p>
+                A multidimensional std::array is also passed to a function in a similar way a 1D array is passed. Let's look at an example.
+            </p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="cpp"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;array&gt;</span><span class="cp"></span>
+            <span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">a</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">j</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">j</span><span class="o">&lt;</span><span class="mi">3</span><span class="p">;</span> <span class="n">j</span><span class="o">++</span><span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\t</span><span class="s">"</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">array</span><span class="o">&lt;</span><span class="n">array</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">3</span><span class="o">&gt;</span> <span class="n">n</span>  <span class="p">{{{</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">},{</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">},{</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">}}};</span>
+                <span class="n">display</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#fourteen" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="fourteen">
+            <div class="code_out code_outone well">
+            1&nbsp;&nbsp;&nbsp;2&nbsp;&nbsp;&nbsp;3<br>
+            4&nbsp;&nbsp;&nbsp;5&nbsp;&nbsp;&nbsp;6<br>
+            7&nbsp;&nbsp;&nbsp;8&nbsp;&nbsp;&nbsp;9<br>
+            </div>
+            </div>
+            </div>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Everybody should know how to program a computer because it teaches you how to think.<br><span style="float:right;">-Steve Jobs</span></p>
+            </div>
+            <div>
+            <a href="array.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="vector.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

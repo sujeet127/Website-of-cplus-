@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            functions
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Function in C++</h1><hr>
+        <div id="content">
+            <p>Imagine, you are making a game. And you need to display the score frequently. One solution is to write the whole code to display the score, again and again, whenever wanted. But there is another better solution using functions. Define that whole code in a function and call it whenever you want. Simple!</p>
+            <p>A function is nothing but a group of codes written together and given a name. And these can be called anytime in the main function without typing the whole code ( as we know the main function is executed first ).</p>
+            <h2>Why Functions?</h2>
+            <hr>
+            <p>Functions make our code neat and readable and prevent us from writing the same code again and again.</p>
+            <h4>Types of Functions in C++</h4>
+            <p>There are two types of functions in C++.</p><div id="pixfuture160" style="height: 1px; width: 640px; z-index: 100; transition: all 1s ease 0s; min-height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="919" __idm_id__="832721921"></iframe></div><div id="adVideoSpace" style="height: 1px; transition: all 1s ease 0s;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <ul>
+            <li>Library Functions</li>
+            <li>User-defined Functions</li>
+            </ul>
+            <h3>Library Functions</h3>
+            <hr>
+            <p>Library functions are pre-defined functions in C++.</p>
+            <h3>User Defined Functions</h3>
+            <hr>
+            <p>We can also define our own functions in C++.</p>
+            <p>Let's first see how to declare a function of our own.</p>
+            <h2>How to Declare a Function?</h2>
+            <hr>
+            <p>We declare a function as follows</p>
+            <p><strong><span style="color:brown;">return_type</span>  function_name <span style="color:blue;">(</span> parameters <span style="color:blue;">)</span> <span style="color:brown;">;</span></strong></p>
+            <p>As an example, suppose we have to calculate the average of 2 numbers, num1 and num2. The numbers are of type integer and average is of type float. Then we will pass the numbers to a function that will return the average value of those numbers. We will declare that function as follows:</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            float average( int num1, int num2 );
+                </p>
+            </div>
+            <p>Here, the function named 'average' is taking num1 and num2 of integer type as input and then returning the average value of type float after calculating it.</p>
+            <h3>Defining Function</h3>
+            <hr>
+            <p>Syntax for defining a function is</p>
+            <p>
+            <strong>
+            <span style="color:brown;">return_type</span>  function_name <span style="color:blue;">(</span> parameters <span style="color:blue;">)</span><br>
+            <span style="color:blue;">{</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;//code<br>
+            <span style="color:blue;">}</span>
+            </strong>
+            </p>
+            <p>Let's see the average function that we defined above.</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            float average( int num1, int num2 )<br>
+            {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;float avg; /* declaring local variable */<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;avg = ( num1 + num2 )/2.0;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;return avg; /* returning the average value */<br>
+            }
+                </p>
+            </div>
+            <p>As seen before, variables declared inside function are called <strong>local variables</strong>. A local variable can only be used in the function in which it is declared. It has no use outside the function. For example, in our case, <strong>avg</strong> is a local variable.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            While defining functions, it is necessary to specify the parameter type along with the parameters.
+                        </div>
+            </div>
+            </div>
+            <p>Therefore, we wrote 'int' along with num1 and num2.</p>
+            <p><strong style="color:brown;">return avg;</strong> - This means that this function will give us or return us avg which is of type float. You will understand this more clearly from examples.</p>
+            <h3>Calling Function</h3>
+            <hr>
+            <p>To use a function, we need to call it. Once we call a function, it performs its operations and after that, the control again passes to the main program.</p>
+            <p>To call a function, we need to specify the function name along with its parameters.</p>
+            <p><strong>function_name <span style="color:blue;">(</span> parameters <span style="color:blue;">)</span> <span style="color:brown;">;</span></strong></p>
+            <p>So we will call our average function as shown below</p>
+            <div style="background-color:#ebebeb;font-size:15px;border:1px solid #d4d4d4;padding-left:8px;padding-top:3px;margin-bottom:10px;margin-top:12px;line-height:25px;font-weight:700;">
+            <p>
+            average( num1, num2 );
+                </p>
+            </div>
+            <p>Now, let's combine all to take out the average of 2 numbers using a function.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">float</span> <span class="nf">average</span><span class="p">(</span> <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num2</span> <span class="p">);</span> <span class="cm">/* declaring function named average */</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">;</span>
+                  <span class="kt">float</span> <span class="n">c</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter first number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter second number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num2</span><span class="p">;</span>
+                  <span class="n">c</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span> <span class="p">);</span> <span class="cm">/* calling the function average and storing its value in c*/</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Average is "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">float</span> <span class="nf">average</span><span class="p">(</span> <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num2</span> <span class="p">)</span> <span class="cm">/* function */</span>
+            <span class="p">{</span>
+                    <span class="kt">float</span> <span class="n">avg</span><span class="p">;</span> <span class="cm">/* declaring local variable */</span>
+                    <span class="n">avg</span> <span class="o">=</span> <span class="p">(</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+                   <span class="k">return</span> <span class="n">avg</span><span class="p">;</span> <span class="cm">/* returning the average value */</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Enter first number <br>
+            <span style="color:#ce9d9d">5</span> <br>
+            Enter second number <br>
+            <span style="color:#ce9d9d">4</span> <br>
+            Average is 4.5
+                        </div>
+            </div>
+            </div>
+            <p><strong style="color:brown;">float average( int num1, int num2 );</strong> - We have declared that we have defined a function named 'average' in our program so that, 'main' function can search for it while calling that function 'main'.</p>
+            <p>Here, a function named average with 2 integer parameters (num1 and num2) and return type float is declared. This means while calling the function, we need to give two integers as input and in return, it will give us a float as output.</p>
+            <p>By writing <strong>c = average( num1, num2 );</strong>, we are calling the function 'average' with 2 parameters ( num1 and num2 ). Now, 'average' is called and it calculated and returned the average value of num1 and num2. As it is returning a float, and here it is <strong>4.5</strong>, so, this expression will be equivalent to <strong>c = 4.50</strong>, since 4.50 is returned by the function and its value gets stored in a variable 'c'.</p>
+            <p>We can also define a function at the time of declaration as in the example below.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="kt">float</span> <span class="nf">average</span><span class="p">(</span> <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">num2</span> <span class="p">)</span> <span class="cm">/* function */</span>
+            <span class="p">{</span>
+                  <span class="kt">float</span> <span class="n">avg</span><span class="p">;</span> <span class="cm">/* declaring local variable */</span>
+                  <span class="n">avg</span> <span class="o">=</span> <span class="p">(</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span> <span class="p">)</span><span class="o">/</span><span class="mf">2.0</span><span class="p">;</span>
+                  <span class="k">return</span> <span class="n">avg</span><span class="p">;</span> <span class="cm">/* returning the average value */</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">;</span>
+                  <span class="kt">float</span> <span class="n">c</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter first number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num1</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter second number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">num2</span><span class="p">;</span>
+                  <span class="n">c</span> <span class="o">=</span> <span class="n">average</span><span class="p">(</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span> <span class="p">);</span> <span class="cm">/* calling the function average and storing its value in c*/</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Average is "</span> <span class="o">&lt;&lt;</span> <span class="n">c</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Enter first number <br>
+            <span style="color:#ce9d9d">5</span> <br>
+            Enter second number <br>
+            <span style="color:#ce9d9d">4</span> <br>
+            Average is 4.5
+                        </div>
+            </div>
+            </div>
+            <p>We have defined our 'average' function before 'main'. So, in this case, while executing main, the compiler will know that there is a function named 'average'.</p>
+            <p>If a function doesn't return anything, then its return type is written as void as in the example below.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span> <span class="kt">int</span> <span class="n">n</span> <span class="p">)</span> <span class="cm">/* function */</span>
+            <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Number is "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+                  <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                  <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+                  <span class="n">display</span><span class="p">(</span><span class="n">n</span><span class="p">);</span> <span class="cm">/* calling the function display*/</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            Enter a number <br>
+            <span style="color:#ce9d9d">5</span> <br>
+            Number is 5
+                        </div>
+            </div>
+            </div>
+            <p>'void' means that function will not return anything.</p>
+            <p>One thing to note in the above example is that we wrote <strong>using namespace std;</strong> outside our main function. This is because if we write this statement inside the main function, then it will be defined only in the main function, not in the <strong>display</strong> function.<br>
+            So, either we have to write <strong>using namespace std;</strong> in both the functions (main() function and display function) separately or we can write it in the starting outside both the functions as we did in the above example.</p>
+            <div class="well imp_well">
+            <div class="row">
+            <div class="col-md-1 col-sm-1 well_one">
+            <i class="fa fa-code"></i>
+            </div>
+            <div class="col-md-11 col-sm-11 well_two">
+                            If multiple functions use the objects defined in the std namespace, then we can write the 'using namespace std' statement in the beginning, outside all the functions.
+                        </div>
+            </div>
+            </div>
+            <p>It is also possible to define a function without any arguments. Let's see its example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">void</span> <span class="nf">display</span><span class="p">(</span> <span class="p">)</span>
+            <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Function with no argument"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">display</span><span class="p">();</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#four" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="four">
+            <div class="code_out code_outone well">
+            Function with no argument
+                        </div>
+            </div>
+            </div>
+            <p>As we saw, there is no argument given to the function <strong>display()</strong>.</p>
+            <h2>Calling a function inside another</h2>
+            <hr>
+            <p>Yes, we can call a function inside another function. We have already done this. We were calling our functions inside the main function. Now look at an example in which there are two user defined functions. And we will call one inside another.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">div_2</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">){</span>
+              <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="p">){</span>
+                  <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+              <span class="p">}</span>
+              <span class="k">else</span><span class="p">{</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+            
+            <span class="kt">void</span> <span class="nf">div_6</span><span class="p">(</span><span class="kt">int</span> <span class="n">b</span><span class="p">){</span>
+              <span class="k">if</span><span class="p">(</span> <span class="n">div_2</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">b</span><span class="o">%</span><span class="mi">3</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">){</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Yes, the number is divisible by 6."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+              <span class="p">}</span>
+              <span class="k">else</span><span class="p">{</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"No, the number is not divisible by 6."</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+              <span class="n">div_6</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+              <span class="n">div_6</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#five" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="five">
+            <div class="code_out code_outone well">
+            Yes, the number is divisible by 6.<br>
+            No, the number is not divisible by 6.
+                        </div>
+            </div>
+            </div>
+            <p>A number is divisible by 6, if it is divisible by both 2 and 3. We have a function <strong>div_2</strong> which will return 1 if the given number is divisible by 2. Another function that we have defined is <strong>div_6</strong> which calls <strong>div_2</strong> inside itself.<br>
+            <strong style="color:brown;">if( div_2(b)==1 &amp;&amp; b%3 == 0 )</strong> - In our case, <strong>b</strong> and thus <strong>a</strong> are 12 in the first case and 25 is the next case. So, if div_2 returns 1, the number is divisible by 2. And if b%3==0 is true, 'b' is divisible by 3. So if the number is divisible by both 2 and 3, then it is divisible by 6 also.</p>
+            <h2>Recursion</h2>
+            <hr>
+            <p>Recursion is the calling of a function within the same function.</p>
+            <p>Let's consider an example in which we have to calculate the factorial of a number.</p>
+            <p>The factorial of a number <strong>n</strong> is the product of all the natural numbers till n. For example, the factorial of 5 is 1*2*3*4*5 = 120, the factorial of 2 is 1*2 = 2. The factorial of both 0 and 1 is 1.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="kt">int</span> <span class="nf">factorial</span><span class="p">(</span> <span class="kt">int</span> <span class="n">a</span> <span class="p">)</span> <span class="cm">/* function */</span>
+            <span class="p">{</span>
+              <span class="k">if</span><span class="p">(</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="n">a</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+              <span class="p">{</span>
+                <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+              <span class="p">}</span>
+              <span class="k">else</span>
+              <span class="p">{</span>
+                <span class="k">return</span> <span class="n">a</span><span class="o">*</span><span class="n">factorial</span><span class="p">(</span><span class="n">a</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span>
+              <span class="p">}</span>
+            <span class="p">}</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+              <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+            
+              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter number"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+              <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">n</span><span class="p">;</span>
+            
+              <span class="kt">int</span> <span class="n">fact</span>  <span class="o">=</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">);</span>
+            
+              <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Factorial of "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="s">" is "</span> <span class="o">&lt;&lt;</span> <span class="n">fact</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+            
+              <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#six" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="six">
+            <div class="code_out code_outone well">
+            Enter number <br>
+            <span style="color:#ce9d9d">4</span><br>
+            Factorial of 4 is 24
+                        </div>
+            </div>
+            </div>
+            <p>Since we passed <strong>n</strong> to the function <strong>factorial</strong>, therefore the value of <strong>a</strong> is that of 'n'. Thus, if the value of the integer 'a' is 0 or 1, <strong>return 1;</strong> will return 1. Otherwise if the integer 'a' is greater than 1, then <strong>a*factorial(a-1);</strong> multiplies a with the factorial of 'a-1'.<br>
+            
+            For example, if the number is 4, then 'a*factorial(a-1)' implies '4*factorial(3)'. So by writing 'a*factorial(a-1)', we are again calling the function <strong>'factorial'</strong> inside itself but this time the argument is <strong>'a-1'</strong> i.e. factorial(a-1).</p>
+            <p>So if we give <strong>0</strong> to the function <strong>factorial</strong>, it will return us <strong>1</strong>.<br>
+            If we give <strong>1</strong>, it will again return <strong>1</strong>.</p>
+            <p>Now, give <strong>2</strong>.<br>
+            
+            This time the statement in the body of 'else' will be executed and it has to return <strong>'a*factorial(a-1)'</strong> i.e. 2*factorial(1). So, it will again call 'factorial' ( as factorial(1) ) which is 1. Finally, it will return 2*1 i.e. 2.</p>
+            <p>Now, try this with <strong>3</strong>. This time, it will return <strong>3*factorial(2)</strong>. Again it will call factorial(2) which will return <strong>2*factorial(1)</strong>. So the expression will be <strong>return 3*2*factorial(1)</strong> which is <strong>3*2*1</strong> ( since factorial(1) will return 1 ).</p>
+            <p>For <strong>4</strong>, the expression will be <strong>4*factorial(3)</strong>.<br>
+            Calling factorial(3) will return <strong>4*3*factorial(2)</strong> ( since factorial(3) will return 3*factorial(2) ).<br>
+            Again calling factorial(2) will return 4*3*2*factorial(1).<br>
+            Thus, at last, 4*3*2*1 or 24 will be returned.</p>
+            <p>
+            Hopefully, you have understood this. Most of the programmers find this difficult in their beginning days. So, congrats!
+            </p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Winning doesn't come cheaply. You have to pay a big price.<br><span style="float:right;">-Jeev Milkha Singh</span></p>
+            </div>
+            <div>
+            <a href="ControllingLoop.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="inlineFunction.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

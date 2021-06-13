@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Array of Objects
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Array of Objects in C++</h1><hr>
+        <div id="content">
+            <p>After having a good command over classes and objects, you must have understood how useful the concept of classes and objects can be.</p>
+            <p>In the previous chapter, we printed the area of a rectangle by making an object of the Rectangle class. If we have to print the area of two rectangles having different dimensions, we can create two objects of the Rectangle class, each representing a rectangle. Before moving to the concept of array of objects, let's first see an example of printing the area of two rectangles.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Rectangle</span>
+            <span class="p">{</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">int</span> <span class="n">length</span><span class="p">;</span>
+                    <span class="kt">int</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="n">Rectangle</span><span class="p">(</span> <span class="kt">int</span> <span class="n">l</span><span class="p">,</span> <span class="kt">int</span> <span class="n">b</span> <span class="p">)</span>
+                    <span class="p">{</span>
+                        <span class="n">length</span> <span class="o">=</span> <span class="n">l</span><span class="p">;</span>
+                        <span class="n">breadth</span> <span class="o">=</span> <span class="n">b</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">int</span> <span class="n">printArea</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="k">return</span> <span class="n">length</span> <span class="o">*</span> <span class="n">breadth</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Rectangle</span> <span class="n">rt1</span><span class="p">(</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span> <span class="p">);</span>
+                <span class="n">Rectangle</span> <span class="n">rt2</span><span class="p">(</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">);</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area of first rectangle "</span> <span class="o">&lt;&lt;</span> <span class="n">rt1</span><span class="p">.</span><span class="n">printArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Area of second rectangle "</span> <span class="o">&lt;&lt;</span> <span class="n">rt2</span><span class="p">.</span><span class="n">printArea</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            Area of first rectangle 28<br>
+             Area of second rectangle 20
+                        </div>
+            </div>
+            </div>
+            <p>We created two objects <strong>rt1</strong> and <strong>rt2</strong> of class Rectangle representing the two rectangles. <strong>Rectangle rt1( 7, 4 );  - </strong> created the object 'rt1' and assigned its length and breadth as 7 and 4 respectively. Similarly, <strong>Rectangle rt2( 4, 5 );</strong> created the object 'rt2' and assigned its length and breadth as 4 and 5 respectively.</p>
+            <p>Now, suppose we have 50 students in a class and we have to input the name and marks of all the 50 students. Then creating 50 different objects and then inputting the name and marks of all those 50 students is not a good option. In that case, we will create an <strong>array of objects</strong> as we do in case of other data-types.</p><div id="pixfuture160" style="height: 1px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top;  width:100%; height:100%;" allowfullscreen="" __idm_frm__="2330"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Let's see an example of taking the input of name and marks of 5 students by creating an array of the objects of students.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+            
+            <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+            
+            <span class="n">class</span> <span class="n">Student</span>
+            <span class="p">{</span>
+                <span class="n">string</span> <span class="n">name</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">marks</span><span class="p">;</span>
+                <span class="nl">public</span><span class="p">:</span>
+                    <span class="kt">void</span> <span class="n">getName</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">getline</span><span class="p">(</span> <span class="n">cin</span><span class="p">,</span> <span class="n">name</span> <span class="p">);</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="n">getMarks</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">marks</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="kt">void</span> <span class="n">displayInfo</span><span class="p">()</span>
+                    <span class="p">{</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Name : "</span> <span class="o">&lt;&lt;</span> <span class="n">name</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                        <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Marks : "</span> <span class="o">&lt;&lt;</span> <span class="n">marks</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="p">}</span>
+            <span class="p">};</span>
+            
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
+            <span class="p">{</span>
+                <span class="n">Student</span> <span class="n">st</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span>
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Student "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter name"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">getName</span><span class="p">();</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter marks"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">getMarks</span><span class="p">();</span>
+                <span class="p">}</span>
+            
+                <span class="k">for</span><span class="p">(</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span> <span class="p">)</span>
+                <span class="p">{</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Student "</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">st</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">displayInfo</span><span class="p">();</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Student 1<br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Jack</span><br>
+            Enter marks<br>
+            <span style="color:#ce9d9d">54</span><br>
+            Student 2<br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Marx</span><br>
+            Enter marks<br>
+            <span style="color:#ce9d9d">45</span><br>
+            Student 3<br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Julie</span><br>
+            Enter marks<br>
+            <span style="color:#ce9d9d">47</span><br>
+            Student 4<br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Peter</span><br>
+            Enter marks<br>
+            <span style="color:#ce9d9d">23</span><br>
+            Student 5<br>
+            Enter name<br>
+            <span style="color:#ce9d9d">Donald</span><br>
+            Enter marks<br>
+            <span style="color:#ce9d9d">87</span><br>
+            Student 1<br>
+            Name : Jack<br>
+            Marks : 54<br>
+            Student 2<br>
+            Name :  Marx<br>
+            Marks : 45<br>
+            Student 3<br>
+            Name : Julie<br>
+            Marks : 47<br>
+            Student 4<br>
+            Name : Peter<br>
+            Marks : 23<br>
+            Student 5<br>
+            Name :  Donald<br>
+            Marks : 87
+                        </div>
+            </div>
+            </div>
+            <p>Now let’s go through this code.</p>
+            <p><strong>Student st[5]; - </strong>We created an array of 5 objects of the Student class where each object represents a student having a name and marks.<br>
+            The first for loop is for taking the input of name and marks of the students. <strong>getName()</strong> and <strong>getMarks()</strong> are the functions to take the input of name and marks respectively.<br>
+            The second for loop is to print the name and marks of all the 5 students. For that, we called the <strong>displayInfo()</strong> function for each student.</p>
+            <img alt="array of objects in C++" src="/staticroot/images/fig14.png" style="max-width:40%;height:auto;">
+            <p>Hopefully, you are now ready to create arrays of objects.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">An ounce of practice is worth more than tons of preaching.<br><span style="float:right;">-Mahatma Gandhi</span></p>
+            </div>
+            <div>
+            <a href="constructorOverloading.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="moreAboutFunction.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+    </body></html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Controlling Loop
+        </title>
+        <link rel="icon" href="images\c++1.png">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <LINK rel="stylesheet" href="stylesheet.css">
+    </head>
+    <body>
+        <h1 id="topic" itemprop="name">Break and Continue in C++</h1><hr>
+        <div id="content">
+            <p>In the last topic, you learned about loops which are used to repeat a certain process some number of times.</p>
+            <p>What if we can control the way our loop operates.</p>
+            <p>In C++, we can jump out of the loop or jump to the starting condition of the loop whenever we want. We do this with the help of <strong>break</strong> and <strong>continue</strong> statements respectively.</p>
+            <h2>break</h2>
+            <hr>
+            <p><strong>break</strong> is used to break or terminate a loop whenever we want.</p><div id="pixfuture160" style="height: 1px; width: 640px;"><iframe id="pixfutureiframe160" onload="manageIframe.add();" scrolling="no" frameborder="0" marginwidth="0" marginheight="0" style="vertical-align: top; width: 100%; height: 100%; background-color: transparent;" allowfullscreen="" __idm_frm__="856" __idm_id__="239947777"></iframe></div><div id="adVideoSpace" style="height: 1px;"></div><script type="text/javascript">var corner_video = 'none'; var zone_id = 160; var mobile_allowed = true; var site_id = 4390;</script>
+            <p>Just type <strong>break;</strong> after the statement after which you want to break the loop. As simple as that!</p>
+            <p>Remember, we had also used break statements in <strong>switch..case</strong> in the previous topic.</p>
+            <p>Consider an example.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">n</span><span class="o">++</span><span class="p">){</span>
+                     <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"*"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                     <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">2</span><span class="p">){</span>
+                         <span class="k">break</span><span class="p">;</span>
+                     <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#one" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="one">
+            <div class="code_out code_outone well">
+            *<br>
+            *
+                        </div>
+            </div>
+            </div>
+            <p>In the first iteration of the loop in the above example, '*' gets printed and the condition <strong>( n == 2 )</strong> is checked. Since the value of n is 1, therefore the condition becomes false and <strong>n++</strong> increases the value of <strong>'n'</strong> to <strong>2</strong>. Again '*' gets printed and since this time the condition of if satisfies, the <strong>break</strong> statement terminates the loop.</p>
+            <p>Let's have a look at one more example of break.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">x</span><span class="p">;</span>
+                <span class="k">for</span><span class="p">(</span> <span class="p">;</span> <span class="p">;</span> <span class="p">){</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"Enter 0 to stop"</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">x</span><span class="p">;</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#two" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="two">
+            <div class="code_out code_outone well">
+            Enter 0 to stop <br>
+            <span style="color:#ce9d9d">3</span> <br>
+            Enter 0 to stop <br>
+            <span style="color:#ce9d9d">32</span> <br>
+            Enter 0 to stop <br>
+            <span style="color:#ce9d9d">23</span> <br>
+            Enter 0 to stop <br>
+            <span style="color:#ce9d9d">0</span>
+            </div>
+            </div>
+            </div>
+            <p>This is an infinite loop. To terminate this we are using <strong>break</strong>. If a user enters 0 then the condition of <strong>if</strong> will get satisfied and the break statement will terminate the loop.</p>
+            <h2>continue</h2>
+            <hr>
+            <p><strong>continue</strong> statement works similar to break statement. The only difference is that <strong>break</strong> statement <strong>terminates</strong> the loop whereas <strong>continue</strong> statement passes control to the <strong>conditional test</strong> i.e., where the condition is checked.</p>
+            <p>In short, it passes control to the nearest <strong>conditional test</strong> in <strong>do...while</strong> loop, or <strong>the condition of while</strong> in while loop, or <strong>the condition of for</strong> in for statements skipping the rest of the statements in the loop.</p>
+            <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="c"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+            <span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+                <span class="n">using</span> <span class="n">namespace</span> <span class="n">std</span><span class="p">;</span>
+                <span class="kt">int</span> <span class="n">n</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+                <span class="k">while</span><span class="p">(</span><span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">){</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">5</span><span class="p">){</span>
+                    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+                          <span class="k">continue</span><span class="p">;</span>
+                    <span class="p">}</span>
+                    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"n = "</span> <span class="o">&lt;&lt;</span> <span class="n">n</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+                    <span class="n">n</span><span class="o">++</span><span class="p">;</span>
+                <span class="p">}</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="p">}</span>
+            </pre></div>
+            </div>
+            <div class="button_output button_outputone" data-target="#three" data-toggle="collapse">
+            <span>Output</span>
+            </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 collapse" id="three">
+            <div class="code_out code_outone well">
+            n = 1<br>
+            n = 2<br>
+            n = 3<br>
+            n = 4<br>
+            n = 6<br>
+            n = 7<br>
+            n = 8<br>
+            n = 9
+                        </div>
+            </div>
+            </div>
+            <p>In the above example, notice that <strong>n = 5</strong> is not printed because as the value of 'n' becomes 5, the <strong>if</strong> condition becomes true and the statements in the body of the if statements get executed. Thus <strong>n = n+1</strong> increases the value of 'n' to 6 and <strong>continue</strong> statement passes the control to the <strong>test condition</strong> and rest of the statements are not executed ( <strong>cout &lt;&lt; "n = " &lt;&lt; n &lt;&lt; endl; n++;</strong> - these two statements are not executed when n is 5 ). Then again the iteration starts and the numbers get printed from 6 onwards.</p>
+            <div class="well imp_one" style="text-align:center;">
+            <p class="quote">Knowing is not enough, we must apply. Willing is not enough, we must do.<br><span style="float:right;">-Bruce Lee</span></p>
+            </div>
+            <div>
+            <a href="loops.htm"><span class="back" style="float:left;font-size:20px;color:black;">Prev</span></a>
+            <a href="function.htm"><span style="float:right;font-size:20px;color:black;" class="next">Next</span></a>
+            </div>
+            </div>
+
+    </body></html>
